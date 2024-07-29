@@ -1,22 +1,15 @@
-# next-template
+# cbm_2024
 
-A Next.js 13 template for building apps with Radix UI and Tailwind CSS.
+My annual dev portfolio build 🫡
 
-## Usage
+Currently in development 🚧
 
-```bash
-npx create-next-app -e https://github.com/shadcn/next-template
-```
+Using twv4 which is not tested in the way I am using it.
 
-## Features
+Using a custom highlighter I wrote locally with swc/cli for the highlighter. I ommitted that for now. It's a modified version of [sugar-high](https://sugar-high.vercel.app/) that I plan on building upon.
 
-- Next.js 13 App Directory
-- Radix UI Primitives
-- Tailwind CSS
-- Icons from [Lucide](https://lucide.dev)
-- Dark mode with `next-themes`
-- Tailwind CSS class sorting, merging and linting.
+You can use sugar-high as a replacement for the highlighter.
 
-## License
+This is the first commit, use only as a starting point! Do not use in production.
 
-Licensed under the [MIT license](https://github.com/shadcn/ui/blob/main/LICENSE.md).
+Fixes, features, and updates to come 🚀
