@@ -13,3 +13,5 @@ You can use sugar-high as a replacement for the highlighter.
 This is the first commit, use only as a starting point! Do not use in production.
 
 Fixes, features, and updates to come 🚀
+
+Special thanks to [shadcn](https://ui.shadcn.com)
