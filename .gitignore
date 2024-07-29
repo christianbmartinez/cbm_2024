@@ -1,0 +1,22 @@
+# dependencies
+node_modules
+
+# next.js
+.cbm/
+out/
+build
+
+# misc
+.DS_Store
+*/**/.DS_Store 
+
+# local env files
+.env.local
+
+# lock files
+package-lock.json
+
+# large files
+lib/fonts/*
+lib/highlight.ts
+app/globals.css

@@ -1,0 +1,125 @@
+hl-line {
+  line-height: var(--line-height-normal);
+}
+
+hl-line:before {
+  counter-increment: hl-line-num 1;
+  content: counter(hl-line-num);
+  text-align: right;
+  color: var(--hl-cmt);
+  width: 28px;
+  margin-left: -28px;
+  margin-right: 28px;
+  display: inline-block;
+}
+
+.hl-line-num {
+  color: var(--hl-cmt);
+}
+
+hl-cls {
+  color: var(--hl-cls);
+}
+
+hl-idt {
+  color: var(--hl-idt);
+}
+
+hl-sgn {
+  color: var(--hl-sgn);
+}
+
+hl-str {
+  color: var(--hl-str);
+}
+
+hl-key {
+  color: var(--hl-key);
+}
+
+hl-cmt {
+  color: var(--hl-cmt);
+}
+
+hl-jsx {
+  color: var(--hl-jsx);
+}
+
+hl-pty {
+  color: var(--hl-pty);
+}
+
+hl-ent {
+  color: var(--hl-ent);
+}
+
+.mdx ::selection {
+  @apply bg-[#47a3f3] text-foreground;
+}
+
+.mdx .anchor {
+  visibility: hidden;
+  cursor: pointer;
+  width: 80%;
+  max-width: 700px;
+  margin-left: -1em;
+  padding-right: 0.5em;
+  text-decoration-line: none;
+  position: absolute;
+  color: var(--color-foreground);
+}
+
+.mdx .anchor:hover {
+  visibility: visible;
+}
+
+.mdx .anchor:after {
+  color: var(--color-muted-foreground);
+  content: "#";
+}
+
+.mdx :hover > .anchor {
+  visibility: visible;
+}
+
+.mdx pre {
+  white-space: pre;
+  margin: 40px 0 0 0;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-background);
+  box-shadow: var(--drop-shadow-3xl);
+  font-size: var(--font-size-sm);
+  line-height: var(--font-size-sm--line-height);
+  padding: 5px 22px 15px 22px;
+  overflow: scroll;
+}
+
+.mdx code {
+  counter-reset: hl-line-num;
+}
+
+.mdx pre code {
+  line-height: var(--line-height-normal);
+  border-style: none;
+}
+
+.mdx code span {
+  font-weight: 400;
+}
+
+.mdx img {
+  @apply m-0;
+}
+
+.mdx table {
+  white-space: nowrap;
+  max-width: fit-content;
+  display: block;
+  overflow-x: scroll;
+}
+
+.mdx .title {
+  text-wrap: balance;
+  color: var(--color-foreground);
+}
