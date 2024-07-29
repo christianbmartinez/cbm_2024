@@ -17,6 +17,6 @@ build
 package-lock.json
 
 # large files
-lib/fonts/*
+lib/fonts
 lib/highlight.ts
 app/globals.css
