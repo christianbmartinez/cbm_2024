@@ -73,15 +73,18 @@
   --color-input: hsl(240, 5.9%, 90%);
 
   /* Highlight - Needs some color adjustments */
-  --hl-idt: hsl(231, 91%, 70%);
-  --hl-key: hsl(38, 91%, 57%);
-  --hl-str: hsl(197, 63%, 49%);
-  --hl-cls: hsl(231, 91%, 70%);
-  --hl-pty: hsl(59, 100%, 50%);
-  --hl-ent: hsl(139, 70%, 49%);
-  --hl-jsx: hsl(0, 0%, 75%);
-  --hl-sgn: hsl(0, 0%, 75%);
-  --hl-cmt: hsl(210, 12%, 70%);
+  --color-hl-idt: hsl(231, 91%, 70%);
+  --color-hl-key: hsl(38, 91%, 57%);
+  --color-hl-str: hsl(197, 63%, 49%);
+  --color-hl-cls: hsl(231, 91%, 70%);
+  --color-hl-pty: hsl(59, 100%, 50%);
+  --color-hl-ent: hsl(139, 70%, 49%);
+  --color-hl-jsx: hsl(0, 0%, 75%);
+  --color-hl-sgn: hsl(0, 0%, 75%);
+  --color-hl-cmt: hsl(210, 12%, 70%);
+
+  /* Matrix Cell */
+  --cell: #000;
 
   /* Gradients - To use or not to use 🤔 */
   --color-gradient-linear-1: hsl(233, 100%, 38%), hsl(275, 100%, 31%);
@@ -287,13 +290,13 @@
   --color-border: hsl(240, 3.7%, 15.9%);
   --color-input: hsl(240, 3.7%, 15.9%);
   --color-ring: hsl(240, 4.9%, 83.9%);
-  --hl-idt: hsl(214, 79%, 59%);
-  --hl-key: hsl(0, 93%, 57%);
-  --hl-str: hsl(197, 63%, 49%);
-  --hl-cls: hsl(253, 49%, 64%);
-  --hl-pty: hsl(59, 100%, 50%);
-  --hl-ent: hsl(139, 70%, 49%);
-  --hl-jsx: hsl(0, 0%, 75%);
-  --hl-sgn: hsl(0, 0%, 75%);
-  --hl-cmt: hsl(210, 12%, 31%);
+  --color-hl-idt: hsl(214, 79%, 59%);
+  --color-hl-key: hsl(0, 93%, 57%);
+  --color-hl-str: hsl(197, 63%, 49%);
+  --color-hl-cls: hsl(253, 49%, 64%);
+  --color-hl-pty: hsl(59, 100%, 50%);
+  --color-hl-ent: hsl(139, 70%, 49%);
+  --color-hl-jsx: hsl(0, 0%, 75%);
+  --color-hl-sgn: hsl(0, 0%, 75%);
+  --color-hl-cmt: hsl(210, 12%, 31%);
 }

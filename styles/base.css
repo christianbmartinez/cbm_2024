@@ -3,43 +3,30 @@
 ::before,
 ::backdrop,
 ::file-selector-button {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  border: 0;
+  @apply box-border m-0 p-0 border border-solid border-border;
 }
 
 html {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-overflow-scrolling: touch;
-  -webkit-text-size-adjust: 100%;
-  font-size: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @apply antialiased grayscale text-inherit scroll-smooth;
   scrollbar-width: thin;
-  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: hsl(var(--color-gradient-linear-1));
-  color: hsl(var(--color-foreground));
-  font-family: var(--default-font-family);
-  font-feature-settings: var(--default-font-feature-settings, normal);
-  font-variation-settings: var(--default-font-variation-settings, normal);
-  font-synthesis-weight: none;
-  text-rendering: optimizeLegibility;
-  line-height: var(--line-height-normal);
+  @apply bg-background text-foreground font-sans tracking-normal leading-normal px-4 mx-auto;
+  font-feature-settings:var(--default-font-feature-settings, normal);
+  font-variation-settings:var(--default-font-variation-settings, normal);
+  font-synthesis-weight:none;
+  text-rendering:optimizeLegibility;
 }
 
 hr {
-  height: 0;
-  color: inherit;
-  border-top-width: 1px;
+  @apply border-t border-border h-px;
 }
 
 abbr:where([title]) {
-  -webkit-text-decoration: underline dotted;
-  text-decoration: underline dotted;
+  @apply underline decoration-dotted;
 }
 
 h1,
@@ -48,42 +35,32 @@ h3,
 h4,
 h5,
 h6 {
-  font-size: inherit;
-  font-weight: inherit;
+  @apply font-sans;
 }
 
 a {
-  color: inherit;
-  -webkit-text-decoration: inherit;
-  text-decoration: inherit;
+  @apply text-inherit underline cursor-pointer;
 }
 
 b,
 strong {
-  font-weight: bolder;
+  @apply font-extrabold;
 }
 
 code,
 kbd,
 samp,
 pre {
-  font-family: var(--default-mono-font-family);
-  font-size: 1em;
-}
-
-small {
-  font-size: 80%;
+  @apply font-mono text-sm;
 }
 
 sub,
 sup {
-  line-height: 0;
+  @apply tracking-normal;
 }
 
 table {
-  text-indent: 0;
-  border-color: inherit;
-  border-collapse: collapse;
+  @apply indent-0 border-border border-collapse;
 }
 
 button,
@@ -92,49 +69,44 @@ optgroup,
 select,
 textarea,
 ::file-selector-button {
-  font: inherit;
-  font-feature-settings: inherit;
-  font-variation-settings: inherit;
-  letter-spacing: inherit;
-  color: inherit;
-  background: transparent;
+  @apply font-sans text-inherit bg-transparent tracking-normal;
 }
 
 input:where(:not([type="button"], [type="reset"], [type="submit"])),
 select,
 textarea {
-  border: 1px solid;
+  @apply border border-solid border-border rounded-md;
 }
 
 button,
 input:where([type="button"], [type="reset"], [type="submit"]),
 ::file-selector-button {
-  appearance: button;
+  @apply appearance-auto;
 }
 
 :-moz-focusring {
-  outline: auto;
+  @apply outline outline-inherit outline-1 outline-offset-2;
 }
 
 :-moz-ui-invalid {
-  box-shadow: none;
+  @apply shadow-none;
 }
 
 progress {
-  vertical-align: baseline;
+  @apply align-baseline;
 }
 
 ::-webkit-inner-spin-button,
 ::-webkit-outer-spin-button {
-  height: auto;
+  @apply h-auto;
 }
 
 ::-webkit-search-decoration {
-  -webkit-appearance: none;
+  @apply appearance-none;
 }
 
 summary {
-  display: list-item;
+  @apply list-item;
 }
 
 blockquote,
@@ -150,37 +122,35 @@ h6,
 hr,
 p,
 pre {
-  margin: 0;
+  @apply m-0;
 }
 
 fieldset {
-  margin: 0;
+  @apply m-0;
 }
 
 fieldset,
 legend {
-  padding: 0;
+  @apply p-0;
 }
 
 menu,
 ul,
 ol {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  @apply list-none m-0 p-0;
 }
 
 textarea {
-  resize: vertical;
+  @apply resize-y;
 }
 
 ::placeholder {
-  opacity: 1;
+  @apply opacity-100;
   color: color-mix(in srgb, currentColor 50%, transparent);
 }
 
 :disabled {
-  cursor: default;
+  @apply cursor-default;
 }
 
 img,
@@ -191,18 +161,16 @@ audio,
 iframe,
 embed,
 object {
-  display: block;
-  vertical-align: middle;
+  @apply block align-middle;
 }
 
 img,
 video {
-  max-width: 100%;
-  height: auto;
+  @apply max-w-full h-auto;
 }
 
 [hidden] {
-  display: none !important;
+  @apply !hidden;
 }
 /* From shadcn/ui typography (modified) - Still needs to be tested */
 h1 {
@@ -245,14 +213,6 @@ p:where([class="muted"]) {
   @apply text-sm text-muted-foreground;
 }
 
-.mdx > ol {
-  @apply my-6 ml-6 list-decimal [&>li]:mt-2;
-}
-
-.mdx > ul {
-  @apply my-6 ml-6 list-disc [&>li]:mt-2;
-}
-
 code:where([class="inline-code"]) {
   @apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
 }
@@ -265,8 +225,9 @@ div:where([class="large"]) {
   @apply text-lg font-semibold;
 }
 
+table,
 div > table {
-  @apply my-6 w-full overflow-y-auto;
+  @apply my-6 w-full overflow-y-auto indent-0 border-border border-collapse;
 }
 
 tr {
@@ -283,6 +244,11 @@ th {
 
 blockquote {
   @apply mt-6 border-l-2 pl-6 italic;
+}
+
+ol:not(.mdx > ol),
+ul:not(.mdx > ul) {
+  @apply my-0 [&>li]:mt-0;
 }
 
 .container {

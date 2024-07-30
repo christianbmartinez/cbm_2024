@@ -52,8 +52,4 @@ export const footerLinks = [
     title: "Sitemap",
     href: "/sitemap.xml",
   },
-  {
-    title: "Newsletter",
-    href: "#",
-  },
 ]

@@ -1,5 +1,5 @@
-import localFont from "next/font/local"
 import { Footer, Header, ThemeProvider } from "@/components"
+import localFont from "next/font/local"
 
 import "./globals.css"
 
@@ -12,7 +12,7 @@ const fontSans = localFont({
   preload: true,
   display: "swap",
   variable: "--font-sans",
-  weight: "300 900",
+  weight: "300 800",
 })
 
 export default function RootLayout({
@@ -33,7 +33,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <main className="w-full max-w-mdx mx-auto px-6">{children}</main>
+          <main className="w-full max-w-mdx">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

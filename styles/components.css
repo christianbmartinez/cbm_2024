@@ -1,8 +1,9 @@
-hl-line {
+/* Mdx Components */
+.mdx hl-line {
   line-height: var(--line-height-normal);
 }
 
-hl-line:before {
+.mdx hl-line:before {
   counter-increment: hl-line-num 1;
   content: counter(hl-line-num);
   text-align: right;
@@ -13,48 +14,48 @@ hl-line:before {
   display: inline-block;
 }
 
-.hl-line-num {
+.mdx .hl-line-num {
   color: var(--hl-cmt);
 }
 
-hl-cls {
+.mdx hl-cls {
   color: var(--hl-cls);
 }
 
-hl-idt {
+.mdx hl-idt {
   color: var(--hl-idt);
 }
 
-hl-sgn {
+.mdx hl-sgn {
   color: var(--hl-sgn);
 }
 
-hl-str {
+.mdx hl-str {
   color: var(--hl-str);
 }
 
-hl-key {
+.mdx hl-key {
   color: var(--hl-key);
 }
 
-hl-cmt {
+.mdx hl-cmt {
   color: var(--hl-cmt);
 }
 
-hl-jsx {
+.mdx hl-jsx {
   color: var(--hl-jsx);
 }
 
-hl-pty {
+.mdx hl-pty {
   color: var(--hl-pty);
 }
 
-hl-ent {
+.mdx hl-ent {
   color: var(--hl-ent);
 }
 
 .mdx ::selection {
-  @apply bg-[#47a3f3] text-foreground;
+  @apply bg-hl-idt text-foreground;
 }
 
 .mdx .anchor {
@@ -96,30 +97,26 @@ hl-ent {
 }
 
 .mdx code {
+  @apply font-mono font-medium text-sm;
   counter-reset: hl-line-num;
 }
 
 .mdx pre code {
-  line-height: var(--line-height-normal);
-  border-style: none;
-}
-
-.mdx code span {
-  font-weight: 400;
+  @apply border-none leading-normal;
 }
 
 .mdx img {
   @apply m-0;
 }
 
-.mdx table {
-  white-space: nowrap;
-  max-width: fit-content;
-  display: block;
-  overflow-x: scroll;
+.mdx .title {
+  @apply text-balance text-foreground;
 }
 
-.mdx .title {
-  text-wrap: balance;
-  color: var(--color-foreground);
+.mdx > ol {
+  @apply my-6 ml-6 list-decimal [&>li]:mt-2;
+}
+
+.mdx > ul {
+  @apply my-6 ml-6 list-disc [&>li]:mt-2;
 }

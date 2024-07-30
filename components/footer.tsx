@@ -1,13 +1,13 @@
-import Link from "next/link"
 import { footerLinks, socialLinks } from "@/config"
+import Link from "next/link"
 
 import { Button } from "./ui"
 
 export function Footer() {
   return (
     <footer>
-      <div className="fixed bottom-0 w-full mb-4 mt-8 px-6">
-        <div className="flex flex-row items-center justify-between max-w-mdx mx-auto">
+      <div className="relative w-full md:w-mdx bottom-0 w-full mb-4 mt-8">
+        <div className="flex flex-row items-center justify-between">
           <ul>
             {footerLinks.map((link, i) => {
               return (
@@ -17,9 +17,10 @@ export function Footer() {
                     target="_blank"
                     aria-label={`Link to ${link.title} page`}
                     rel="noreferrer"
-                    className="[&>button:first-child]:pl-0"
                   >
-                    <Button role="link" variant="link">
+                    <Button 
+                      className={i === 0 ? "pl-0" : ""}
+                      role="link" variant="link">
                       {link.title}
                     </Button>
                   </Link>

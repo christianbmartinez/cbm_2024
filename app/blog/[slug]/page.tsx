@@ -1,8 +1,8 @@
-import { notFound } from "next/navigation"
 import { Mdx } from "@/components"
 import { BASE_URL } from "@/config"
 import { formatDate, getPosts } from "@/lib"
 import type { Params } from "@/types"
+import { notFound } from "next/navigation"
 
 export function generateStaticParams() {
   const posts = getPosts()
