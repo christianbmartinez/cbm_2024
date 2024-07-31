@@ -8,8 +8,6 @@ module.exports = {
       "react-dom",
       "next-mdx-remote",
       "next-themes",
-      "@radix-ui/react-slot",
-      "@radix-ui/react-icons",
       "sharp",
     ],
     optimizeServerReact: true,

@@ -1,11 +1,11 @@
 import { createElement, type ReactNode } from "react"
 import Image, { type ImageProps } from "next/image"
 import Link from "next/link"
-import { highlight } from "@/lib"
 import { MDXRemote, type MDXRemoteProps } from "next-mdx-remote/rsc"
 
-import { CopyCodeButton } from "./ui/button"
-import { TSLogoIcon } from "./ui/icons"
+import { highlight } from "@/lib/plugins/highlight"
+
+import { CopyCodeButton, TSLogoIcon } from "./ui"
 
 function Table({ data }: { data: { headers: string[]; rows: string[][] } }) {
   const headers = data.headers.map((header, index) => (
@@ -143,7 +143,7 @@ export function Mdx(
   props: MDXRemoteProps & {
     components?: React.ComponentPropsWithRef<React.ElementType>
   }
-) {
+): JSX.Element {
   return (
     <MDXRemote
       {...props}

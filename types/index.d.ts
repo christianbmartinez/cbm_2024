@@ -1,5 +1,5 @@
-import type { IconProps as RadixIconProps } from '@radix-ui/react-icons/dist/types'
-import { NextApiRequest } from 'next/types'
+import { type NextApiRequest } from "next/types"
+import type { IconProps as RadixIconProps } from "@radix-ui/react-icons/dist/types"
 
 export type NavLinks = {
   title: string
@@ -21,7 +21,7 @@ export type SocialLinks = {
 export type IconProps = RadixIconProps | React.SVGProps<SVGSVGElement>
 
 export type Params =
-  | NextApiRequest['query']
+  | NextApiRequest["query"]
   | {
       slug: string
     }
@@ -34,13 +34,15 @@ export type MdxMetadata = {
 }
 
 export type ErrorReport = {
-  error?: Error & {
-    cause?: string 
-    name?: string | undefined
-    message?: string | undefined
-    digest?: string| undefined
-    stack?: string | undefined
-    timestamp: string
-  } | null
+  error?:
+    | (Error & {
+        cause?: string
+        name?: string | undefined
+        message?: string | undefined
+        digest?: string | undefined
+        stack?: string | undefined
+        timestamp: string
+      })
+    | null
   reset: () => void
 }

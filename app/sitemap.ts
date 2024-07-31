@@ -1,16 +1,15 @@
-import { getPosts } from '@/lib'
-
-import { BASE_URL } from '@/config'
+import { baseUrl } from "@/config"
+import { getPosts } from "@/lib"
 
 export default function sitemap() {
   const posts = getPosts().map(({ metadata: { publishedAt }, slug }) => ({
-    url: `${BASE_URL}/blog/${slug}`,
+    url: `${baseUrl}/blog/${slug}`,
     lastModified: publishedAt,
   }))
 
-  const routes = ['', '/blog'].map((route) => ({
-    url: `${BASE_URL}${route}`,
-    lastModified: new Date().toISOString().split('T')[0],
+  const routes = ["", "/blog"].map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date().toISOString().split("T")[0],
   }))
 
   return [...routes, ...posts]

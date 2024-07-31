@@ -1,18 +1,26 @@
-import { Footer, Header, ThemeProvider } from "@/components"
 import localFont from "next/font/local"
+import { Footer, Header, ThemeProvider } from "@/components"
 
 import "./globals.css"
 
 export const fetchCache = "force-cache"
 export const dynamic = "force-static"
 export const revalidate = false
+// export const runtime = "edge"
 
 const fontSans = localFont({
-  src: "../lib/fonts/Mona-Sans.woff2",
+  src: "../lib/fonts/GeistVF.woff",
   preload: true,
   display: "swap",
   variable: "--font-sans",
   weight: "300 800",
+})
+
+const fontMono = localFont({
+  src: "../lib/fonts/GeistMonoVF.woff",
+  preload: false,
+  variable: "--font-mono",
+  weight: "400",
 })
 
 export default function RootLayout({
@@ -24,7 +32,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head />
       <body
-        className={`${fontSans.className} font-sans min-h-screen bg-background text-foreground`}
+        className={`${fontSans.variable} ${fontMono.variable} min-h-screen bg-background text-foreground`}
       >
         <ThemeProvider
           attribute="class"

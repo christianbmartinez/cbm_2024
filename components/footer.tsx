@@ -1,5 +1,5 @@
-import { footerLinks, socialLinks } from "@/config"
 import Link from "next/link"
+import { footerLinks, socialLinks } from "@/config"
 
 import { Button } from "./ui"
 
@@ -18,9 +18,11 @@ export function Footer() {
                     aria-label={`Link to ${link.title} page`}
                     rel="noreferrer"
                   >
-                    <Button 
+                    <Button
                       className={i === 0 ? "pl-0" : ""}
-                      role="link" variant="link">
+                      role="link"
+                      variant="link"
+                    >
                       {link.title}
                     </Button>
                   </Link>

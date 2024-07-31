@@ -1,8 +1,8 @@
+import { notFound } from "next/navigation"
 import { Mdx } from "@/components"
-import { BASE_URL } from "@/config"
+import { baseUrl } from "@/config"
 import { formatDate, getPosts } from "@/lib"
 import type { Params } from "@/types"
-import { notFound } from "next/navigation"
 
 export function generateStaticParams() {
   const posts = getPosts()
@@ -25,8 +25,8 @@ export function generateMetadata({ params }: { params: Params }) {
     image,
   } = post.metadata
   const { slug } = post
-  const ogImage = image ?? `${BASE_URL}/og?title=${encodeURIComponent(title)}`
-  console.log("Generating og image: ", ogImage, BASE_URL + "is the base url.")
+  const ogImage = image ?? `${baseUrl}/og?title=${encodeURIComponent(title)}`
+  console.log("Generating og image: ", ogImage, baseUrl + "is the base url.")
   return {
     title,
     description,
@@ -35,7 +35,7 @@ export function generateMetadata({ params }: { params: Params }) {
       description,
       type: "article",
       publishedTime,
-      url: `${BASE_URL}/blog/${slug}`,
+      url: `${baseUrl}/blog/${slug}`,
       images: [
         {
           url: ogImage,
@@ -75,9 +75,9 @@ export default function Page({ params }: { params: Params }) {
             dateModified: publishedAt,
             description: summary,
             image: image
-              ? `${BASE_URL}${image}`
+              ? `${baseUrl}${image}`
               : `/og?title=${encodeURIComponent(title)}`,
-            url: `${BASE_URL}/blog/${slug}`,
+            url: `${baseUrl}/blog/${slug}`,
             author: {
               "@type": "Person",
               name: "Christian B. Martinez",

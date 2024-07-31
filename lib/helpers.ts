@@ -32,6 +32,13 @@ export function formatDate(d?: string, e = false) {
   return `${f} (${x})`
 }
 
+export function formatReadingTime(x: string) {
+  const w = x.trim().split(/\s+/).length
+  const m = w / 200
+  const d = Math.ceil(m)
+  return `${d} min read`
+}
+
 // Might use this later. For n, we can leave it out of the bundle.
 // export function formatFileSize(bytes: number) {
 //   if (bytes === 0) return '0 Bytes'
@@ -41,12 +48,4 @@ export function formatDate(d?: string, e = false) {
 //   const i = Math.floor(Math.log(bytes) / Math.log(k))
 
 //   return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
-// }
-
-// Might use this later. For n, we can leave it out of the bundle.
-// export function formatReadingTime(content: xing) {
-//   const words = content.trim().split(/\s+/).length
-//   const minutes = words / 200
-//   const displayed = Math.ceil(minutes)
-//   return `${displayed} min read`
 // }

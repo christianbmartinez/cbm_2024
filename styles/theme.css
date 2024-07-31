@@ -22,12 +22,10 @@
     BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
     "Noto Color Emoji";
-  --font-family-sans--font-variation-settings: "wdth" 105, "wght" 300 800,
-    "slnt" 0;
-  --font-family-sans--font-feature-settings: "calt" 1, "rlig" 1, "kern" 1,
-    "rclt" 1, "rvrn" 1;
-  --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
+  --font-family-sans--font-variation-settings: normal;
+  --font-family-sans--font-feature-settings: normal;
+  --font-family-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo,
+    Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --font-family-mono--font-variation-settings: "normal";
   --font-family-mono--font-feature-settings: "normal";
 

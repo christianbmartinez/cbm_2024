@@ -19,9 +19,8 @@ const buttonVariants = cva(
           "border border-input hover:bg-accent hover:text-accent-foreground",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "text-center hover:bg-accent hover:text-accent-foreground",
-        ghost_animated_toggle_icon:
-          "relative appearance-none text-center hover:bg-accent hover:text-accent-foreground transition-all duration-300 ease-in-out",
+        ghost:
+          "text-center hover:bg-accent hover:text-accent-foreground transition-all duration-300 ease-in-out",
         link: "no-underline hover:underline text-primary",
       },
       size: {
@@ -77,7 +76,8 @@ export function CopyCodeButton({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Button
-        variant="ghost_animated_toggle_icon"
+        className="relative size-4 appearance-none p-2 border-none outline-none"
+        variant="ghost"
         onMouseDown={handleMouseDown}
         size="icon"
       >
@@ -86,17 +86,19 @@ export function CopyCodeButton({ children }: { children: React.ReactNode }) {
             position: "absolute",
             top: 0,
             right: 0,
-            strokeDashoffset: `${copied ? 50 : 0}`,
+            strokeDasharray: 50,
+            strokeDashoffset: copied ? -50 : 0,
           }}
         />
         <CheckIcon
           style={{
             position: "absolute",
-            color: "var(--hl-ent)",
+            color: "green",
             top: 0,
             right: 0,
             visibility: `${copied ? "visible" : "hidden"}`,
-            strokeDashoffset: `${copied ? 0 : -50}`,
+            strokeDasharray: 50,
+            strokeDashoffset: copied ? 0 : -50,
           }}
         />
       </Button>

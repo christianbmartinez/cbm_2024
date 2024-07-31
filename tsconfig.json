@@ -5,9 +5,7 @@
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "incremental": true,
     "esModuleInterop": true,
     "module": "ESNext",
     "moduleResolution": "Node",
@@ -15,10 +13,13 @@
     "isolatedModules": true,
     "removeComments": true,
     "jsx": "preserve",
-    "baseUrl": ".",
+    "incremental": true,
+    "forceConsistentCasingInFileNames": true,
+    "verbatimModuleSyntax": true,
     "paths": {
       "@/*": ["./*"]
     },
+
     "plugins": [
       {
         "name": "next"
@@ -28,7 +29,6 @@
   },
   "include": [
     "next-env.d.ts",
-    "types/index.ts",
     "**/*.ts",
     "**/*.tsx",
     ".cbm/types/**/*.ts"

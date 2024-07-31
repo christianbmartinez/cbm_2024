@@ -1,10 +1,12 @@
 import Link from "next/link"
-import { formatDate, getPosts } from "@/lib"
+import { getPosts } from "@/lib"
+
+import { PostCard } from "./post-card"
 
 export function Posts() {
   const posts = getPosts()
   return (
-    <>
+    <div className="flex flex-row w-full justify-center items-center">
       {posts
         .sort((a, b) => {
           if (
@@ -21,14 +23,15 @@ export function Posts() {
             className="mb-4 flex flex-col space-y-1"
             href={`/blog/${slug}`}
           >
-            <div className="flex w-full flex-col space-x-0 md:flex-row md:space-x-2">
-              <p className="w-[100px] tabular-nums text-muted-foreground">
-                {formatDate(publishedAt)}
-              </p>
-              <p className="tracking-tight text-foreground">{title}</p>
-            </div>
+            <PostCard
+              title={title}
+              publishedAt={publishedAt}
+              readingTime={publishedAt}
+              description={`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`}
+              imgSrc={"http://localhost:3000/placeholder.svg"}
+            />
           </Link>
         ))}
-    </>
+    </div>
   )
 }

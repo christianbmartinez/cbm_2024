@@ -3,7 +3,7 @@
 ::before,
 ::backdrop,
 ::file-selector-button {
-  @apply box-border m-0 p-0 border border-solid border-border;
+  @apply box-border m-0 p-0 border-none;
 }
 
 html {
@@ -15,10 +15,10 @@ html {
 
 body {
   @apply bg-background text-foreground font-sans tracking-normal leading-normal px-4 mx-auto;
-  font-feature-settings:var(--default-font-feature-settings, normal);
-  font-variation-settings:var(--default-font-variation-settings, normal);
-  font-synthesis-weight:none;
-  text-rendering:optimizeLegibility;
+  font-feature-settings: var(--default-font-feature-settings, normal);
+  font-variation-settings: var(--default-font-variation-settings, normal);
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
 }
 
 hr {
@@ -85,7 +85,7 @@ input:where([type="button"], [type="reset"], [type="submit"]),
 }
 
 :-moz-focusring {
-  @apply outline outline-inherit outline-1 outline-offset-2;
+  @apply outline-inherit outline-1 outline-offset-2;
 }
 
 :-moz-ui-invalid {

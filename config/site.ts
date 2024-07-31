@@ -2,6 +2,11 @@ import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons"
 
 import { XLogoIcon } from "@/components/ui/icons"
 
+export const baseUrl =
+  process.env.NODE_ENV !== "development"
+    ? process.env.BASE_URL
+    : "http://localhost:3000"
+
 export const navLinks = [
   {
     title: "Home",
