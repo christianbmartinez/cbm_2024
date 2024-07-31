@@ -7,14 +7,14 @@
 }
 
 html {
-  @apply antialiased grayscale text-inherit scroll-smooth;
+  @apply antialiased grayscale text-inherit scroll-smooth w-full;
   scrollbar-width: thin;
   -webkit-tap-highlight-color: transparent;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
-  @apply bg-background text-foreground font-sans tracking-normal leading-normal px-4 mx-auto;
+  @apply bg-background text-foreground font-sans tracking-normal leading-normal flex flex-col max-w-mdx px-4 mx-auto;
   font-feature-settings: var(--default-font-feature-settings, normal);
   font-variation-settings: var(--default-font-variation-settings, normal);
   font-synthesis-weight: none;
@@ -198,7 +198,7 @@ h6 {
 }
 
 a {
-  @apply font-medium text-primary underline underline-offset-4;
+  @apply font-medium text-primary no-underline;
 }
 
 p {

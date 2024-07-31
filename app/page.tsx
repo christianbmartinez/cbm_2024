@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <section>
-      <div className="mt-20 flex flex-col justify-center items-start align-middle">
+      <div className="mt-20 flex flex-col justify-start items-start">
         <h1 className="text-4xl font-semibold tracking-tighter">{`Welcome!`}</h1>
         <p className="mb-4">
           {`Hi, my name is Christian! I am a full stack engineer from Utah and a
