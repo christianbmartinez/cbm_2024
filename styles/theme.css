@@ -81,19 +81,12 @@
   --color-hl-sgn: hsl(0, 0%, 75%);
   --color-hl-cmt: hsl(210, 12%, 70%);
 
-  /* Matrix Cell */
-  --cell: #000;
-
-  /* Gradients - To use or not to use 🤔 */
-  --color-gradient-linear-1: hsl(233, 100%, 38%), hsl(275, 100%, 31%);
-  --color-gradient-linear-2: hsl(233, 100%, 38%), hsl(262, 100%, 42%);
-  --color-gradient-linear-3: hsl(275, 100%, 31%), hsl(262, 100%, 42%);
-  --color-gradient-radial-1: hsl(233, 100%, 38%), hsl(275, 100%, 31%);
-  --color-gradient-radial-2: hsl(233, 100%, 38%), hsl(262, 100%, 42%);
-  --color-gradient-radial-3: hsl(275, 100%, 31%), hsl(262, 100%, 42%);
+  /* Matrix Cell - Needs implementation */
+  --color-cell: #000;
 
   /* Animations */
   --animate-*: initial;
+  --animate-gradient: gradient 4s linear alternate infinite;
   --animate-slide: var(--default-transition-duration)
     cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Needs implementation */
 
@@ -199,7 +192,7 @@
   --width-4xl: 56rem;
   --width-5xl: 64rem;
   --width-6xl: 72rem;
-  --width-mdx: 80ch;
+  --width-mdx: 70ch;
 
   /* Type scale */
   --font-size-xs: 0.75rem;
@@ -265,6 +258,34 @@
   --transition-timing-function-in: cubic-bezier(0.4, 0, 1, 1);
   --transition-timing-function-out: cubic-bezier(0, 0, 0.2, 1);
   --transition-timing-function-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  @keyframes gradient {
+    0% {
+      transform: rotate(0deg);
+      color: #e2cbff;
+      opacity: 0.25;
+    }
+    25% {
+      transform: rotate(45deg);
+      color: #393bb2;
+      opacity: 0.5;
+    }
+    50% {
+      transform: rotate(90deg);
+      color: #e2cbff;
+      opacity: 0.75;
+    }
+    75% {
+      transform: rotate(135deg);
+      color: #393bb2;
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(180deg);
+      color: #e2cbff;
+      opacity: 0.5;
+    }
+  }
 }
 
 /* Dark mode */

@@ -85,17 +85,17 @@ export default function Page({ params }: { params: Params }) {
           }),
         }}
       />
-      <article className="mdx">
+      <article className="my-28 mdx flex flex-col justify-start items-left">
         <header className="flex flex-col">
-          <h1 className="mt-6 text-4xl font-bold tracking-tight text-primary sm:text-5xl">
-            {title}
-          </h1>
+          <h1 className="text-primary break-words">{title}</h1>
           <time
             dateTime={publishedAt}
             className="order-first flex items-center text-base text-muted-foreground"
           >
-            <span className="h-4 w-0.5 rounded-full bg-secondary" />
-            <span className="ml-3">{formatDate(publishedAt)}</span>
+            <span className="h-4 w-0.5 rounded-full bg-zinc-700" />
+            <span className="my-2 ml-2 text-sm font-medium text-muted-foreground">
+              {formatDate(publishedAt)}
+            </span>
           </time>
         </header>
         <Mdx source={content} />

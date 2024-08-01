@@ -1,61 +1,61 @@
 /* Mdx Components */
-.mdx hl-line {
+hl-line {
   line-height: var(--line-height-normal);
 }
 
-.mdx hl-line:before {
+hl-line:before {
   counter-increment: hl-line-num 1;
   content: counter(hl-line-num);
   text-align: right;
-  color: var(--hl-cmt);
+  color: var(--color-hl-cmt);
   width: 28px;
   margin-left: -28px;
   margin-right: 28px;
   display: inline-block;
 }
 
-.mdx .hl-line-num {
-  color: var(--hl-cmt);
+.hl-line-num {
+  color: var(--color-hl-cmt);
 }
 
-.mdx hl-cls {
-  color: var(--hl-cls);
+hl-cls {
+  color: var(--color-hl-cls);
 }
 
-.mdx hl-idt {
-  color: var(--hl-idt);
+hl-idt {
+  color: var(--color-hl-idt);
 }
 
-.mdx hl-sgn {
-  color: var(--hl-sgn);
+hl-sgn {
+  color: var(--color-hl-sgn);
 }
 
-.mdx hl-str {
-  color: var(--hl-str);
+hl-str {
+  color: var(--color-hl-str);
 }
 
-.mdx hl-key {
-  color: var(--hl-key);
+hl-key {
+  color: var(--color-hl-key);
 }
 
-.mdx hl-cmt {
-  color: var(--hl-cmt);
+hl-cmt {
+  color: var(--color-hl-cmt);
 }
 
-.mdx hl-jsx {
-  color: var(--hl-jsx);
+hl-jsx {
+  color: var(--color-hl-jsx);
 }
 
-.mdx hl-pty {
-  color: var(--hl-pty);
+hl-pty {
+  color: var(--color-hl-pty);
 }
 
-.mdx hl-ent {
-  color: var(--hl-ent);
+hl-ent {
+  color: var(--color-hl-ent);
 }
 
 .mdx ::selection {
-  @apply bg-hl-idt text-foreground;
+  @apply bg-hl-idt text-zinc-50;
 }
 
 .mdx .anchor {

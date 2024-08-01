@@ -32,7 +32,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head />
       <body
-        className={`${fontSans.variable} ${fontMono.variable} min-h-screen bg-background text-foreground`}
+        className={`flex flex-col ${fontSans.variable} ${fontMono.variable} font-sans tracking-normal leading-normal w-full md:max-w-mdx px-4 md:px-0 mx-auto bg-background text-foreground`}
       >
         <ThemeProvider
           attribute="class"
@@ -41,7 +41,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <main className="w-full max-w-mdx">{children}</main>
+          <main className="min-h-screen relative flex justify-start items-center">
+            {children}
+          </main>
           <Footer />
         </ThemeProvider>
       </body>

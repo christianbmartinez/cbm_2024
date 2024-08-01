@@ -7,22 +7,24 @@
 }
 
 html {
-  @apply antialiased grayscale text-inherit scroll-smooth w-full;
+  @apply antialiased text-inherit scroll-smooth;
   scrollbar-width: thin;
   -webkit-tap-highlight-color: transparent;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
-  @apply bg-background text-foreground font-sans tracking-normal leading-normal flex flex-col max-w-mdx px-4 mx-auto;
   font-feature-settings: var(--default-font-feature-settings, normal);
   font-variation-settings: var(--default-font-variation-settings, normal);
   font-synthesis-weight: none;
   text-rendering: optimizeLegibility;
+  font-smooth: always;
+  font-kerning: auto;
+  font-optical-sizing: auto;
 }
 
 hr {
-  @apply border-t border-border h-px;
+  @apply border-t border-border border-solid h-px;
 }
 
 abbr:where([title]) {

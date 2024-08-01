@@ -12,7 +12,8 @@ export default function Icon() {
       <div
         style={{
           fontSize: 20,
-          fontFamily: "inherit",
+          fontFamily: "font-sans",
+          fontStyle: "bold",
           background: "black",
           width: "100%",
           height: "100%",
@@ -20,11 +21,11 @@ export default function Icon() {
           alignItems: "center",
           justifyContent: "center",
           color: "white",
-          borderRadius: "50%",
-          padding: "5px",
+          borderRadius: "6px",
+          padding: "4px",
         }}
       >
-        C
+        &#8450;
       </div>
     ),
     {

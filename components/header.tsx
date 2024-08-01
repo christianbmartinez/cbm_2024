@@ -5,7 +5,7 @@ import { navLinks } from "@/config"
 export function Header() {
   return (
     <header>
-      <nav className="sticky top-0 left-0 flex flex-row items-center justify-between z-40 h-8 py-4 backdrop-blur-sm mt-4 mb-8 w-full">
+      <nav className="sticky top-0 left-0 flex flex-row items-center justify-between z-40 pt-8 h-8 -my-8 w-full">
         <ul>
           {navLinks.map((link, i) => (
             <li key={`nav_item-${i}`} className="inline-flex">

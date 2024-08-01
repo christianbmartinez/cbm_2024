@@ -5,7 +5,7 @@ import { MDXRemote, type MDXRemoteProps } from "next-mdx-remote/rsc"
 
 import { highlight } from "@/lib/plugins/highlight"
 
-import { CopyCodeButton, TSLogoIcon } from "./ui"
+import { CopyCodeButton, JSLogoIcon, ReactLogoIcon, TSLogoIcon } from "./ui"
 
 function Table({ data }: { data: { headers: string[]; rows: string[][] } }) {
   const headers = data.headers.map((header, index) => (
@@ -80,19 +80,37 @@ function Pre({
     props: { className, children },
   },
 }: PreProps) {
+  const ext = className.replace(/language-/, ".")
+
+  let icon = <TSLogoIcon />
+
+  switch (ext) {
+    case ".ts":
+      icon = <TSLogoIcon fill="#777777" />
+      break
+    case ".tsx":
+    case ".jsx":
+      icon = <ReactLogoIcon fill="#61DAFB" />
+      break
+    case ".js":
+      icon = <JSLogoIcon fill="#777777" />
+      break
+    default:
+      icon = <TSLogoIcon fill="#777777" />
+  }
+  // Animation is broken, positioning is off. Fix this component stat. It's looking great with the
+  // new icons. Need to fix blog layout add badge, etc.
   return (
     <pre>
-      <div className="relative whitespace-pre flex flex-row h-12 w-full justify-between m-auto pt-2">
-        <div className="w-1/4 justify-start items-start text-left">
-          <TSLogoIcon /> {/* Needs a color fix */}
+      <div className="flex flex-row h-8 justify-between items-center w-full">
+        <div className="w-1/3 -ml-[11px] mr-[11px] justify-start">{icon}</div>
+        <div className="w-2/3 justify-center">
+          {`${ext.endsWith("x") ? "Component" : "example"}${ext}`}
         </div>
-        <div className="w-1/4 justify-center items-center text-center">
-          {className.replace(/language-/, "example.")}
-        </div>
-        <div className="w-1/4 justify-end items-end text-right">
+        <div className="w-3/3 justify-end items-end">
           <CopyCodeButton>{children as ReactNode}</CopyCodeButton>
-          {/* Needs a positioning fix */}
         </div>
+        <hr />
       </div>
       <code dangerouslySetInnerHTML={{ __html: highlight(children) }} />
     </pre>
