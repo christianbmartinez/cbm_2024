@@ -261,35 +261,3 @@ ul {
 /* .rainbow-border {
   @apply mb-12 w-full h-60 rounded-md p-4 border border-solid border-transparent bg-[image:var(--color-hl-border)] animate-rotate;
 } */
-
-.rainbow {
-  width: 400px;
-  height: 300px;
-  border-radius: 50px;
-  padding: 2rem;
-  margin: auto;
-
-  display: grid;
-  place-content: center;
-  text-align: center;
-
-  font-size: 1.5em;
-
-  --border-size: 1px;
-  border: var(--border-size) solid transparent;
-
-  /* Paint an image in the border */
-  border-image: conic-gradient(
-      from var(--angle),
-      #d53e33 0deg 90deg,
-      #fbb300 90deg 180deg,
-      #377af5 180deg 270deg,
-      #399953 270deg 360deg
-    )
-    1 stretch;
-  background: transparent;
-}
-
-.rainbow {
-  animation: rotate 4s linear infinite;
-}
