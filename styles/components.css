@@ -1,9 +1,8 @@
 /* Mdx Components */
-hl-line {
-  line-height: var(--line-height-normal);
+.mdx {
+  @apply w-screen min-h-screen md:max-w-mdx mx-auto;
 }
-
-hl-line:before {
+.mdx hl-line:before {
   counter-increment: hl-line-num 1;
   content: counter(hl-line-num);
   text-align: right;
@@ -14,59 +13,52 @@ hl-line:before {
   display: inline-block;
 }
 
-.hl-line-num {
+.mdx hl-line-num {
   color: var(--color-hl-cmt);
 }
 
-hl-cls {
+.mdx hl-cls {
   color: var(--color-hl-cls);
 }
 
-hl-idt {
+.mdx hl-idt {
   color: var(--color-hl-idt);
 }
 
-hl-sgn {
+.mdx hl-sgn {
   color: var(--color-hl-sgn);
 }
 
-hl-str {
+.mdx hl-str {
   color: var(--color-hl-str);
 }
 
-hl-key {
+.mdx hl-key {
   color: var(--color-hl-key);
 }
 
-hl-cmt {
+.mdx hl-cmt {
   color: var(--color-hl-cmt);
 }
 
-hl-jsx {
+.mdx hl-jsx {
   color: var(--color-hl-jsx);
 }
 
-hl-pty {
+.mdx hl-pty {
   color: var(--color-hl-pty);
 }
 
-hl-ent {
+.mdx hl-ent {
   color: var(--color-hl-ent);
-}
-
-.mdx ::selection {
-  @apply bg-hl-idt text-zinc-50;
 }
 
 .mdx .anchor {
   visibility: hidden;
   cursor: pointer;
-  width: 80%;
-  max-width: 700px;
-  margin-left: -1em;
+  max-width: calc(var(--width-mdx) - 8rem);
   padding-right: 0.5em;
   text-decoration-line: none;
-  position: absolute;
   color: var(--color-foreground);
 }
 
@@ -84,20 +76,11 @@ hl-ent {
 }
 
 .mdx pre {
-  white-space: pre;
-  margin: 40px 0 0 0;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
-  background: var(--color-background);
-  box-shadow: var(--drop-shadow-3xl);
-  font-size: var(--font-size-sm);
-  line-height: var(--font-size-sm--line-height);
-  padding: 5px 22px 15px 22px;
-  overflow: scroll;
+  @apply whitespace-pre mt-10 rounded-md border border-solid border-border drop-shadow-3xl pt-1.5 px-6 pb-4 overflow-scroll;
 }
 
 .mdx code {
-  @apply font-mono font-medium text-sm;
+  @apply font-mono font-medium text-sm leading-normal;
   counter-reset: hl-line-num;
 }
 
@@ -106,7 +89,7 @@ hl-ent {
 }
 
 .mdx img {
-  @apply m-0;
+  @apply my-4 rounded-md;
 }
 
 .mdx .title {

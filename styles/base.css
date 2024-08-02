@@ -6,6 +6,10 @@
   @apply box-border m-0 p-0 border-none;
 }
 
+::selection {
+  @apply bg-hl-idt text-zinc-50;
+}
+
 html {
   @apply antialiased text-inherit scroll-smooth;
   scrollbar-width: thin;
@@ -14,13 +18,11 @@ html {
 }
 
 body {
+  @apply font-sans text-base leading-7 bg-background text-foreground;
   font-feature-settings: var(--default-font-feature-settings, normal);
   font-variation-settings: var(--default-font-variation-settings, normal);
   font-synthesis-weight: none;
   text-rendering: optimizeLegibility;
-  font-smooth: always;
-  font-kerning: auto;
-  font-optical-sizing: auto;
 }
 
 hr {
@@ -248,11 +250,46 @@ blockquote {
   @apply mt-6 border-l-2 pl-6 italic;
 }
 
-ol:not(.mdx > ol),
-ul:not(.mdx > ul) {
-  @apply my-0 [&>li]:mt-0;
+ol {
+  @apply list-disc;
 }
 
-.container {
-  @apply w-full mx-auto px-4 max-w-mdx;
+ul {
+  @apply list-decimal;
+}
+
+/* .rainbow-border {
+  @apply mb-12 w-full h-60 rounded-md p-4 border border-solid border-transparent bg-[image:var(--color-hl-border)] animate-rotate;
+} */
+
+.rainbow {
+  width: 400px;
+  height: 300px;
+  border-radius: 50px;
+  padding: 2rem;
+  margin: auto;
+
+  display: grid;
+  place-content: center;
+  text-align: center;
+
+  font-size: 1.5em;
+
+  --border-size: 1px;
+  border: var(--border-size) solid transparent;
+
+  /* Paint an image in the border */
+  border-image: conic-gradient(
+      from var(--angle),
+      #d53e33 0deg 90deg,
+      #fbb300 90deg 180deg,
+      #377af5 180deg 270deg,
+      #399953 270deg 360deg
+    )
+    1 stretch;
+  background: transparent;
+}
+
+.rainbow {
+  animation: rotate 4s linear infinite;
 }

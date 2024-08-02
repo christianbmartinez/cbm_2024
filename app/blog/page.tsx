@@ -1,16 +1,18 @@
-import { Posts } from '@/components'
+import { Posts } from "@/components"
 
 export const metadata = {
-  title: 'Blog',
-  description: 'Tutorials, hot takes, and news on full stack web development.',
+  title: "Blog",
+  description: "Tutorials, hot takes, and news on full stack web development.",
 }
+// We need a filter component here, where users can
+// filter the posts by tags, categories, etc.
 
+// We also need a different header component
+// so the user can filter the posts by date, popularity, etc.
 export default function Page() {
   return (
     <section>
-      <h1 className='font-semibold text-2xl mb-8 tracking-tighter'>
-        Recent Posts
-      </h1>
+      <h2>Recent Posts</h2>
       <Posts />
     </section>
   )

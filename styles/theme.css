@@ -29,6 +29,9 @@
   --font-family-mono--font-variation-settings: "normal";
   --font-family-mono--font-feature-settings: "normal";
 
+  /* Angle */
+  --angle: 0;
+
   /* Breakpoints */
   --breakpoint-sm: 40rem;
   --breakpoint-md: 48rem;
@@ -80,6 +83,15 @@
   --color-hl-jsx: hsl(0, 0%, 75%);
   --color-hl-sgn: hsl(0, 0%, 75%);
   --color-hl-cmt: hsl(210, 12%, 70%);
+  --color-hl-border: conic-gradient(
+      from var(--angle),
+      #d53e33 0deg 90deg,
+      #fbb300 90deg 180deg,
+      #377af5 180deg 270deg,
+      #399953 270deg 360deg
+    )
+    1 stretch;
+  background: transparent;
 
   /* Matrix Cell - Needs implementation */
   --color-cell: #000;
@@ -87,6 +99,7 @@
   /* Animations */
   --animate-*: initial;
   --animate-gradient: gradient 4s linear alternate infinite;
+  --animate-rotate: rotate 4s linear infinite;
   --animate-slide: var(--default-transition-duration)
     cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Needs implementation */
 
@@ -262,28 +275,39 @@
   @keyframes gradient {
     0% {
       transform: rotate(0deg);
-      color: #e2cbff;
-      opacity: 0.25;
+      color: var(--color-hl-ent);
+      opacity: 0.2;
     }
-    25% {
-      transform: rotate(45deg);
-      color: #393bb2;
-      opacity: 0.5;
-    }
-    50% {
+    20% {
       transform: rotate(90deg);
-      color: #e2cbff;
-      opacity: 0.75;
+      color: var(--color-hl-key);
+      opacity: 0.4;
     }
-    75% {
-      transform: rotate(135deg);
-      color: #393bb2;
-      opacity: 1;
+    40% {
+      transform: rotate(180deg);
+      color: var(--color-hl-pty);
+      opacity: 0.6;
+    }
+    60% {
+      transform: rotate(225deg);
+      color: var(--color-hl-jsx);
+      opacity: 0.8;
+    }
+    80% {
+      transform: rotate(270deg);
+      color: var(--color-hl-sgn);
+      opacity: 0.6;
     }
     100% {
-      transform: rotate(180deg);
-      color: #e2cbff;
-      opacity: 0.5;
+      transform: rotate(360deg);
+      color: var(--color-hl-idt);
+      opacity: 0.4;
+    }
+  }
+
+  @keyframes rotate {
+    to {
+      --angle: 360deg;
     }
   }
 }

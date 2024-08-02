@@ -29,7 +29,7 @@ export default function Error({ error, reset }: ErrorReport): JSX.Element {
   }, [error])
 
   return (
-    <div className="flex h-auto w-96 mx-auto justify-center items-center p-4 border-solid border-border bg-background rounded-md text-foreground">
+    <div className="flex min-w-[300px] h-auto mx-auto justify-center items-center p-4 border-solid border-border bg-background rounded-md text-foreground">
       <div className="flex flex-col items-center">
         <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
           {error?.name ?? "Unknown Error"}
@@ -41,21 +41,21 @@ export default function Error({ error, reset }: ErrorReport): JSX.Element {
         <div className="mt-4 flex flex-row justify-between items-center space-x-4 w-full">
           <Button
             variant="default"
-            className="inline-flex w-6/12"
+            className="w-6/12"
             onClick={() => reset()}
             size="icon"
           >
-            <ReloadIcon />
-            &nbsp;Reload Page
+            <ReloadIcon className="size-3" />
+            &nbsp;Retry
           </Button>
           <Button
             variant="secondary"
-            className="inline-flex w-6/12"
+            className="w-6/12"
             onClick={() => setErrorReport(null)}
             size="icon"
           >
             <EnvelopeClosedIcon />
-            &nbsp;Send Report
+            &nbsp;Report
           </Button>
         </div>
       </div>

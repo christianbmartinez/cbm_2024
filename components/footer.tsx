@@ -6,7 +6,7 @@ import { Button } from "./ui"
 export function Footer() {
   return (
     <footer>
-      <div className="flex flex-row justify-between items-center pb-8 h-8 -my-8 w-full">
+      <div className="relative flex flex-row justify-between items-center pb-8 h-8 -my-8 w-full">
         <ul>
           {footerLinks.map((link, i) => {
             return (

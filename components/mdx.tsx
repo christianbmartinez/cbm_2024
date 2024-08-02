@@ -66,23 +66,21 @@ function Img({ src, alt, className, ...props }: ImageProps) {
   )
 }
 
-type PreProps = {
+function Pre({
+  children: {
+    props: { className, children },
+  },
+}: {
   children: {
     props: {
       className: string
       children: string
     }
   }
-}
-
-function Pre({
-  children: {
-    props: { className, children },
-  },
-}: PreProps) {
+}) {
   const ext = className.replace(/language-/, ".")
-
-  let icon = <TSLogoIcon />
+  const codeHTML = children as string
+  let icon = <TSLogoIcon fill="#777777" />
 
   switch (ext) {
     case ".ts":
@@ -116,7 +114,6 @@ function Pre({
     </pre>
   )
 }
-
 function H(level: number) {
   const Heading = ({ children }: { children: string }) => {
     const slug = children
@@ -151,6 +148,8 @@ const MdxComponents = {
   h2: H(2),
   h3: H(3),
   h4: H(4),
+  h5: H(5),
+  h6: H(6),
   img: Img,
   a: A,
   pre: Pre,

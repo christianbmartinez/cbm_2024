@@ -1,8 +1,10 @@
 import { notFound } from "next/navigation"
-import { Mdx } from "@/components"
+import { Mdx, ReadingTimeIcon } from "@/components"
 import { baseUrl } from "@/config"
 import { formatDate, getPosts } from "@/lib"
 import type { Params } from "@/types"
+
+import { Badge } from "@/components/ui"
 
 export function generateStaticParams() {
   const posts = getPosts()
@@ -26,7 +28,6 @@ export function generateMetadata({ params }: { params: Params }) {
   } = post.metadata
   const { slug } = post
   const ogImage = image ?? `${baseUrl}/og?title=${encodeURIComponent(title)}`
-  console.log("Generating og image: ", ogImage, baseUrl + "is the base url.")
   return {
     title,
     description,
@@ -62,7 +63,7 @@ export default function Page({ params }: { params: Params }) {
   const { content, slug } = post
 
   return (
-    <section>
+    <article className="my-28 overflow-auto">
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -85,21 +86,26 @@ export default function Page({ params }: { params: Params }) {
           }),
         }}
       />
-      <article className="my-28 mdx flex flex-col justify-start items-left">
-        <header className="flex flex-col">
-          <h1 className="text-primary break-words">{title}</h1>
-          <time
-            dateTime={publishedAt}
-            className="order-first flex items-center text-base text-muted-foreground"
-          >
-            <span className="h-4 w-0.5 rounded-full bg-zinc-700" />
-            <span className="my-2 ml-2 text-sm font-medium text-muted-foreground">
-              {formatDate(publishedAt)}
-            </span>
-          </time>
-        </header>
-        <Mdx source={content} />
-      </article>
-    </section>
+      <header>
+        <Badge variant="outline" className="px-3 py-2 my-2 rounded-xl">
+          <ReadingTimeIcon className="size-3 rainbow-border" />
+          &nbsp;
+          {formatReadingTime(publishedAt)}
+        </Badge>
+        <h1 className="text-primary">{title}</h1>
+        <div className="mt-2 flex flex-row justify-between text-muted-foreground items-center w-full">
+          <div className="flex flex-row justify-start items-center">
+            <span className="text-sm font-medium">Christian B. Martinez</span>
+            <span className="h-4 w-0.5 mx-2 rounded bg-zinc-700" />
+            <time dateTime={publishedAt} className="text-muted-foreground">
+              <span className="text-sm font-medium">
+                {formatDate(publishedAt)}
+              </span>
+            </time>
+          </div>
+        </div>
+      </header>
+      <Mdx className="mdx" source={content} />
+    </article>
   )
 }
