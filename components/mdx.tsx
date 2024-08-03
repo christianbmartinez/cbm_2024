@@ -1,4 +1,4 @@
-import { createElement, type ReactNode } from "react"
+import { type ReactNode } from "react"
 import Image, { type ImageProps } from "next/image"
 import Link from "next/link"
 import { MDXRemote, type MDXRemoteProps } from "next-mdx-remote/rsc"
@@ -114,42 +114,42 @@ function Pre({
     </pre>
   )
 }
-function H(level: number) {
-  const Heading = ({ children }: { children: string }) => {
-    const slug = children
-      .toLowerCase()
-      .trim()
-      .replace(/\s+/g, "-")
-      .replace(/&/g, "-and-")
-      .replace(/[^\w\-]+/g, "")
-      .replace(/\-\-+/g, "-")
+// function H(level: number) {
+//   const Heading = ({ children }: { children: string }) => {
+//     const slug = children
+//       .toLowerCase()
+//       .trim()
+//       .replace(/\s+/g, "-")
+//       .replace(/&/g, "-and-")
+//       .replace(/[^\w\-]+/g, "")
+//       .replace(/\-\-+/g, "-")
 
-    return createElement(
-      `h${level}`,
-      { id: slug },
-      [
-        createElement("a", {
-          href: `#${slug}`,
-          key: `link-${slug}`,
-          className: "anchor",
-        }),
-      ],
-      children
-    )
-  }
+//     return createElement(
+//       `h${level}`,
+//       { id: slug },
+//       [
+//         createElement("a", {
+//           href: `#${slug}`,
+//           key: `link-${slug}`,
+//           className: "anchor",
+//         }),
+//       ],
+//       children
+//     )
+//   }
 
-  Heading.displayName = `h${level}`
+//   Heading.displayName = `h${level}`
 
-  return Heading
-}
+//   return Heading
+// }
 
 const MdxComponents = {
-  h1: H(1),
-  h2: H(2),
-  h3: H(3),
-  h4: H(4),
-  h5: H(5),
-  h6: H(6),
+  // h1: H(1),
+  // h2: H(2),
+  // h3: H(3),
+  // h4: H(4),
+  // h5: H(5),
+  // h6: H(6),
   img: Img,
   a: A,
   pre: Pre,

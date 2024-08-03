@@ -257,7 +257,3 @@ ol {
 ul {
   @apply list-decimal;
 }
-
-/* .rainbow-border {
-  @apply mb-12 w-full h-60 rounded-md p-4 border border-solid border-transparent bg-[image:var(--color-hl-border)] animate-rotate;
-} */

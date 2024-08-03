@@ -1,3 +1,3 @@
 export { getPosts } from "./get-posts"
-export { formatDate } from "./helpers"
+export { formatDate, formatReadingTime } from "./helpers"
 export { cn } from "./utils"

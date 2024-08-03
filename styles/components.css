@@ -1,7 +1,4 @@
 /* Mdx Components */
-.mdx {
-  @apply w-screen min-h-screen md:max-w-mdx mx-auto;
-}
 .mdx hl-line:before {
   counter-increment: hl-line-num 1;
   content: counter(hl-line-num);

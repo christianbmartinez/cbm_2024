@@ -1,6 +1,6 @@
 @theme {
   /* Defaults */
-  --default-transition-duration: 400ms;
+  --default-transition-duration: 300ms;
   --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   --default-font-family: var(--font-family-sans);
   --default-font-feature-settings: var(
@@ -17,21 +17,6 @@
     --font-family-mono--font-variation-settings
   );
 
-  /* Fonts */
-  --font-family-sans: var(--font-sans), ui-sans-serif, system-ui, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    "Noto Color Emoji";
-  --font-family-sans--font-variation-settings: normal;
-  --font-family-sans--font-feature-settings: normal;
-  --font-family-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo,
-    Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  --font-family-mono--font-variation-settings: "normal";
-  --font-family-mono--font-feature-settings: "normal";
-
-  /* Angle */
-  --angle: 0;
-
   /* Breakpoints */
   --breakpoint-sm: 40rem;
   --breakpoint-md: 48rem;
@@ -41,67 +26,53 @@
 
   /* Colors */
   --color-*: initial;
-  --color-zinc-50: hsl(0, 0%, 98%);
-  --color-zinc-100: hsl(0, 0%, 96%);
-  --color-zinc-200: hsl(0, 0%, 89%);
-  --color-zinc-300: hsl(0, 0%, 82%);
-  --color-zinc-400: hsl(240, 14%, 63%);
-  --color-zinc-500: hsl(240, 11%, 45%);
-  --color-zinc-600: hsl(240, 9%, 33%);
-  --color-zinc-700: hsl(240, 9%, 26%);
-  --color-zinc-800: hsl(240, 8%, 15%);
-  --color-zinc-900: hsl(240, 8%, 10%);
-  --color-zinc-950: hsl(240, 8%, 4%);
+  --color-zinc-50: 0 0% 98%;
+  --color-zinc-100: 0 0% 96%;
+  --color-zinc-200: 0 0% 89%;
+  --color-zinc-300: 0 0% 82%;
+  --color-zinc-400: 240 14% 63%;
+  --color-zinc-500: 240 11% 45%;
+  --color-zinc-600: 240 9% 33%;
+  --color-zinc-700: 240 9% 26%;
+  --color-zinc-800: 240 8% 15%;
+  --color-zinc-900: 240 8% 10%;
+  --color-zinc-950: 240 8% 4%;
 
   /* shadcn/ui */
-  --color-background: hsl(0, 0%, 100%);
-  --color-foreground: hsl(240, 10%, 3.9%);
-  --color-card: hsl(0, 0%, 100%);
-  --color-card-foreground: hsl(240, 10%, 3.9%);
-  --color-popover: hsl(0, 0%, 100%);
-  --color-popover-foreground: hsl(240, 10%, 3.9%);
-  --color-primary: hsl(240, 5.9%, 10%);
-  --color-primary-foreground: hsl(0, 0%, 98%);
-  --color-secondary: hsl(240, 4.8%, 95.9%);
-  --color-secondary-foreground: hsl(240, 5.9%, 10%);
-  --color-muted: hsl(240, 4.8%, 95.9%);
-  --color-muted-foreground: hsl(240, 3.8%, 46.1%);
-  --color-accent: hsl(240, 4.8%, 95.9%);
-  --color-accent-foreground: hsl(240, 5.9%, 10%);
-  --color-destructive: hsl(0, 84.2%, 60.2%);
-  --color-destructive-foreground: hsl(0, 0%, 98%);
-  --color-border: hsl(240, 5.9%, 90%);
-  --color-input: hsl(240, 5.9%, 90%);
+  --color-background: 0 0% 100%;
+  --color-foreground: 240 10% 3.9%;
+  --color-card: 0 0% 100%;
+  --color-card-foreground: 240 10% 3.9%;
+  --color-popover: 0 0% 100%;
+  --color-popover-foreground: 240 10% 3.9%;
+  --color-primary: 240 5.9% 10%;
+  --color-primary-foreground: 0 0% 98%;
+  --color-secondary: 240 4.8% 95.9%;
+  --color-secondary-foreground: 240 5.9% 10%;
+  --color-muted: 240 4.8% 95.9%;
+  --color-muted-foreground: 240 3.8% 46.1%;
+  --color-accent: 240 4.8% 95.9%;
+  --color-accent-foreground: 240 5.9% 10%;
+  --color-destructive: 0 84.2% 60.2%;
+  --color-destructive-foreground: 0 0% 98%;
+  --color-border: 240 5.9% 90%;
+  --color-input: 240 5.9% 90%;
 
   /* Highlight - Needs some color adjustments */
-  --color-hl-idt: hsl(231, 91%, 70%);
-  --color-hl-key: hsl(38, 91%, 57%);
-  --color-hl-str: hsl(197, 63%, 49%);
-  --color-hl-cls: hsl(231, 91%, 70%);
-  --color-hl-pty: hsl(59, 100%, 50%);
-  --color-hl-ent: hsl(139, 70%, 49%);
-  --color-hl-jsx: hsl(0, 0%, 75%);
-  --color-hl-sgn: hsl(0, 0%, 75%);
-  --color-hl-cmt: hsl(210, 12%, 70%);
-  --color-hl-border: conic-gradient(
-      from var(--angle),
-      #d53e33 0deg 90deg,
-      #fbb300 90deg 180deg,
-      #377af5 180deg 270deg,
-      #399953 270deg 360deg
-    )
-    1 stretch;
-  background: transparent;
-
-  /* Matrix Cell - Needs implementation */
-  --color-cell: #000;
+  --color-hl-idt: 231 91% 70%;
+  --color-hl-key: 38 91% 57%;
+  --color-hl-str: 197 63% 49%;
+  --color-hl-cls: 231 91% 70%;
+  --color-hl-pty: 59 100% 50%;
+  --color-hl-ent: 139 70% 49%;
+  --color-hl-jsx: 0 0% 75%;
+  --color-hl-sgn: 0 0% 75%;
+  --color-hl-cmt: 210 12% 70%;
 
   /* Animations */
   --animate-*: initial;
-  --animate-gradient: gradient 4s linear alternate infinite;
-  --animate-rotate: rotate 4s linear infinite;
-  --animate-slide: var(--default-transition-duration)
-    cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Needs implementation */
+  --animate-spin: spin 2s linear infinite;
+  --animate-gradient: gradient 3s linear infinite;
 
   /* Blurs */
   --blur: 8px;
@@ -114,46 +85,40 @@
 
   /* Radii */
   --radius-*: initial;
-  --radius: 0.65rem;
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: calc(var(--radius) + 2px);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-full: 9999px;
+  --radius: 0.5rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.45rem;
+  --radius-lg: 0.65rem;
+  --radius-xl: 0.85rem;
+  --radius-full: 50%;
 
   /* Shadows */
-  --shadow: 0 1px 3px 0 hsl(0, 0%, 0%, 0.1), 0 1px 2px -1px hsl(0, 0%, 0%, 0.1);
-  --shadow-xs: 0 1px hsl(0, 0%, 0%, 0.05);
-  --shadow-sm: 0 1px 2px 0 hsl(0, 0%, 0%, 0.05);
-  --shadow-md: 0 4px 6px -1px hsl(0, 0%, 0%, 0.1),
-    0 2px 4px -2px hsl(0, 0%, 0%, 0.1);
-  --shadow-lg: 0 10px 15px -3px hsl(0, 0%, 0%, 0.1),
-    0 4px 6px -4px hsl(0, 0%, 0%, 0.1);
-  --shadow-xl: 0 20px 25px -5px hsl(0, 0%, 0%, 0.1),
-    0 8px 10px -6px hsl(0, 0%, 0%, 0.1);
-  --shadow-2xl: 0 25px 50px -12px hsl(0, 0%, 0%, 0.25);
-  --shadow-3xl: 0 6px 6px 0 hsl(0, 0%, 0%, 0%),
-    0 6px 6px -2px hsl(0, 0%, 0%, 12%), 0 2px 10px 0 hsl(0, 0%, 0%, 9%);
-  --shadow-inner: inset 0 2px 4px hsl(0, 0%, 0%, 0.05);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-xs: 0 1px rgb(0 0 0 / 0.05);
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
 
   /* Inset shadows */
-  --inset-shadow-xs: inset 0 1px hsl(0, 0%, 0%, 0.05);
-  --inset-shadow-sm: inset 0 1px 1px hsl(0, 0%, 0%, 0.05);
-  --inset-shadow: inset 0 2px 4px hsl(0, 0%, 0%, 0.05);
+  --inset-shadow-xs: inset 0 1px rgb(0 0 0 / 0.05);
+  --inset-shadow-sm: inset 0 1px 1px rgb(0 0 0 / 0.05);
+  --inset-shadow: inset 0 2px 4px rgb(0 0 0 / 0.05);
 
   /* Drop shadows */
-  --drop-shadow: 0 1px 2px hsl(0, 0%, 0%, 0.1), 0 1px 1px hsl(0, 0%, 0%, 0.06);
-  --drop-shadow-sm: 0 1px 1px hsl(0, 0%, 0%, 0.05);
-  --drop-shadow-md: 0 4px 3px hsl(0, 0%, 0%, 0.07),
-    0 2px 2px hsl(0, 0%, 0%, 0.06);
-  --drop-shadow-lg: 0 10px 8px hsl(0, 0%, 0%, 0.04),
-    0 4px 3px hsl(0, 0%, 0%, 0.1);
-  --drop-shadow-xl: 0 20px 13px hsl(0, 0%, 0%, 0.03),
-    0 8px 5px hsl(0, 0%, 0%, 0.08);
-  --drop-shadow-2xl: 0 25px 25px hsl(0, 0%, 0%, 0.15);
-  --drop-shadow-3xl: 0 6px 6px 0 hsl(0, 0%, 0%, 0%),
-    0 6px 6px -2px hsl(0, 0%, 0%, 12%), 0 2px 10px 0 hsl(0, 0%, 0%, 9%);
-  --drop-shadow-none: 0 0 transparent;
+  --drop-shadow: 0 1px 2px rgb(0 0 0 / 0.1), 0 1px 1px rgb(0 0 0 / 0.06);
+  --drop-shadow-sm: 0 1px 1px rgb(0 0 0 / 0.05);
+  --drop-shadow-md: 0 4px 3px rgb(0 0 0 / 0.07), 0 2px 2px rgb(0 0 0 / 0.06);
+  --drop-shadow-lg: 0 10px 8px rgb(0 0 0 / 0.04), 0 4px 3px rgb(0 0 0 / 0.1);
+  --drop-shadow-xl: 0 20px 13px rgb(0 0 0 / 0.03), 0 8px 5px rgb(0 0 0 / 0.08);
+  --drop-shadow-2xl: 0 25px 25px rgb(0 0 0 / 0.15);
+  --drop-shadow-3xl: 0 6px 6px 0 rgb(0 0 0 / 0%),
+    0 6px 6px -2px rgb(0 0 0 / 12%), 0 2px 10px 0 rgb(0 0 0 / 9%);
+  --drop-shadow-none: 0 0 #0000;
 
   /* Spacing */
   --spacing-px: 1px;
@@ -205,7 +170,20 @@
   --width-4xl: 56rem;
   --width-5xl: 64rem;
   --width-6xl: 72rem;
+  --width-7xl: 80rem;
   --width-mdx: 70ch;
+
+  /* Fonts */
+  --font-family-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-sans--font-variation-settings: normal;
+  --font-family-sans--font-feature-settings: normal;
+  --font-family-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times,
+    serif;
+  --font-family-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo,
+    Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-family-mono--font-variation-settings: "normal";
+  --font-family-mono--font-feature-settings: "normal";
 
   /* Type scale */
   --font-size-xs: 0.75rem;
@@ -272,6 +250,12 @@
   --transition-timing-function-out: cubic-bezier(0, 0, 0.2, 1);
   --transition-timing-function-in-out: cubic-bezier(0.4, 0, 0.2, 1);
 
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
   @keyframes gradient {
     0% {
       transform: rotate(0deg);
@@ -304,42 +288,36 @@
       opacity: 0.4;
     }
   }
-
-  @keyframes rotate {
-    to {
-      --angle: 360deg;
-    }
-  }
 }
-
 /* Dark mode */
-.dark {
-  --color-background: hsl(240, 10%, 3.9%);
-  --color-foreground: hsl(0, 0%, 98%);
-  --color-card: hsl(240, 10%, 3.9%);
-  --color-card-foreground: hsl(0, 0%, 98%);
-  --color-popover: hsl(240, 10%, 3.9%);
-  --color-popover-foreground: hsl(0, 0%, 98%);
-  --color-primary: hsl(0, 0%, 98%);
-  --color-primary-foreground: hsl(240, 5.9%, 10%);
-  --color-secondary: hsl(240, 3.7%, 15.9%);
-  --color-secondary-foreground: hsl(0, 0%, 98%);
-  --color-muted: hsl(240, 3.7%, 15.9%);
-  --color-muted-foreground: hsl(240, 5%, 64.9%);
-  --color-accent: hsl(240, 3.7%, 15.9%);
-  --color-accent-foreground: hsl(0, 0%, 98%);
-  --color-destructive: hsl(0, 62.8%, 30.6%);
-  --color-destructive-foreground: hsl(0, 0%, 98%);
-  --color-border: hsl(240, 3.7%, 15.9%);
-  --color-input: hsl(240, 3.7%, 15.9%);
-  --color-ring: hsl(240, 4.9%, 83.9%);
-  --color-hl-idt: hsl(214, 79%, 59%);
-  --color-hl-key: hsl(0, 93%, 57%);
-  --color-hl-str: hsl(197, 63%, 49%);
-  --color-hl-cls: hsl(253, 49%, 64%);
-  --color-hl-pty: hsl(59, 100%, 50%);
-  --color-hl-ent: hsl(139, 70%, 49%);
-  --color-hl-jsx: hsl(0, 0%, 75%);
-  --color-hl-sgn: hsl(0, 0%, 75%);
-  --color-hl-cmt: hsl(210, 12%, 31%);
+html:where([class="dark"]),
+html:where([style="color-scheme: dark"]) {
+  --color-background: 240 10% 3.9%;
+  --color-foreground: 0 0% 98%;
+  --color-card: 240 10% 3.9%;
+  --color-card-foreground: 0 0% 98%;
+  --color-popover: 240 10% 3.9%;
+  --color-popover-foreground: 0 0% 98%;
+  --color-primary: 0 0% 98%;
+  --color-primary-foreground: 240 5.9% 10%;
+  --color-secondary: 240 3.7% 15.9%;
+  --color-secondary-foreground: 0 0% 98%;
+  --color-muted: 240 3.7% 15.9%;
+  --color-muted-foreground: 240 5% 64.9%;
+  --color-accent: 240 3.7% 15.9%;
+  --color-accent-foreground: 0 0% 98%;
+  --color-destructive: 0 62.8% 30.6%;
+  --color-destructive-foreground: 0 0% 98%;
+  --color-border: 240 3.7% 15.9%;
+  --color-input: 240 3.7% 15.9%;
+  --color-ring: 240 4.9% 83.9%;
+  --color-hl-idt: 214 79% 59%;
+  --color-hl-key: 0 93% 57%;
+  --color-hl-str: 197 63% 49%;
+  --color-hl-cls: 253 49% 64%;
+  --color-hl-pty: 59 100% 50%;
+  --color-hl-ent: 139 70% 49%;
+  --color-hl-jsx: 0 0% 75%;
+  --color-hl-sgn: 0 0% 75%;
+  --color-hl-cmt: 210 12% 31%;
 }

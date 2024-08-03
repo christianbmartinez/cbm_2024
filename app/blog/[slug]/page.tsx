@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation"
 import { Mdx, ReadingTimeIcon } from "@/components"
 import { baseUrl } from "@/config"
-import { formatDate, getPosts } from "@/lib"
+import { formatDate, formatReadingTime, getPosts } from "@/lib"
 import type { Params } from "@/types"
 
 import { Badge } from "@/components/ui"
@@ -105,7 +105,7 @@ export default function Page({ params }: { params: Params }) {
           </div>
         </div>
       </header>
-      <Mdx className="mdx" source={content} />
+      <Mdx source={content} />
     </article>
   )
 }

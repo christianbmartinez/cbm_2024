@@ -41,7 +41,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <main className="min-h-screen relative flex justify-start items-center">
+          <main className="min-h-screen relative flex justify-start items-center z-0">
             {children}
           </main>
           <Footer />
