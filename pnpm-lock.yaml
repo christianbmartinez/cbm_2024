@@ -42,6 +42,9 @@ importers:
       '@tailwindcss/cli':
         specifier: 4.0.0-alpha.18
         version: 4.0.0-alpha.18
+      '@tailwindcss/postcss':
+        specifier: 4.0.0-alpha.18
+        version: 4.0.0-alpha.18(postcss@8.4.40)
       '@types/node':
         specifier: ^22.0.0
         version: 22.0.0
@@ -63,6 +66,9 @@ importers:
       eslint-config-prettier:
         specifier: ^9.1.0
         version: 9.1.0(eslint@8.57.0)
+      postcss:
+        specifier: ^8.4.40
+        version: 8.4.40
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
@@ -598,6 +604,9 @@ packages:
   '@tailwindcss/oxide@4.0.0-alpha.18':
     resolution: {integrity: sha512-Pc4c8khaklIqLWWSVqbVX8P3imjmM3SChJaSPkajbzlQRx17iwqZWVQJIhwP/rZh1aGeJDOVb0kduVlw/J5bIA==}
     engines: {node: '>= 10'}
+
+  '@tailwindcss/postcss@4.0.0-alpha.18':
+    resolution: {integrity: sha512-+A/EPAAI7kO4HCmznybCouwAyV33k1cFywIK7D7P8e/WGfDfKEa57be4+jJ6Rnudc6DcnKfHrPPoz30hGMtuWw==}
 
   '@types/acorn@4.0.6':
     resolution: {integrity: sha512-veQTnWP+1D/xbxVrPC3zHnCZRjSrKfhbMUlEA43iMZLu7EsnTtkJklIuwrCPbOi8YkvDQAiW05VQQFvvz9oieQ==}
@@ -1929,6 +1938,10 @@ packages:
     resolution: {integrity: sha512-PS08Iboia9mts/2ygV3eLpY5ghnUcfLV/EXTOW1E2qYxJKGGBUtNjN76FYHnMs36RmARn41bC0AZmn+rR0OVpQ==}
     engines: {node: ^10 || ^12 || >=14}
 
+  postcss@8.4.40:
+    resolution: {integrity: sha512-YF2kKIUzAofPMpfH6hOi2cGnv/HrUlfucspc7pDyvv7kGdqXrfj8SCl/t8owkEgKEuu8ZcRjSOxFxVLqwChZ2Q==}
+    engines: {node: ^10 || ^12 || >=14}
+
   prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
@@ -2867,6 +2880,15 @@ snapshots:
       '@tailwindcss/oxide-linux-x64-gnu': 4.0.0-alpha.18
       '@tailwindcss/oxide-linux-x64-musl': 4.0.0-alpha.18
       '@tailwindcss/oxide-win32-x64-msvc': 4.0.0-alpha.18
+
+  '@tailwindcss/postcss@4.0.0-alpha.18(postcss@8.4.40)':
+    dependencies:
+      '@tailwindcss/oxide': 4.0.0-alpha.18
+      lightningcss: 1.25.1
+      postcss-import: 16.1.0(postcss@8.4.40)
+      tailwindcss: 4.0.0-alpha.18
+    transitivePeerDependencies:
+      - postcss
 
   '@types/acorn@4.0.6':
     dependencies:
@@ -4611,6 +4633,13 @@ snapshots:
       read-cache: 1.0.0
       resolve: 1.22.8
 
+  postcss-import@16.1.0(postcss@8.4.40):
+    dependencies:
+      postcss: 8.4.40
+      postcss-value-parser: 4.2.0
+      read-cache: 1.0.0
+      resolve: 1.22.8
+
   postcss-value-parser@4.2.0: {}
 
   postcss@8.4.24:
@@ -4620,6 +4649,12 @@ snapshots:
       source-map-js: 1.2.0
 
   postcss@8.4.31:
+    dependencies:
+      nanoid: 3.3.7
+      picocolors: 1.0.1
+      source-map-js: 1.2.0
+
+  postcss@8.4.40:
     dependencies:
       nanoid: 3.3.7
       picocolors: 1.0.1

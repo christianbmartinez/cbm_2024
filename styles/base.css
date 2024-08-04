@@ -30,7 +30,7 @@ hr {
 }
 
 abbr:where([title]) {
-  @apply underline decoration-dotted;
+  @apply underline underline-offset-4 decoration-foreground;
 }
 
 h1,
