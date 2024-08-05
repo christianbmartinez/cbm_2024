@@ -4,7 +4,7 @@ import { baseUrl } from "@/config"
 import { formatDate, formatReadingTime, getPosts } from "@/lib"
 import type { Params } from "@/types"
 
-import { Badge } from "@/components/ui"
+import { Badge } from "@/components/ui/badge"
 
 export function generateStaticParams() {
   const posts = getPosts()
@@ -87,12 +87,12 @@ export default function Page({ params }: { params: Params }) {
         }}
       />
       <header>
-        <Badge variant="outline" className="px-3 py-2 my-2 rounded-xl">
-          <ReadingTimeIcon className="size-3 rainbow-border" />
+        <Badge variant="outline" className="px-2 py-1 my-2 rounded-xl">
+          <ReadingTimeIcon className="size-3" />
           &nbsp;
           {formatReadingTime(publishedAt)}
         </Badge>
-        <h1 className="text-primary">{title}</h1>
+        <h1 className="text-foreground">{title}</h1>
         <div className="mt-2 flex flex-row justify-between text-muted-foreground items-center w-full">
           <div className="flex flex-row justify-start items-center">
             <span className="text-sm font-medium">Christian B. Martinez</span>

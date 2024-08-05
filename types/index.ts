@@ -1,5 +1,4 @@
 import { type NextApiRequest } from "next/types"
-import type { IconProps as RadixIconProps } from "@radix-ui/react-icons/dist/types"
 
 export type NavLinks = {
   title: string
@@ -18,7 +17,7 @@ export type SocialLinks = {
   href: string
 }
 
-export type IconProps = RadixIconProps | React.SVGProps<SVGSVGElement>
+export type IconProps = React.SVGProps<SVGSVGElement>
 
 export type Params =
   | NextApiRequest["query"]

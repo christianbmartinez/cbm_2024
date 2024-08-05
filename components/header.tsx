@@ -8,10 +8,10 @@ export function Header() {
       <nav className="sticky top-0 left-0 flex flex-row items-center justify-between z-40 pt-8 h-8 -my-8 w-full">
         <ul>
           {navLinks.map((link, i) => (
-            <li key={`nav_item-${i}`} className="inline-flex">
+            <li key={`header-nav-link-${i}`} className="inline-flex">
               <Link aria-label={`Link to ${link.title} page`} href={link.href}>
                 <Button
-                  className={i === 0 ? "pl-0" : ""}
+                  className={i === 0 ? "-ml-4" : ""}
                   role="link"
                   variant="link"
                 >

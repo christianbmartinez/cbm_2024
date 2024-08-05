@@ -11,7 +11,8 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default:
+          "bg-background text-foreground hover:text-accent hover:bg-primary/80",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
@@ -19,8 +20,8 @@ export const buttonVariants = cva(
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost:
-          "text-center hover:bg-accent hover:text-accent-foreground transition-all duration-300 ease-in-out",
-        link: "no-underline hover:underline text-primary",
+          "text-center hover:bg-accent hover:text-accent-foreground transition-all duration-400 ease-in-out",
+        link: "no-underline hover:underline text-foreground",
       },
       size: {
         default: "h-10 py-2 px-4",
@@ -51,7 +52,7 @@ export function Button({ className, variant, size, ...props }: ButtonProps) {
   )
 }
 Button.displayName = "Button"
-// Animation is broken, positioning is off. Fix this component stat.
+
 export function CopyCodeButton({ children }: { children: React.ReactNode }) {
   const [copied, setCopied] = useState(false)
 
@@ -79,21 +80,21 @@ export function CopyCodeButton({ children }: { children: React.ReactNode }) {
         <CopyClipboardIcon
           style={{
             position: "absolute",
-            top: 0,
-            right: 0,
-            strokeDasharray: 50,
+            top: "0",
+            right: "0",
+            strokeDasharray: "50",
             strokeDashoffset: copied ? -50 : 0,
           }}
         />
         <CheckIcon
           style={{
             position: "absolute",
-            color: "green",
-            top: 0,
-            right: 0,
+            color: "#22c55e",
+            top: "0",
+            right: "0",
             visibility: `${copied ? "visible" : "hidden"}`,
-            strokeDasharray: 50,
-            strokeDashoffset: copied ? 0 : -50,
+            strokeDasharray: "50",
+            strokeDashoffset: `${copied ? "0" : "-50"}`,
           }}
         />
       </Button>

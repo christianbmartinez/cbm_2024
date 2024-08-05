@@ -1,6 +1,4 @@
-import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons"
-
-import { XLogoIcon } from "@/components/ui/icons"
+import { GitHubLogoIcon, LinkedInLogoIcon, XLogoIcon } from "@/components/ui"
 
 export const baseUrl =
   process.env.NODE_ENV !== "development"

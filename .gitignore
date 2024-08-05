@@ -18,3 +18,6 @@ pnpm-lock.yaml
 lib/fonts
 lib/plugins
 app/globals.css
+
+# experimental
+experimental

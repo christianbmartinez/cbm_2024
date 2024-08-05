@@ -6,7 +6,6 @@ import "./globals.css"
 export const fetchCache = "force-cache"
 export const dynamic = "force-static"
 export const revalidate = false
-// export const runtime = "edge"
 
 const fontSans = localFont({
   src: "../lib/fonts/GeistVF.woff",
@@ -36,12 +35,12 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          enableSystem
-          defaultTheme="system"
+          enableSystem={false}
+          defaultTheme="light"
           disableTransitionOnChange
         >
           <Header />
-          <main className="min-h-screen relative flex justify-start items-center z-0">
+          <main className="min-h-screen relative flex justify-start items-center">
             {children}
           </main>
           <Footer />

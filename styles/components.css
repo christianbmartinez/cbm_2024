@@ -1,5 +1,4 @@
-/* Mdx Components */
-.mdx hl-line:before {
+hl-line:before {
   counter-increment: hl-line-num 1;
   content: counter(hl-line-num);
   text-align: right;
@@ -10,44 +9,48 @@
   display: inline-block;
 }
 
-.mdx hl-line-num {
+hl-line-num {
   color: var(--color-hl-cmt);
 }
 
-.mdx hl-cls {
+hl-cls {
   color: var(--color-hl-cls);
 }
 
-.mdx hl-idt {
+hl-idt {
   color: var(--color-hl-idt);
 }
 
-.mdx hl-sgn {
+hl-sgn {
   color: var(--color-hl-sgn);
 }
 
-.mdx hl-str {
+hl-str {
   color: var(--color-hl-str);
 }
 
-.mdx hl-key {
+hl-key {
   color: var(--color-hl-key);
 }
 
-.mdx hl-cmt {
+hl-cmt {
   color: var(--color-hl-cmt);
 }
 
-.mdx hl-jsx {
+hl-jsx {
   color: var(--color-hl-jsx);
 }
 
-.mdx hl-pty {
+hl-pty {
   color: var(--color-hl-pty);
 }
 
-.mdx hl-ent {
+hl-ent {
   color: var(--color-hl-ent);
+}
+
+.mdx a {
+  @apply underline transition-all decoration-accent-foreground underline-offset-2 decoration-[0.1em];
 }
 
 .mdx .anchor {
@@ -68,8 +71,8 @@
   content: "#";
 }
 
-.mdx :hover > .anchor {
-  visibility: visible;
+.mdx *:hover > .anchor {
+  @apply visible;
 }
 
 .mdx pre {

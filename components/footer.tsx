@@ -6,7 +6,7 @@ import { Button } from "./ui"
 export function Footer() {
   return (
     <footer>
-      <div className="relative flex flex-row justify-between items-center pb-8 h-8 -my-8 w-full">
+      <nav className="relative flex flex-row justify-between items-center pb-8 h-8 -my-8 w-full">
         <ul>
           {footerLinks.map((link, i) => {
             return (
@@ -18,7 +18,7 @@ export function Footer() {
                   rel="noreferrer"
                 >
                   <Button
-                    className={i === 0 ? "pl-0" : ""}
+                    className={i === 0 ? "-ml-4" : ""}
                     role="link"
                     variant="link"
                   >
@@ -47,7 +47,7 @@ export function Footer() {
             )
           })}
         </div>
-      </div>
+      </nav>
     </footer>
   )
 }
