@@ -1,2 +1,2 @@
-lib/fonts/*
-lib/highlight.ts
+lib/fonts
+lib/plugins/highlight.ts

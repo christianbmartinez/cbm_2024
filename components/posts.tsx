@@ -1,5 +1,5 @@
-import Link from "next/link"
 import { formatDate, getPosts } from "@/lib"
+import Link from "next/link"
 
 export function Posts() {
   const posts = getPosts()
@@ -21,7 +21,7 @@ export function Posts() {
             href={`/blog/${post.slug}`}
           >
             <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2">
-              <p className="text-muted w-[100px] tabular-nums">
+              <p className="text-muted-foreground w-[100px] tabular-nums">
                 {formatDate(post.metadata.publishedAt, false)}
               </p>
               <p className="text-foreground tracking-tight">

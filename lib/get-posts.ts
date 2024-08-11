@@ -1,4 +1,4 @@
-import type { MdxMetadata } from '@/types'
+import type { MdxMetadata } from '@/lib/types'
 import fs from 'fs'
 import path from 'path'
 

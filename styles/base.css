@@ -9,31 +9,26 @@
   border: 0 solid;
 }
 
-::selection {
-  background-color: #0ea5e9;
-  color: var(--color-zinc-50);
-}
-
 html {
-  @apply antialiased text-inherit scroll-smooth;
   scrollbar-width: thin;
   -webkit-tap-highlight-color: transparent;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
-  @apply font-sans text-base leading-7 bg-background text-foreground;
+  @apply antialiased scroll-smooth font-sans text-base leading-7 bg-background text-foreground;
   font-feature-settings: var(--default-font-feature-settings, normal);
   font-variation-settings: var(--default-font-variation-settings, normal);
-  font-synthesis-weight: none;
-  text-rendering: optimizeLegibility;
+  font-synthesis: none;
+  text-rendering: auto;
+  line-height: var(--line-height-normal);
 }
 
 hr {
-  @apply border-t border-border border-solid h-px;
+  @apply border-t border-solid border-border my-6;
 }
 
-abbr:where([title]) {
+abbr:where([class*=title]) {
   @apply underline underline-offset-4 decoration-foreground;
 }
 
@@ -42,12 +37,9 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p {
   @apply font-sans;
-}
-
-a {
-  @apply text-inherit underline cursor-pointer;
 }
 
 b,
@@ -55,24 +47,19 @@ strong {
   @apply font-extrabold;
 }
 
-code:where(:not(pre > code)),
 kbd,
 samp,
 pre {
   @apply font-mono text-sm;
 }
 
-code:where([id="inline"]) {
+code:where([class*="inline-code"]) {
   @apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
 }
 
 sub,
 sup {
   @apply tracking-normal;
-}
-
-table {
-  @apply indent-0 border-border border-collapse;
 }
 
 button,
@@ -96,64 +83,13 @@ input:where([type="button"], [type="reset"], [type="submit"]),
   @apply appearance-auto;
 }
 
-:-moz-focusring {
-  @apply outline-inherit outline-1 outline-offset-2;
-}
-
-:-moz-ui-invalid {
-  @apply shadow-none;
-}
-
-progress {
-  @apply align-baseline;
-}
-
-::-webkit-inner-spin-button,
-::-webkit-outer-spin-button {
-  @apply h-auto;
-}
-
-::-webkit-search-decoration {
-  @apply appearance-none;
-}
-
 summary {
-  @apply list-item;
-}
-
-blockquote,
-dd,
-dl,
-figure,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-hr,
-p,
-pre {
-  @apply m-0;
-}
-
-fieldset {
-  @apply m-0;
+  @apply list-decimal;
 }
 
 fieldset,
 legend {
   @apply p-0;
-}
-
-menu,
-ul,
-ol {
-  @apply list-none m-0 p-0;
-}
-
-textarea {
-  @apply resize-y;
 }
 
 ::placeholder {
@@ -165,28 +101,17 @@ textarea {
   @apply cursor-default;
 }
 
-img,
-svg,
-video,
-canvas,
-audio,
-iframe,
-embed,
-object {
+svg
+{
   @apply block align-middle;
-}
-
-img,
-video {
-  @apply max-w-full h-auto;
 }
 
 [hidden] {
   @apply !hidden;
 }
-/* From shadcn/ui typography (modified) - Still needs to be tested */
+
 h1 {
-  @apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl;
+  @apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-4xl;
 }
 
 h2 {
@@ -201,28 +126,20 @@ h4 {
   @apply mt-6 scroll-m-20 text-xl font-semibold tracking-tight;
 }
 
-h5 {
-  @apply mt-6 scroll-m-20 text-lg font-semibold tracking-tight;
-}
-
-h6 {
-  @apply mt-6 scroll-m-20 text-base font-semibold tracking-tight;
-}
-
 a {
   @apply font-medium text-foreground no-underline;
 }
 
 p {
-  @apply text-muted-foreground leading-7 [&:not(:first-child)]:mt-6;
+  @apply text-base text-muted-foreground leading-7 mt-6;
 }
 
 p:where([class="lead"]) {
-  @apply text-xl text-muted-foreground;
+  @apply text-xl;
 }
 
 p:where([class="muted"]) {
-  @apply text-sm text-muted-foreground;
+  @apply text-sm text-muted;
 }
 
 code:where([class="inline-code"]) {
@@ -237,8 +154,7 @@ div:where([class="large"]) {
   @apply text-lg font-semibold;
 }
 
-table,
-div > table {
+table {
   @apply my-6 w-full overflow-y-auto indent-0 border-border border-collapse;
 }
 
@@ -259,9 +175,9 @@ blockquote {
 }
 
 ol {
-  @apply list-disc;
+  @apply list-none;
 }
 
 ul {
-  @apply list-decimal;
+  @apply list-none;
 }

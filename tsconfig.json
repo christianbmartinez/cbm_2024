@@ -31,7 +31,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "types/index.d.ts",
+    "lib/types/index.ts",
     ".cbm/types/**/*.ts"
   ],
   "exclude": ["node_modules"]

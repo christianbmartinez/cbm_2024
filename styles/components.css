@@ -1,3 +1,17 @@
+
+/* Gradient Border */
+div.gradient-border { 
+  @apply absolute h-48 w-full overflow-hidden rounded-lg border border-zinc-800 p-[1px] backdrop-blur-3xl mb-8;
+}
+
+div.gradient-border > div:first-child {
+  @apply absolute inset-[-1000%] animate-rotate bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)];
+}
+
+div.gradient-border > div:last-child {
+  @apply inline-flex h-full w-full items-center justify-center rounded-lg bg-background px-3 py-1 text-sm font-medium text-foreground backdrop-blur-3xl;
+}
+/* Mdx + Highlight */
 hl-line:before {
   counter-increment: hl-line-num 1;
   content: counter(hl-line-num);
@@ -49,6 +63,14 @@ hl-ent {
   color: var(--color-hl-ent);
 }
 
+.mdx {
+  @apply w-full sm:max-w-mdx;
+}
+
+.mdx:where([class*="title"]) {
+  @apply font-medium text-center;
+}
+
 .mdx a {
   @apply underline transition-all decoration-accent-foreground underline-offset-2 decoration-[0.1em];
 }
@@ -76,30 +98,10 @@ hl-ent {
 }
 
 .mdx pre {
-  @apply whitespace-pre mt-10 rounded-md border border-solid border-border drop-shadow-3xl pt-1.5 px-6 pb-4 overflow-scroll;
+  @apply whitespace-pre rounded-lg border border-solid border-border my-4 overflow-scroll;
 }
 
 .mdx code {
-  @apply font-mono font-medium text-sm leading-normal;
+  @apply border-none leading-normal font-mono font-medium text-sm;
   counter-reset: hl-line-num;
-}
-
-.mdx pre code {
-  @apply border-none leading-normal;
-}
-
-.mdx img {
-  @apply my-4 rounded-md;
-}
-
-.mdx .title {
-  @apply text-balance text-foreground;
-}
-
-.mdx > ol {
-  @apply my-6 ml-6 list-decimal [&>li]:mt-2;
-}
-
-.mdx > ul {
-  @apply my-6 ml-6 list-disc [&>li]:mt-2;
 }

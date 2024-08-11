@@ -1,8 +1,8 @@
-import { notFound } from "next/navigation"
 import { Mdx, ReadingTimeIcon } from "@/components"
 import { baseUrl } from "@/config"
 import { formatDate, formatReadingTime, getPosts } from "@/lib"
-import type { Params } from "@/types"
+import type { Params } from "@/lib/types"
+import { notFound } from "next/navigation"
 
 import { Badge } from "@/components/ui/badge"
 
@@ -63,7 +63,7 @@ export default function Page({ params }: { params: Params }) {
   const { content, slug } = post
 
   return (
-    <article className="my-28 overflow-auto">
+    <article className="my-28">
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -87,13 +87,12 @@ export default function Page({ params }: { params: Params }) {
         }}
       />
       <header>
-        <Badge variant="outline" className="px-2 py-1 my-2 rounded-xl">
+        <Badge variant="outline" className="px-2 py-1 rounded-xl">
           <ReadingTimeIcon className="size-3" />
           &nbsp;
           {formatReadingTime(publishedAt)}
         </Badge>
-        <h1 className="text-foreground">{title}</h1>
-        <div className="mt-2 flex flex-row justify-between text-muted-foreground items-center w-full">
+        <div className="my-6 flex flex-row justify-between text-muted-foreground items-center w-full">
           <div className="flex flex-row justify-start items-center">
             <span className="text-sm font-medium">Christian B. Martinez</span>
             <span className="h-4 w-0.5 mx-2 rounded bg-zinc-700" />
@@ -104,6 +103,8 @@ export default function Page({ params }: { params: Params }) {
             </time>
           </div>
         </div>
+        <h1 className="text-foreground">{title}</h1>
+
       </header>
       <Mdx source={content} />
     </article>

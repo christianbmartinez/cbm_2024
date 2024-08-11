@@ -1,5 +1,5 @@
-import { ImageResponse } from "next/og"
 import { baseUrl } from "@/config"
+import { ImageResponse } from "next/og"
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)

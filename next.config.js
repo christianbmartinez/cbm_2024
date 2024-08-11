@@ -2,13 +2,23 @@
 module.exports = {
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
   distDir: ".cbm",
+  // compress: false, // come back to this later. Use brotli/gzip middleware to compress
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'image-placeholder.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
   experimental: {
     optimizePackageImports: [
       "react",
       "react-dom",
       "next-mdx-remote",
       "next-themes",
-      "sharp",
     ],
     optimizeServerReact: true,
     webpackBuildWorker: true,
