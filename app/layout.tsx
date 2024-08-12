@@ -11,13 +11,6 @@ const fontSans = localFont({
   weight: "300 800",
 })
 
-// const fontMono = localFont({
-//   src: "../lib/fonts/GeistMonoVF.woff",
-//   preload: false,
-//   variable: "--font-mono",
-//   weight: "400",
-// })
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -25,9 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <div className="absolute top-0 left-0 z-0 h-screen w-screen bg-[linear-gradient(to_right,#b1b1b12e_1px,transparent_1px),linear-gradient(to_bottom,#b1b1b12e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_10%,transparent_100%)]"></div>
       <head />
       <body
-        className={`flex flex-col ${fontSans.variable} font-sans w-full md:max-w-mdx px-4 md:px-0 mx-auto bg-background text-foreground`}
+        className={`flex flex-col ${fontSans.variable} font-sans w-full sm:max-w-mdx px-4 sm:px-0 mx-auto text-foreground`}
       >
         <ThemeProvider
           attribute="class"
@@ -36,7 +30,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <main className="min-h-screen relative flex justify-start items-center">
+          <main className="min-h-screen relative flex justify-start items-center z-10">
             {children}
           </main>
           <Footer />

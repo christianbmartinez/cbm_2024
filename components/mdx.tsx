@@ -1,8 +1,7 @@
-import { cn } from "@/lib"
 import { MDXRemote, type MDXRemoteProps } from "next-mdx-remote/rsc"
+import Image, { type ImageProps } from "next/image"
 import Link from "next/link"
 import { createElement, type ReactNode } from "react"
-import { Img } from "./image"
 
 import { highlight } from "@/lib/plugins/highlight"
 
@@ -26,17 +25,45 @@ function H(level: number) {
         createElement("a", {
           href: `#${slug}`,
           key: `h${level}-link-${slug}`,
-          className: `${cn("anchor")}`,
+          className: "anchor",
         }),
       ],
       children
     )
   }
-
   Heading.displayName = `h${level}`
 
   return Heading
 }
+
+type ImgProps = Partial<ImageProps> & {
+  src: string
+  alt: string
+  className: string
+  loading: "lazy" | "eager"
+  priority: true | false
+}
+
+export function Img({
+  loading = "lazy",
+  priority = false,
+  src,
+  alt="A really cool image for my website that I took recently.",
+  className,
+  ...props
+}: ImgProps) {
+  return (
+    <Image
+    src={src}
+    alt={alt}
+    loading={loading}
+    priority={priority}
+    className={className}
+    {...props}
+    />
+  )
+}
+
 
 function A(
   props: Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "a"> & {
@@ -77,39 +104,38 @@ function Pre({
   }
 }) {
   const ext = className.replace(/language-/, ".")
-  const codeHTML = children
   let icon
 
   switch (ext) {
     case ".ts":
-      icon = <TSLogoIcon fill="#777777" />
+      icon = <TSLogoIcon fill="#currentColor" />
       break
     case ".tsx":
     case ".jsx":
       icon = <ReactLogoIcon fill="#61DAFB" />
       break
     case ".js":
-      icon = <JSLogoIcon fill="#777777" />
+      icon = <JSLogoIcon fill="currentColor" />
       break
     default:
-      icon = <TSLogoIcon fill="#777777" />
+      icon = <TSLogoIcon fill="currentColor" />
   }
 
   return (
-    <pre className="flex flex-col w-full sm:max-w-mdx">
-      <div className="flex flex-row h-16 justify-between items-center">
+    <pre className="w-full sm:max-w-mdx rounded-md border border-solid border-border my-6 flex flex-col whitespace-pre">
+      <div className="flex flex-row h-8 p-6 justify-between items-center bg-background border-b border-border border-solid">
         <div className="flex flex-col w-1/4 justify-start items-start">
           {icon}
         </div>
-        <div className="flex flex-col w-2/4 justify-center items-center title">
-          {`${ext.endsWith("x") ? "Component" : "example"}${ext}`}
+        <div className="flex flex-col w-2/4 justify-center items-center">
+          <p className="text-foreground m-0 p-0 text-sm leading-normal">{`${ext.endsWith("x") ? "Component" : "example"}${ext}`}</p>
         </div>
         <div className="flex flex-col w-1/4 justify-end items-end">
-          <CopyCodeButton>{children as ReactNode}</CopyCodeButton>
+          <CopyCodeButton code={children}/>
         </div>
         <hr />
       </div>
-      <code className="h-auto w-4/4 max-h-96 overflow-scroll" dangerouslySetInnerHTML={{ __html: highlight(codeHTML) }} />
+      <code className="border-none bg-background leading-normal font-mono font-medium text-sm h-auto pt-4 w-4/4 max-h-96 overflow-scroll" dangerouslySetInnerHTML={{ __html: highlight(children) }} />
     </pre>
   )
 }
@@ -120,9 +146,9 @@ function Blockquote({ children }: { children: React.ReactElement }) {
   )
 }
 
-function List({ children, listStyle }: { children: ReactNode; listStyle?: "list-disc" | "list-decimal" | "list-none" }) {
+function List({ children, listStyle = "list-disc" }: { children: ReactNode; listStyle?: string }) {
   return (
-    <ul className={`my-6 ml-6 ${listStyle ?? "list-disc"} [&>li]:mt-2`}>{children}</ul>
+    <ul className={`${listStyle}`}>{children}</ul>
   )
 }
 

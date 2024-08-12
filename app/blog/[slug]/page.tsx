@@ -1,10 +1,8 @@
-import { Mdx, ReadingTimeIcon } from "@/components"
+import { Button, Mdx, ReadingTimeIcon } from "@/components"
 import { baseUrl } from "@/config"
 import { formatDate, formatReadingTime, getPosts } from "@/lib"
 import type { Params } from "@/lib/types"
 import { notFound } from "next/navigation"
-
-import { Badge } from "@/components/ui/badge"
 
 export function generateStaticParams() {
   const posts = getPosts()
@@ -87,12 +85,12 @@ export default function Page({ params }: { params: Params }) {
         }}
       />
       <header>
-        <Badge variant="outline" className="px-2 py-1 rounded-xl">
+        <Button>
           <ReadingTimeIcon className="size-3" />
           &nbsp;
           {formatReadingTime(publishedAt)}
-        </Badge>
-        <div className="my-6 flex flex-row justify-between text-muted-foreground items-center w-full">
+        </Button>
+        <div className="my-3 flex flex-row justify-between text-muted-foreground items-center w-full">
           <div className="flex flex-row justify-start items-center">
             <span className="text-sm font-medium">Christian B. Martinez</span>
             <span className="h-4 w-0.5 mx-2 rounded bg-zinc-700" />

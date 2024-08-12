@@ -1,8 +1,8 @@
 "use client"
 
-import { useState } from "react"
 import { cn } from "@/lib"
 import { cva, type VariantProps } from "class-variance-authority"
+import { useState } from "react"
 
 import { CheckIcon, CopyClipboardIcon } from "./icons"
 
@@ -12,7 +12,7 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-background text-foreground hover:text-accent hover:bg-primary/80",
+          "bg-background text-foreground hover:text-accent-foreground hover:bg-primary/80",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
@@ -20,7 +20,7 @@ export const buttonVariants = cva(
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost:
-          "text-center hover:bg-accent hover:text-accent-foreground transition-all duration-400 ease-in-out",
+          "bg-transparent hover:bg-accent hover:text-accent-foreground",
         link: "no-underline hover:underline text-foreground",
       },
       size: {
@@ -36,7 +36,6 @@ export const buttonVariants = cva(
     },
   }
 )
-
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {}
@@ -53,15 +52,14 @@ export function Button({ className, variant, size, ...props }: ButtonProps) {
 }
 Button.displayName = "Button"
 
-export function CopyCodeButton({ children }: { children: React.ReactNode }) {
+export function CopyCodeButton({ code }: { code: string }) {
   const [copied, setCopied] = useState(false)
 
   function handleMouseDown() {
     if (!navigator.clipboard) {
-      // Use popover later
       console.log("Feature not currently supported in your browser.")
     }
-    navigator.clipboard.writeText(children as string)
+    navigator.clipboard.writeText(code)
     setCopied(true)
 
     setTimeout(() => {
@@ -70,9 +68,8 @@ export function CopyCodeButton({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <>
       <Button
-        className="relative size-4 appearance-none p-2 border-none outline-none"
+        className="relative size-4 appearance-none p-2"
         variant="ghost"
         onMouseDown={handleMouseDown}
         size="icon"
@@ -80,24 +77,25 @@ export function CopyCodeButton({ children }: { children: React.ReactNode }) {
         <CopyClipboardIcon
           style={{
             position: "absolute",
-            top: "0",
-            right: "0",
-            strokeDasharray: "50",
+            top: 0,
+            right: 0,
+            strokeDasharray: 50,
             strokeDashoffset: copied ? -50 : 0,
+            transition: "all 0.3s ease-in-out",
           }}
         />
         <CheckIcon
           style={{
             position: "absolute",
             color: "#22c55e",
-            top: "0",
-            right: "0",
+            top: 0,
+            right: 0,
             visibility: `${copied ? "visible" : "hidden"}`,
-            strokeDasharray: "50",
-            strokeDashoffset: `${copied ? "0" : "-50"}`,
+            strokeDasharray: 50,
+            strokeDashoffset: copied ? 0 : -50,
+            transition: "all 0.3s ease-in-out",
           }}
         />
       </Button>
-    </>
   )
 }

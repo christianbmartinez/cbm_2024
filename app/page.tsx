@@ -1,4 +1,4 @@
-import { GradientBorder, Posts } from "@/components"
+import { Posts } from "@/components"
 import type { Metadata } from "next/types"
 
 export const metadata: Metadata = {
@@ -9,7 +9,6 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <section>
-      <GradientBorder><h1>Hello World</h1></GradientBorder>
       <h1 className="text-4xl font-semibold tracking-tighter">{`Welcome!`}</h1>
       <p className="mb-4 text-sm lg:text:lg">
         {`Hi, my name is Christian! I am a full stack engineer from Utah and a

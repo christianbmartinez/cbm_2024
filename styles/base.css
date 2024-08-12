@@ -1,8 +1,4 @@
-*,
-::after,
-::before,
-::backdrop,
-::file-selector-button {
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -13,10 +9,11 @@ html {
   scrollbar-width: thin;
   -webkit-tap-highlight-color: transparent;
   -webkit-text-size-adjust: 100%;
+  width: 100vw;
+  height: 100%;
 }
 
 body {
-  @apply antialiased scroll-smooth font-sans text-base leading-7 bg-background text-foreground;
   font-feature-settings: var(--default-font-feature-settings, normal);
   font-variation-settings: var(--default-font-variation-settings, normal);
   font-synthesis: none;
@@ -66,8 +63,7 @@ button,
 input,
 optgroup,
 select,
-textarea,
-::file-selector-button {
+textarea{
   @apply font-sans text-inherit bg-transparent tracking-normal;
 }
 
@@ -84,7 +80,7 @@ input:where([type="button"], [type="reset"], [type="submit"]),
 }
 
 summary {
-  @apply list-decimal;
+  @apply list-none;
 }
 
 fieldset,
