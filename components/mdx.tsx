@@ -3,10 +3,9 @@ import Image, { type ImageProps } from "next/image"
 import Link from "next/link"
 import { createElement, type ReactNode } from "react"
 
-import { highlight } from "@/lib/plugins/highlight"
+import { highlight } from "@/lib/plugins"
 
-import type { SerializeOptions } from "next-mdx-remote/dist/types"
-import { CopyCodeButton, JSLogoIcon, ReactLogoIcon, TSLogoIcon } from "./ui"
+import { CopyCodeButton, JSLogoIcon, ReactLogoIcon, TSLogoIcon } from "@/components/ui"
 
 function H(level: number) {
   const Heading = ({ children }: { children: string }) => {
@@ -25,7 +24,7 @@ function H(level: number) {
         createElement("a", {
           href: `#${slug}`,
           key: `h${level}-link-${slug}`,
-          className: "anchor",
+          ["data-anchor"]: true,
         }),
       ],
       children
@@ -58,7 +57,7 @@ export function Img({
     alt={alt}
     loading={loading}
     priority={priority}
-    className={className}
+    className={"w-full h-64 rounded-lg my-6 hover:saturate-200 hover:blur-sm"}
     {...props}
     />
   )
@@ -75,20 +74,18 @@ function A(
   if (props.href?.startsWith("/")) {
     return (
       <Link
-        alt={props.alt ?? "Visit the next page"}
+        alt={props.alt ?? "Visit this page"}
         href={props.href}
+        className="underline transition-all decoration-accent-foreground underline-offset-2 decoration-[0.1em]"
+        target="_blank" 
+        rel="noopener noreferrer"
         {...props}
       >
         {props.children}
       </Link>
     )
   }
-
-  if (props.href?.startsWith("#")) {
-    return <a alt={props.alt ?? "Visit blog section by hash id"} {...props} />
-  }
-
-  return <a target="_blank" rel="noopener noreferrer" {...props} />
+    return <a className="cursor-pointer decoration-0 text-foreground hover:text-muted-foreground" alt={props.alt ?? "Visit blog section by id"} href={props.href} {...props} />
 }
 
 function Pre({
@@ -108,22 +105,21 @@ function Pre({
 
   switch (ext) {
     case ".ts":
-      icon = <TSLogoIcon fill="#currentColor" />
+      icon = <TSLogoIcon fill="var(--color-accent-foreground)" />
       break
-    case ".tsx":
-    case ".jsx":
-      icon = <ReactLogoIcon fill="#61DAFB" />
+    case ".tsx" || ".jsx":
+      icon = <ReactLogoIcon fill="var(--color-hl-cls)" />
       break
     case ".js":
-      icon = <JSLogoIcon fill="currentColor" />
+      icon = <JSLogoIcon fill="var(--color-accent-foreground)"/>
       break
     default:
-      icon = <TSLogoIcon fill="currentColor" />
+      icon = <ReactLogoIcon fill="var(--color-hl-cls)"/>
   }
 
   return (
-    <pre className="w-full sm:max-w-mdx rounded-md border border-solid border-border my-6 flex flex-col whitespace-pre">
-      <div className="flex flex-row h-8 p-6 justify-between items-center bg-background border-b border-border border-solid">
+    <pre className="w-full rounded-md border border-solid border-border my-6 flex flex-col whitespace-pre">
+      <div className="flex flex-row h-8 px-6 justify-between items-center bg-background border-b border-border border-solid">
         <div className="flex flex-col w-1/4 justify-start items-start">
           {icon}
         </div>
@@ -133,9 +129,8 @@ function Pre({
         <div className="flex flex-col w-1/4 justify-end items-end">
           <CopyCodeButton code={children}/>
         </div>
-        <hr />
       </div>
-      <code className="border-none bg-background leading-normal font-mono font-medium text-sm h-auto pt-4 w-4/4 max-h-96 overflow-scroll" dangerouslySetInnerHTML={{ __html: highlight(children) }} />
+      <code className="w-full h-auto border-none bg-background leading-normal font-mono font-normal text-sm pt-4 max-h-96 overflow-scroll" dangerouslySetInnerHTML={{ __html: highlight(children) }} />
     </pre>
   )
 }
@@ -153,7 +148,7 @@ function List({ children, listStyle = "list-disc" }: { children: ReactNode; list
 }
 
 function InlineCode({ text }: { text: string }) {
-  return <code className="inline-code">{text}</code>
+  return <code className="relative rounded-sm bg-muted py-2 px-3 text-sm font-normal">{text}</code>
 }
 
 const MdxComponents = {
@@ -169,14 +164,10 @@ const MdxComponents = {
   a: A,
 }
 
-type MdxProps = Partial<MDXRemoteProps> & {
-  components?: React.ComponentPropsWithRef<React.ElementType>
-  source: any | string
-  options?: SerializeOptions
-}
-
 export function Mdx(
-  props: MdxProps
+  props: MDXRemoteProps & {
+    components?: React.ComponentPropsWithRef<React.ElementType>
+  }
 ): JSX.Element {
   return (
     <MDXRemote

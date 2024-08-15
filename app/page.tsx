@@ -8,17 +8,17 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <section>
-      <h1 className="text-4xl font-semibold tracking-tighter">{`Welcome!`}</h1>
-      <p className="mb-4 text-sm lg:text:lg">
-        {`Hi, my name is Christian! I am a full stack engineer from Utah and a
-        contributor of open source. Additionally, I am also a father, a husband,
-        an agency founder, and an avid web-tinkerer. I love learning, and
-        sharing my knowledge with others. I am passionate about web development,
-        design, tooling, and ai. I am always looking for new opportunities to
-        learn and grow.`}
-      </p>
-      <Posts />
-    </section>
+      <section>
+        <h1 className="text-4xl font-semibold tracking-tighter">{`Welcome!`}</h1>
+        <p className="mb-4 text-sm lg:text:lg">
+          {`Hi, my name is Christian! I am a full stack engineer from Utah and a
+          contributor of open source. Additionally, I am also a father, a husband,
+          an agency founder, and an avid web-tinkerer. I love learning, and
+          sharing my knowledge with others. I am passionate about web development,
+          design, tooling, and ai. I am always looking for new opportunities to
+          learn and grow.`}
+        </p>
+        <Posts />
+      </section>
   )
 }

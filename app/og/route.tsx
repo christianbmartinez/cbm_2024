@@ -1,4 +1,4 @@
-import { baseUrl } from "@/config"
+import { baseUrl } from "@/lib/config"
 import { ImageResponse } from "next/og"
 
 export async function GET(request: Request) {

@@ -56,3 +56,4 @@ export const footerLinks = [
     href: "/sitemap.xml",
   },
 ]
+

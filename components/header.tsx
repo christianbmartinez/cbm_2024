@@ -1,5 +1,5 @@
 import { Button, ThemeToggle } from "@/components"
-import { navLinks } from "@/config"
+import { navLinks } from "@/lib/config"
 import Link from "next/link"
 
 export function Header() {

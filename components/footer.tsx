@@ -1,5 +1,5 @@
+import { footerLinks, socialLinks } from "@/lib/config"
 import Link from "next/link"
-import { footerLinks, socialLinks } from "@/config"
 
 import { Button } from "./ui"
 

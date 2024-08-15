@@ -1,7 +1,7 @@
-import { Button, Mdx, ReadingTimeIcon } from "@/components"
-import { baseUrl } from "@/config"
-import { formatDate, formatReadingTime, getPosts } from "@/lib"
-import type { Params } from "@/lib/types"
+import { Mdx, ReadingTimeIcon } from "@/components"
+import { d, getPosts, rt } from "@/lib"
+import { baseUrl } from "@/lib/config"
+import type { BlogRouterParams } from "@/types"
 import { notFound } from "next/navigation"
 
 export function generateStaticParams() {
@@ -11,7 +11,7 @@ export function generateStaticParams() {
   }))
 }
 
-export function generateMetadata({ params }: { params: Params }) {
+export function generateMetadata({ params }: { params: BlogRouterParams }) {
   const post = getPosts().find((post) => post.slug === params.slug)
 
   if (!post) {
@@ -50,7 +50,7 @@ export function generateMetadata({ params }: { params: Params }) {
   }
 }
 
-export default function Page({ params }: { params: Params }) {
+export default function Page({ params }: { params: BlogRouterParams }) {
   const post = getPosts().find((post) => post.slug === params.slug)
 
   if (!post) {
@@ -61,7 +61,7 @@ export default function Page({ params }: { params: Params }) {
   const { content, slug } = post
 
   return (
-    <article className="my-28">
+    <article className="my-28 w-full">
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -85,24 +85,22 @@ export default function Page({ params }: { params: Params }) {
         }}
       />
       <header>
-        <Button>
-          <ReadingTimeIcon className="size-3" />
-          &nbsp;
-          {formatReadingTime(publishedAt)}
-        </Button>
+        <div className="flex flex-row px-2 py-3 bg-foreground text-bg border border-foreground border-solid hover:accent-foreground hover:border-none transition-colors duration-300 ease-in-out">
+          <ReadingTimeIcon className="size-3 mr-4" />
+          {rt(publishedAt)}
+        </div>
         <div className="my-3 flex flex-row justify-between text-muted-foreground items-center w-full">
           <div className="flex flex-row justify-start items-center">
             <span className="text-sm font-medium">Christian B. Martinez</span>
             <span className="h-4 w-0.5 mx-2 rounded bg-zinc-700" />
             <time dateTime={publishedAt} className="text-muted-foreground">
               <span className="text-sm font-medium">
-                {formatDate(publishedAt)}
+                {d(publishedAt)}
               </span>
             </time>
           </div>
         </div>
         <h1 className="text-foreground">{title}</h1>
-
       </header>
       <Mdx source={content} />
     </article>

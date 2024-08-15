@@ -55,7 +55,7 @@ Button.displayName = "Button"
 export function CopyCodeButton({ code }: { code: string }) {
   const [copied, setCopied] = useState(false)
 
-  function handleMouseDown() {
+  function handleKeyDown() {
     if (!navigator.clipboard) {
       console.log("Feature not currently supported in your browser.")
     }
@@ -64,14 +64,19 @@ export function CopyCodeButton({ code }: { code: string }) {
 
     setTimeout(() => {
       setCopied(false)
-    }, 1000)
+    }, 2000)
   }
 
   return (
       <Button
-        className="relative size-4 appearance-none p-2"
+        role="button"
+        arial-label="Copy Code Button"
+        aria-pressed={copied ? "true" : "false"}
+        aria-controls="code"
+        tabIndex={0}
+        className="relative size-4 appearance-none"
         variant="ghost"
-        onMouseDown={handleMouseDown}
+        onKeyDown={handleKeyDown}
         size="icon"
       >
         <CopyClipboardIcon
@@ -81,7 +86,7 @@ export function CopyCodeButton({ code }: { code: string }) {
             right: 0,
             strokeDasharray: 50,
             strokeDashoffset: copied ? -50 : 0,
-            transition: "all 0.3s ease-in-out",
+            transition: "all 1s ease-in-out",
           }}
         />
         <CheckIcon
@@ -93,7 +98,7 @@ export function CopyCodeButton({ code }: { code: string }) {
             visibility: `${copied ? "visible" : "hidden"}`,
             strokeDasharray: 50,
             strokeDashoffset: copied ? 0 : -50,
-            transition: "all 0.3s ease-in-out",
+            transition: "all 1s ease-in-out",
           }}
         />
       </Button>

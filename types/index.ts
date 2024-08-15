@@ -19,7 +19,7 @@ export type SocialLinks = {
 
 export type IconProps = React.SVGProps<SVGSVGElement>
 
-export type Params =
+export type BlogRouterParams =
   | NextApiRequest["query"]
   | {
       slug: string
@@ -30,18 +30,4 @@ export type MdxMetadata = {
   publishedAt: string
   summary: string
   image?: string
-}
-
-export type ErrorReport = {
-  error?:
-    | (Error & {
-        cause?: string
-        name?: string | undefined
-        message?: string | undefined
-        digest?: string | undefined
-        stack?: string | undefined
-        timestamp: string
-      })
-    | null
-  reset: () => void
 }

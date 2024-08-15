@@ -14,21 +14,24 @@ module.exports = {
     ],
   },
   experimental: {
-    optimizePackageImports: [
-      "react",
-      "react-dom",
-      "next-mdx-remote",
-      "next-themes",
-    ],
     optimizeServerReact: true,
     webpackBuildWorker: true,
   },
   transpilePackages: ["next-mdx-remote"],
   webpack(config, { isServer, dev }) {
-    if (!isServer || dev) {
-      config.resolve.alias.fs = false
-      config.resolve.alias.path = false
-    }
+    if (!isServer || !dev) {
+    //   config.resolve.alias.fs = false
+    //   config.resolve.alias.path = false
+    // }
+    Object.assign(config.resolve.alias, {
+      fs:false,
+      path: false,
+      "react/jsx-runtime.js": "preact/compat/jsx-runtime",
+      react: "preact/compat",
+      "react-dom/test-utils": "preact/test-utils",
+      "react-dom": "preact/compat",
+    });
     return config
-  },
+  }
+}
 }

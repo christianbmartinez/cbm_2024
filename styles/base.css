@@ -44,48 +44,48 @@ strong {
   @apply font-extrabold;
 }
 
+code,
 kbd,
 samp,
 pre {
   @apply font-mono text-sm;
 }
 
-code:where([class*="inline-code"]) {
-  @apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
-}
-
 sub,
 sup {
-  @apply tracking-normal;
+  letter-spacing: var(--letter-spacing-normal);
 }
 
 button,
 input,
 optgroup,
 select,
-textarea{
-  @apply font-sans text-inherit bg-transparent tracking-normal;
+textarea {
+  color: inherit;
+  background: inherit;
+  letter-spacing: var(--letter-spacing-normal);
 }
 
 input:where(:not([type="button"], [type="reset"], [type="submit"])),
 select,
 textarea {
-  @apply border border-solid border-border rounded-md;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
 }
 
 button,
 input:where([type="button"], [type="reset"], [type="submit"]),
 ::file-selector-button {
-  @apply appearance-auto;
+  appearance: "button";
 }
 
 summary {
-  @apply list-none;
+  list-style-type: none;
 }
 
 fieldset,
 legend {
-  @apply p-0;
+  padding: 0;
 }
 
 ::placeholder {

@@ -4,14 +4,12 @@ My annual dev portfolio build 🫡
 
 Currently in development 🚧
 
-Using twv4 which is not tested in the way I am using it.
+Using twv4 which is not tested in the way I am using it. Just experimenting with it for now.
 
-Using a custom highlighter I wrote locally with swc/cli for the highlighter. I ommitted that for now. It's a modified version of [sugar-high](https://sugar-high.vercel.app/) that I plan on building upon.
+Using a custom highlighter I wrote locally with swc/cli for the highlighter. I omitted that for now. It's a modified version of [sugar-high](https://sugar-high.vercel.app/) that I plan on building upon.
 
-You can use sugar-high as a replacement for the highlighter.
+You can use sugar-high highlight function directly as a replacement for the highlighter. Follow the documentation for styling.
 
-This is the first commit, use only as a starting point! Do not use in production.
+Use only as a starting point! Do not use in production.
 
 Fixes, features, and updates to come 🚀
-
-Special thanks to [shadcn](https://ui.shadcn.com)
