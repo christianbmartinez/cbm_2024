@@ -1,6 +1,0 @@
-{
-  "/page": "app/page.js",
-  "/blog/[slug]/page": "app/blog/[slug]/page.js",
-  "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js",
-  "/icon/[[...__metadata_id__]]/route": "app/icon/[[...__metadata_id__]]/route.js"
-}
