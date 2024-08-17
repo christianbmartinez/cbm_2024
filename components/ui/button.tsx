@@ -7,7 +7,7 @@ import { useState } from "react"
 import { CheckIcon, CopyClipboardIcon } from "./icons"
 
 export const buttonVariants = cva(
-  "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background",
+  "inline-flex items-center justify-center text-sm font-medium transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background",
   {
     variants: {
       variant: {
@@ -24,10 +24,10 @@ export const buttonVariants = cva(
         link: "no-underline hover:underline text-foreground",
       },
       size: {
-        default: "h-10 py-2 px-4",
-        sm: "h-9 px-3 rounded-md",
+        default: "h-10 py-2 px-4 rounded",
+        sm: "h-9 px-3 rounded-sm",
         lg: "h-11 px-8 rounded-md",
-        icon: "size-10",
+        icon: "size-10 rounded",
       },
     },
     defaultVariants: {

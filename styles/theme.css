@@ -59,15 +59,15 @@
   --color-input: 220 13% 91%;
   --color-ring: 262.1 83.3% 57.8%;
 
-  --color-hl-idt: #e8e8e8;
-  --color-hl-key: #f47067;
-  --color-hl-str: #00a99a;
-  --color-hl-cls: #8d85ff;
-  --color-hl-pty: #4e8fdf;
-  --color-hl-ent: #6eafad;
-  --color-hl-jsx: #bf7db6;
-  --color-hl-sgn: #8996a3;
-  --color-hl-cmt: #a19595;
+  --color-c-idt: #e8e8e8;
+  --color-c-key: #f47067;
+  --color-c-str: #00a99a;
+  --color-c-cls: #8d85ff;
+  --color-c-pty: #4e8fdf;
+  --color-c-ent: #6eafad;
+  --color-c-jsx: #bf7db6;
+  --color-c-sgn: #8996a3;
+  --color-c-cmt: #a19595;
 
   /* Animations */
   --animate-*: initial;
@@ -169,7 +169,7 @@
   /* Fonts */
   --font-family-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-family-serif: var(--font-sans), ui-serif, Georgia, Cambria,
+  --font-family-serif: ui-serif, Georgia, Cambria,
     "Times New Roman", Times, serif;
   --font-family-sans--font-variation-settings: "normal";
   --font-family-sans--font-feature-settings: "wght" 300 800;
@@ -275,13 +275,13 @@ html:where([style="color-scheme: dark"]) {
   --color-border: hsl(215, 27.9%, 16.9%);
   --color-input: hsl(215, 27.9%, 16.9%);
   --color-ring: hsl(263.4, 70%, 50.4%);
-  --color-hl-idt: #8263df;
-  --color-hl-key: #de508b;
-  --color-hl-str: #eeeeee;
-  --color-hl-cls: #48c8d2;
-  --color-hl-pty: #de508b;
-  --color-hl-ent: #5e9fff;
-  --color-hl-jsx: #eeeeee;
-  --color-hl-sgn: #48c8d2;
-  --color-hl-cmt: #7d7d7d;
+  --color-c-idt: #8263df;
+  --color-c-key: #de508b;
+  --color-c-str: #eeeeee;
+  --color-c-cls: #48c8d2;
+  --color-c-pty: #de508b;
+  --color-c-ent: #5e9fff;
+  --color-c-jsx: #eeeeee;
+  --color-c-sgn: #48c8d2;
+  --color-c-cmt: #7d7d7d;
 }

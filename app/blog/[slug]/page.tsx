@@ -1,5 +1,5 @@
 import { Mdx, ReadingTimeIcon } from "@/components"
-import { d, getPosts, rt } from "@/lib"
+import { d, getPosts } from "@/lib"
 import { baseUrl } from "@/lib/config"
 import type { BlogRouterParams } from "@/types"
 import { notFound } from "next/navigation"
@@ -85,20 +85,18 @@ export default function Page({ params }: { params: BlogRouterParams }) {
         }}
       />
       <header>
-        <div className="flex flex-row px-2 py-3 bg-foreground text-bg border border-foreground border-solid hover:accent-foreground hover:border-none transition-colors duration-300 ease-in-out">
-          <ReadingTimeIcon className="size-3 mr-4" />
-          {rt(publishedAt)}
-        </div>
-        <div className="my-3 flex flex-row justify-between text-muted-foreground items-center w-full">
+        <div className="my-3 flex flex-row justify-between items-center w-full cursor-default">
           <div className="flex flex-row justify-start items-center">
-            <span className="text-sm font-medium">Christian B. Martinez</span>
-            <span className="h-4 w-0.5 mx-2 rounded bg-zinc-700" />
-            <time dateTime={publishedAt} className="text-muted-foreground">
-              <span className="text-sm font-medium">
-                {d(publishedAt)}
+            <span className="text-sm font-medium text-muted-foreground">Christian B. Martinez</span>
+          </div>
+          <div className="flex flex-row justify-end items-center rounded-md bg-transparent text-primary border border-primary ring-offset-border text-sm font-medium pb-1 pt-0.5 px-2">
+          <ReadingTimeIcon className="size-3" />&nbsp;
+          <time dateTime={publishedAt}>
+              <span className="text-xs font-medium pb-2">
+                {d(publishedAt,true)}
               </span>
             </time>
-          </div>
+        </div>
         </div>
         <h1 className="text-foreground">{title}</h1>
       </header>

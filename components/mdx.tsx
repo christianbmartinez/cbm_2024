@@ -3,7 +3,7 @@ import Image, { type ImageProps } from "next/image"
 import Link from "next/link"
 import { createElement, type ReactNode } from "react"
 
-import { highlight } from "@/lib/plugins"
+import { highlight } from "@/lib"
 
 import { CopyCodeButton, JSLogoIcon, ReactLogoIcon, TSLogoIcon } from "@/components/ui"
 
@@ -105,13 +105,13 @@ function Pre({
 
   switch (ext) {
     case ".ts":
-      icon = <TSLogoIcon fill="var(--color-accent-foreground)" />
+      icon = <TSLogoIcon fill="var(--color-h1-cmt)" />
       break
     case ".tsx" || ".jsx":
       icon = <ReactLogoIcon fill="var(--color-hl-cls)" />
       break
     case ".js":
-      icon = <JSLogoIcon fill="var(--color-accent-foreground)"/>
+      icon = <JSLogoIcon fill="var(--color-hl-cmt)"/>
       break
     default:
       icon = <ReactLogoIcon fill="var(--color-hl-cls)"/>

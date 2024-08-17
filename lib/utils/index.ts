@@ -1,8 +1,8 @@
-import type { MdxMetadata } from '@/types'
-import { type ClassValue as CV, clsx as c } from 'clsx/lite'
-import _f from 'fs'
-import _p from 'path'
-import { twMerge as m } from 'tailwind-merge'
+import type { MdxMetadata } from '@/types';
+import { type ClassValue, clsx } from 'clsx';
+import fs from 'fs';
+import path from 'path';
+import { twMerge } from 'tailwind-merge';
 
 // A function to parse frontmatter from .mdx files.
 function fm(y: string) {
@@ -24,15 +24,15 @@ function fm(y: string) {
   }
   // A function to get all posts from the blog directory.
   export function getPosts() {
-    const d = _p.join(process.cwd(), 'app', 'blog', 'posts')
-    const x = _f
+    const d = path.join(process.cwd(), 'app', 'blog', 'posts')
+    const x = fs
       .readdirSync(d)
-      .filter((y) => _p.extname(y) === '.mdx')
+      .filter((y) => path.extname(y) === '.mdx')
       .map((y) => {
         const { metadata, content } = fm(
-          _f.readFileSync(_p.join(d, y), 'utf-8')
+          fs.readFileSync(path.join(d, y), 'utf-8')
         )
-        const slug = _p.basename(y, _p.extname(y))
+        const slug = path.basename(y, path.extname(y))
   
         return {
             metadata,
@@ -44,8 +44,8 @@ function fm(y: string) {
   }
 
 // A function to evaluate and merge tw classnames.
-export function cn(...i: CV[]) {
-  return m(c(i))
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
 }
 // A function to format a date with options. 
 // Param d=date(string) is the date to be formatted.
@@ -73,11 +73,11 @@ export function d(d: string, e=false) {
   let x = ""
 
   if (Y > 0) {
-    x = `${Y > 1 ? "years" : "year"} ago`
+    x = `${Y} ${Y > 1 ? "years" : "year"} ago`
   } else if (M > 0) {
-    x = `${M > 1 ? "months" : "month"} ago`
+    x = `${M} ${M > 1 ? "months" : "month"} ago`
   } else if (D > 0) {
-    x = `${D > 1 ? "days" : "day"} ago`
+    x = `${D} ${D > 1 ? "days" : "day"} ago`
   } else {
     x = "Today"
   }
@@ -92,15 +92,15 @@ export function rt(x: string) {
   const d = Math.ceil(m)
   return `${d} min read`
 }
-// A function to generate file size.
+// A function to generate bytes
 // Param b=bytes(number) is the file character length.
-export function fs(b: number) {
+export function gb(b: number) {
   if (b === 0) {
     return '0 Bytes'
   }
   const k = 1024
   const i = Math.floor(Math.log(b) / Math.log(k))
-  const s = [' Bytes', ' KB', ' MB'] 
+  const s = [' Bytes', ' KB', ' MB' , ' GB'] 
 
-  return parseFloat((b / Math.pow(k, i)).toFixed(2)) + " " + s[i]
+  return `${parseFloat((b / Math.pow(k, i)).toFixed(2)) + s[i]}`
 }

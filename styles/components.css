@@ -1,57 +1,57 @@
 /* Mdx + Highlight */
-hl-line:before {
-  counter-increment: hl-line-num 1;
-  content: counter(hl-line-num);
+c-ln:before {
+  counter-increment: c-ln-num 1;
+  content: counter(c-ln-num);
   text-align: right;
-  color: var(--color-hl-cmt);
+  color: var(--color-c-cmt);
   width: 28px;
   margin-left: -28px;
   margin-right: 28px;
   display: inline-block;
 }
 
-hl-line-num {
-  color: var(--color-hl-cmt);
+c-ln-num {
+  color: var(--color-c-cmt);
 }
 
-pre > code {
-  counter-reset: hl-line-num;
+pre > div > code {
+  counter-reset: c-ln-num;
 }
 
-hl-cls {
-  color: var(--color-hl-cls);
+c-cls {
+  color: var(--color-c-cls);
 }
 
-hl-idt {
-  color: var(--color-hl-idt);
+c-idt {
+  color: var(--color-c-idt);
 }
 
-hl-sgn {
-  color: var(--color-hl-sgn);
+c-sgn {
+  color: var(--color-c-sgn);
 }
 
-hl-str {
-  color: var(--color-hl-str);
+c-str {
+  color: var(--color-c-str);
 }
 
-hl-key {
-  color: var(--color-hl-key);
+c-key {
+  color: var(--color-c-key);
 }
 
-hl-cmt {
-  color: var(--color-hl-cmt);
+c-cmt {
+  color: var(--color-c-cmt);
 }
 
-hl-jsx {
-  color: var(--color-hl-jsx);
+c-jsx {
+  color: var(--color-c-jsx);
 }
 
-hl-pty {
-  color: var(--color-hl-pty);
+c-pty {
+  color: var(--color-c-pty);
 }
 
-hl-ent {
-  color: var(--color-hl-ent);
+c-ent {
+  color: var(--color-c-ent);
 }
 
 [data-anchor] {

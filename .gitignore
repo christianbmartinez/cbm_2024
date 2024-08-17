@@ -1,9 +1,6 @@
 # dependencies
 node_modules
 
-# next.js
-.cbm/
-
 # misc
 .DS_Store
 */**/.DS_Store 
@@ -18,9 +15,6 @@ pnpm-lock.yaml
 lib/fonts
 lib/plugins
 app/globals.css
-
-# experimental
-experimental
 
 # notes 
 notes.mdx
