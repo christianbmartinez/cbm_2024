@@ -1,6 +1,9 @@
 # dependencies
 node_modules
 
+# build files
+.next
+
 # misc
 .DS_Store
 */**/.DS_Store 
