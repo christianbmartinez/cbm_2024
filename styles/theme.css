@@ -1,6 +1,6 @@
 @theme {
-  /* Defaults */
-  --default-transition-duration: 300ms;
+  /* Light Mode */
+  --default-transition-duration: 400ms;
   --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   --default-font-family: var(--font-family-sans);
   --default-font-feature-settings: var(
@@ -26,48 +26,65 @@
 
   /* Colors */
   --color-*: initial;
-  --color-zinc-50: #fafafa;
-  --color-zinc-100: #f4f4f5;
-  --color-zinc-200: #e4e4e7;
-  --color-zinc-300: #d4d4d8;
-  --color-zinc-400: #a1a1aa;
-  --color-zinc-500: #71717a;
-  --color-zinc-600: #52525b;
-  --color-zinc-700: #3f3f46;
-  --color-zinc-800: #27272a;
-  --color-zinc-900: #18181b;
-  --color-zinc-950: #09090b;
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+  --color-slate-950: #020617;
+  
+  /*
+  --color-smurf: #f5f4ff;
+  --color-smurf-50: #d5d4ff;
+  --color-smurf-100: #a6a4ed;
+  --color-smurf-200: #8581ff;
+  --color-smurf-300: #736eff;
+  --color-smurf-400: #5854d7;
+  --color-smurf-500: #1a14df;
+  --color-smurf-600: #1712c8;
+  --color-smurf-700: #0f17a0;
+  --color-smurf-800: #110a72;
+  --color-smurf-900: #0a0053;
+  --color-smurf-950: #050030;
+  --color-smurf-1000: #020029; 
+  */
 
   /* shadcn/ui */
-  --color-background: 0 0% 100%;
-  --color-foreground: 224 71.4% 4.1%;
-  --color-card: 0 0% 100%;
-  --color-card-foreground: 224 71.4% 4.1%;
-  --color-popover: 0 0% 100%;
-  --color-popover-foreground: 224 71.4% 4.1%;
-  --color-primary: 262.1 83.3% 57.8%;
-  --color-primary-foreground: 210 20% 98%;
-  --color-secondary: 220 14.3% 95.9%;
-  --color-secondary-foreground: 220.9 39.3% 11%;
-  --color-muted: 220 14.3% 95.9%;
-  --color-muted-foreground: 220 8.9% 46.1%;
-  --color-accent: 220 14.3% 95.9%;
-  --color-accent-foreground: 220.9 39.3% 11%;
-  --color-destructive: 0 84.2% 60.2%;
-  --color-destructive-foreground: 210 20% 98%;
-  --color-border: 220 13% 91%;
-  --color-input: 220 13% 91%;
-  --color-ring: 262.1 83.3% 57.8%;
+  --color-background: hsl(0, 0%, 100%);
+  --color-foreground: hsl(222.2, 84%, 4.9%);
+  --color-card: hsl(0, 0%, 100%);
+  --color-card-foreground: hsl(222.2, 84%, 4.9%);
+  --color-popover: hsl(0, 0%, 100%);
+  --color-popover-foreground: hsl(222.2, 84%, 4.9%);
+  --color-primary: hsl(222.2, 47.4%, 11.2%);
+  --color-primary-foreground: hsl(210, 40%, 98%);
+  --color-secondary: hsl(210, 40%, 96.1%);
+  --color-secondary-foreground: hsl(222.2, 47.4%, 11.2%);
+  --color-muted: hsl(210, 40%, 96.1%);
+  --color-muted-foreground: hsl(215.4, 16.3%, 46.9%);
+  --color-accent: hsl(210, 40%, 96.1%);
+  --color-accent-foreground: hsl(222.2, 47.4%, 11.2%);
+  --color-destructive: hsl(0, 84.2%, 60.2%);
+  --color-destructive-foreground: hsl(210, 40%, 98%);
+  --color-border: hsl(214.3, 31.8%, 91.4%);
+  --color-input: hsl(214.3, 31.8%, 91.4%);
+  --color-ring: hsl(222.2, 84%, 4.9%);
 
-  --color-c-idt: #e8e8e8;
-  --color-c-key: #f47067;
-  --color-c-str: #00a99a;
-  --color-c-cls: #8d85ff;
-  --color-c-pty: #4e8fdf;
-  --color-c-ent: #6eafad;
-  --color-c-jsx: #bf7db6;
-  --color-c-sgn: #8996a3;
-  --color-c-cmt: #a19595;
+  /* Highlighter */
+  --color-hl-idt: #f5f4ff;
+  --color-hl-key: #cd137a;
+  --color-hl-str: #087c69;
+  --color-hl-cls: #8c0ec5;
+  --color-hl-pty: #0069cd;
+  --color-hl-ent: #087c69;
+  --color-hl-jsx: #8c0ec5;
+  --color-hl-sgn: #cbd5e1;
+  --color-hl-cmt: #dddddd;
 
   /* Animations */
   --animate-*: initial;
@@ -84,14 +101,14 @@
 
   /* Radii */
   --radius-*: initial;
-  --radius: 0.65rem;
-  --radius-sm: 0.70rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 0.80rem;
-  --radius-xl: 0.85rem;
+  --radius: 0.60rem;
+  --radius-sm: 0.65rem;
+  --radius-md: 0.70rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 0.80rem;
   --radius-full: 50%;
-
-
+  --radius-none: 0; 
+  
   /* Shadows */
   --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --shadow-xs: 0 1px rgb(0 0 0 / 0.05);
@@ -256,32 +273,34 @@
 .dark,
 html:where([class="dark"]),
 html:where([style="color-scheme: dark"]) {
-  --color-background: hsl(224, 71.4%, 4.1%);
-  --color-foreground: hsl(210, 20%, 98%);
-  --color-card: hsl(224, 71.4%, 4.1%);
-  --color-card-foreground: hsl(210, 20%, 98%);
-  --color-popover: hsl(224, 71.4%, 4.1%);
-  --color-popover-foreground: hsl(210, 20%, 98%);
-  --color-primary: hsl(263.4, 70%, 50.4%);
-  --color-primary-foreground: hsl(210, 20%, 98%);
-  --color-secondary: hsl(215, 27.9%, 16.9%);
-  --color-secondary-foreground: hsl(210, 20%, 98%);
-  --color-muted: hsl(215, 27.9%, 16.9%);
-  --color-muted-foreground: hsl(217.9, 10.6%, 64.9%);
-  --color-accent: hsl(215, 27.9%, 16.9%);
-  --color-accent-foreground: hsl(210, 20%, 98%);
+  /* shadcn/ui dark theme */
+  --color-background: hsl(222.2, 84%, 4.9%);
+  --color-foreground: hsl(210, 40%, 98%);
+  --color-card: hsl(222.2, 84%, 4.9%);
+  --color-card-foreground: hsl(210, 40%, 98%);
+  --color-popover: hsl(222.2, 84%, 4.9%);
+  --color-popover-foreground: hsl(210, 40%, 98%);
+  --color-primary: hsl(210, 40%, 98%);
+  --color-primary-foreground: hsl(222.2, 47.4%, 11.2%);
+  --color-secondary: hsl(217.2, 32.6%, 17.5%);
+  --color-secondary-foreground: hsl(210, 40%, 98%);
+  --color-muted: hsl(217.2, 32.6%, 17.5%);
+  --color-muted-foreground: hsl(215, 20.2%, 65.1%);
+  --color-accent: hsl(217.2, 32.6%, 17.5%);
+  --color-accent-foreground: hsl(210, 40%, 98%);
   --color-destructive: hsl(0, 62.8%, 30.6%);
-  --color-destructive-foreground: hsl(210, 20%, 98%);
-  --color-border: hsl(215, 27.9%, 16.9%);
-  --color-input: hsl(215, 27.9%, 16.9%);
-  --color-ring: hsl(263.4, 70%, 50.4%);
-  --color-c-idt: #8263df;
-  --color-c-key: #de508b;
-  --color-c-str: #eeeeee;
-  --color-c-cls: #48c8d2;
-  --color-c-pty: #de508b;
-  --color-c-ent: #5e9fff;
-  --color-c-jsx: #eeeeee;
-  --color-c-sgn: #48c8d2;
-  --color-c-cmt: #7d7d7d;
+  --color-destructive-foreground: hsl(210, 40%, 98%);
+  --color-border: hsl(217.2, 32.6%, 17.5%);
+  --color-input: hsl(217.2, 32.6%, 17.5%);
+  --color-ring: hsl(212.7, 26.8%, 83.9);
+  /* Highlighter Dark Theme */
+  --color-hl-idt: #8263df;
+  --color-hl-key: #de508b;
+  --color-hl-str: #f8fafc;
+  --color-hl-cls: #48c8d2;
+  --color-hl-pty: #de508b;
+  --color-hl-ent: #5e9fff;
+  --color-hl-jsx: #f8fafc;
+  --color-hl-sgn: #48c8d2;
+  --color-hl-cmt: #334155;
 }

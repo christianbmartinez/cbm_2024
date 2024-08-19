@@ -177,3 +177,75 @@ ol {
 ul {
   @apply list-none;
 }
+
+hl-ln:before {
+  counter-increment: hl-ln-num 1;
+  content: counter(hl-ln-num);
+  text-align: right;
+  color: var(--color-hl-cmt);
+  width: 28px;
+  margin-left: -28px;
+  margin-right: 28px;
+  display: inline-block;
+}
+
+hl-ln-num {
+  color: var(--color-hl-cmt);
+}
+
+pre > div > code {
+  counter-reset: hl-ln-num;
+}
+
+hl-cls {
+  color: var(--color-hl-cls);
+}
+
+hl-idt {
+  color: var(--color-hl-idt);
+}
+
+hl-sgn {
+  color: var(--color-hl-sgn);
+}
+
+hl-str {
+  color: var(--color-hl-str);
+}
+
+hl-key {
+  color: var(--color-hl-key);
+}
+
+hl-cmt {
+  color: var(--color-hl-cmt);
+}
+
+hl-jsx {
+  color: var(--color-hl-jsx);
+}
+
+hl-pty {
+  color: var(--color-hl-pty);
+}
+
+hl-ent {
+  color: var(--color-hl-ent);
+}
+
+[data-anchor] {
+  visibility: hidden;
+  cursor: pointer;
+  max-width: var(--width-mdx);
+  text-decoration-line: none;
+  color: var(--color-foreground);
+}
+
+[data-anchor]:hover {
+  visibility: visible;
+}
+
+[data-anchor]:hover:after {
+  color: var(--color-muted-foreground);
+  content: "#";
+}

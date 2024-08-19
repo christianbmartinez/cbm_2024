@@ -1,6 +1,5 @@
-@layer theme, base, components, utilities;
+@layer theme, base, utilities;
 
 @import "./theme.css" layer(theme);
 @import "./base.css" layer(base);
-@import "./components.css" layer(components);
 @import "./utilities.css" layer(utilities);

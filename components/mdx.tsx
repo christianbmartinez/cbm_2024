@@ -1,9 +1,8 @@
+import { highlight } from "@/lib"
 import { MDXRemote, type MDXRemoteProps } from "next-mdx-remote/rsc"
-import Image, { type ImageProps } from "next/image"
 import Link from "next/link"
 import { createElement, type ReactNode } from "react"
-
-import { highlight } from "@/lib"
+import { Image } from "./image"
 
 import { CopyCodeButton, JSLogoIcon, ReactLogoIcon, TSLogoIcon } from "@/components/ui"
 
@@ -34,35 +33,6 @@ function H(level: number) {
 
   return Heading
 }
-
-type ImgProps = Partial<ImageProps> & {
-  src: string
-  alt: string
-  className: string
-  loading: "lazy" | "eager"
-  priority: true | false
-}
-
-export function Img({
-  loading = "lazy",
-  priority = false,
-  src,
-  alt="A really cool image for my website that I took recently.",
-  className,
-  ...props
-}: ImgProps) {
-  return (
-    <Image
-    src={src}
-    alt={alt}
-    loading={loading}
-    priority={priority}
-    className={"w-full h-64 rounded-lg my-6 hover:saturate-200 hover:blur-sm"}
-    {...props}
-    />
-  )
-}
-
 
 function A(
   props: Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "a"> & {
@@ -100,37 +70,36 @@ function Pre({
     }
   }
 }) {
-  const ext = className.replace(/language-/, ".")
+  const lang = className.replace(/language-/, "")
   let icon
 
-  switch (ext) {
-    case ".ts":
+  switch (lang) {
+    case "ts":
       icon = <TSLogoIcon fill="var(--color-h1-cmt)" />
       break
-    case ".tsx" || ".jsx":
+    case "tsx" || "jsx":
       icon = <ReactLogoIcon fill="var(--color-hl-cls)" />
       break
-    case ".js":
+    case "js":
       icon = <JSLogoIcon fill="var(--color-hl-cmt)"/>
       break
     default:
       icon = <ReactLogoIcon fill="var(--color-hl-cls)"/>
   }
-
   return (
-    <pre className="w-full rounded-md border border-solid border-border my-6 flex flex-col whitespace-pre">
-      <div className="flex flex-row h-8 px-6 justify-between items-center bg-background border-b border-border border-solid">
+    <pre className="w-full border border-solid border-border my-6 flex flex-col whitespace-pre" tabIndex={0}>
+      <div className="flex flex-row h-12 px-4 justify-between items-center bg-slate-950 border-b border-border border-solid">
         <div className="flex flex-col w-1/4 justify-start items-start">
           {icon}
         </div>
         <div className="flex flex-col w-2/4 justify-center items-center">
-          <p className="text-foreground m-0 p-0 text-sm leading-normal">{`${ext.endsWith("x") ? "Component" : "example"}${ext}`}</p>
+          <p className="text-foreground m-0 p-0 text-sm leading-normal">{`${lang.endsWith("x") ? "Component" : "example"}.${lang}`}</p>
         </div>
         <div className="flex flex-col w-1/4 justify-end items-end">
           <CopyCodeButton code={children}/>
         </div>
       </div>
-      <code className="w-full h-auto border-none bg-background leading-normal font-mono font-normal text-sm pt-4 max-h-96 overflow-scroll" dangerouslySetInnerHTML={{ __html: highlight(children) }} />
+      <code data-lang={`${lang}`} className="w-full px-4 h-auto border-none bg-background leading-normal font-mono font-normal text-sm pt-4 pb-0.5 max-h-96 overflow-scroll" dangerouslySetInnerHTML={{ __html: highlight(children) }} />
     </pre>
   )
 }
@@ -148,7 +117,7 @@ function List({ children, listStyle = "list-disc" }: { children: ReactNode; list
 }
 
 function InlineCode({ text }: { text: string }) {
-  return <code className="relative rounded-sm bg-muted py-2 px-3 text-sm font-normal">{text}</code>
+  return <code className="relative rounded-md bg-muted py-2 px-3 text-sm font-normal inline-code">{text}</code>
 }
 
 const MdxComponents = {
@@ -156,7 +125,7 @@ const MdxComponents = {
   h2: H(2),
   h3: H(3),
   h4: H(4),
-  img: Img,
+  img: Image,
   pre: Pre,
   code: InlineCode,
   blockquote: Blockquote,

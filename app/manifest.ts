@@ -2,14 +2,14 @@ import type { MetadataRoute } from "next"
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Christian B. Martinez - Portfolio",
-    short_name: "CBM - Portfolio",
-    description: `Hi, i'm Christian! I am a full stack software engineer from Utah with a passion for open source and AI. Further, I am a father, husband, technical writer, and curious tinkerer.`,
+    name: "Christian B. Martinez",
+    short_name: "CBM",
+    description: "Christian B. Martinez's personal website",
     lang: "en",
     start_url: "/",
     display: "standalone",
-    background_color: "#000",
-    theme_color: "#000",
+    background_color: "#030712",
+    theme_color: "#030712",
     icons: [
       {
         src: "/favicon.ico",

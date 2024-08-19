@@ -9,15 +9,19 @@ module.exports = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '3000',
+        pathname: '/assets/img/**',
+      },
     ],
   },
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
   experimental: {
     optimizePackageImports: [
       "react",
-      "react-dom",
       "next-mdx-remote",
-      "next-themes",
     ],
     optimizeServerReact: true,
     webpackBuildWorker: true,

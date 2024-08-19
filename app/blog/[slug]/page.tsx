@@ -93,7 +93,7 @@ export default function Page({ params }: { params: BlogRouterParams }) {
           <ReadingTimeIcon className="size-3" />&nbsp;
           <time dateTime={publishedAt}>
               <span className="text-xs font-medium pb-2">
-                {d(publishedAt,true)}
+                {d(publishedAt)}
               </span>
             </time>
         </div>
