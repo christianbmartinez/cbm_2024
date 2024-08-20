@@ -1,4 +1,4 @@
-import { GitHubLogoIcon, LinkedInLogoIcon, XLogoIcon } from "@/components/ui"
+import { GitHubLogoIcon, LinkedInLogoIcon, XLogoIcon } from "@/components/icons"
 
 export const baseUrl =
   process.env.NODE_ENV !== "development"

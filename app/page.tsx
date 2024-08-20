@@ -1,4 +1,5 @@
 import { Posts } from "@/components"
+import Link from "next/link"
 import type { Metadata } from "next/types"
 
 export const metadata: Metadata = {
@@ -10,13 +11,10 @@ export default function Page() {
   return (
       <section>
         <h1 className="text-4xl font-semibold tracking-tighter">{`Welcome!`}</h1>
-        <p className="mb-4 text-sm lg:text:lg">
-          {`Hi, my name is Christian! I am a full stack engineer from Utah and a
-          contributor of open source. Additionally, I am also a father, a husband,
-          an agency founder, and an avid web-tinkerer. I love learning, and
-          sharing my knowledge with others. I am passionate about web development,
-          design, tooling, and ai. I am always looking for new opportunities to
-          learn and grow.`}
+        <p className="mb-4 text-sm lg:text:md text-muted-foreground">
+          {`Hey, I'm Christian! A full stack engineer and open source contributor from Utah. 
+          Currently building`} <Link className="text-foreground hover:text-muted-foreground transition-colors" href="https://github.com/organizations/AstrocatAgency/settings/profile" target="_blank">Astrocat</Link> Agency. {`In my free time, 
+          you can find me playing with my kids; More than likely stepping on legos.`}
         </p>
         <Posts />
       </section>

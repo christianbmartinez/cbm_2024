@@ -4,7 +4,7 @@ import Link from "next/link"
 export function Posts() {
   const posts = getPosts()
   return (
-    <div>
+    <>
       {posts
         .sort((a, b) => {
           if (
@@ -14,22 +14,22 @@ export function Posts() {
           }
           return 1
         })
-        .map((post, i) => (
-          <Link
-            key={`posts_link-${i}`}
-            className="flex flex-col space-y-1 mb-4"
-            href={`/blog/${post.slug}`}
+        .map(({slug, metadata}, i) => (
+            <div className="w-full flex flex-row justify-start items-center my-6">
+             <time dateTime={metadata.publishedAt}>
+              <span className="font-medium mr-6">
+                {d(metadata.publishedAt)}
+              </span>
+            </time>
+              <Link
+            key={`post_link-${i}`}
+            href={`/blog/${slug}`}
+            className="text-muted-foreground hover:text-accent-foreground hover:underline cursor-pointer transition-all"
           >
-            <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2">
-              <p className="text-muted-foreground w-[100px] tabular-nums">
-                {d(post.metadata.publishedAt, false)}
-              </p>
-              <p className="text-foreground tracking-tight">
-                {post.metadata.title}
-              </p>
+                {metadata.title}
+              </Link>
             </div>
-          </Link>
         ))}
-    </div>
+    </>
   )
 }

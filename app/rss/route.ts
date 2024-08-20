@@ -1,5 +1,4 @@
-import { getPosts } from "@/lib"
-import { baseUrl } from "@/lib/config"
+import { baseUrl, getPosts } from "@/lib"
 
 export function GET() {
   const itemsXml = getPosts()

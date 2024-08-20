@@ -1,5 +1,5 @@
 'use client'
-import Image from "next/image";
+import { Image } from "@/components"
 
 export default function TestPage() {
   return (

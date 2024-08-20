@@ -20,7 +20,7 @@ export const buttonVariants = cva(
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost:
-          "bg-transparent hover:bg-accent hover:text-accent-foreground",
+          "bg-transparent hover:bg-accent rounded hover:text-accent-foreground",
         link: "no-underline hover:underline text-foreground",
       },
       size: {
@@ -55,7 +55,7 @@ Button.displayName = "Button"
 export function CopyCodeButton({ code }: { code: string }) {
   const [copied, setCopied] = useState(false)
 
-  function handleKeyDown() {
+  function handleMouseDown() {
     if (!navigator.clipboard) {
       console.log("Feature not currently supported in your browser.")
     }
@@ -71,12 +71,9 @@ export function CopyCodeButton({ code }: { code: string }) {
       <Button
         role="button"
         arial-label="Copy Code Button"
-        aria-pressed={copied ? "true" : "false"}
-        aria-controls="code"
-        tabIndex={0}
-        className="relative size-4 appearance-none"
+        className="relative size-4 appearance-none cursor-pointer"
         variant="ghost"
-        onKeyDown={handleKeyDown}
+        onMouseDown={handleMouseDown}
         size="icon"
       >
         <CopyClipboardIcon
@@ -86,7 +83,7 @@ export function CopyCodeButton({ code }: { code: string }) {
             right: 0,
             strokeDasharray: 50,
             strokeDashoffset: copied ? -50 : 0,
-            transition: "all 1s ease-in-out",
+            transition: "all .25s ease-in-out",
           }}
         />
         <CheckIcon
@@ -98,7 +95,7 @@ export function CopyCodeButton({ code }: { code: string }) {
             visibility: `${copied ? "visible" : "hidden"}`,
             strokeDasharray: 50,
             strokeDashoffset: copied ? 0 : -50,
-            transition: "all 1s ease-in-out",
+            transition: "all .25s ease-in-out",
           }}
         />
       </Button>

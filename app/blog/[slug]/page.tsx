@@ -1,6 +1,5 @@
 import { Mdx, ReadingTimeIcon } from "@/components"
-import { d, getPosts } from "@/lib"
-import { baseUrl } from "@/lib/config"
+import { baseUrl, d, getPosts } from "@/lib"
 import type { BlogRouterParams } from "@/types"
 import { notFound } from "next/navigation"
 
@@ -89,7 +88,7 @@ export default function Page({ params }: { params: BlogRouterParams }) {
           <div className="flex flex-row justify-start items-center">
             <span className="text-sm font-medium text-muted-foreground">Christian B. Martinez</span>
           </div>
-          <div className="flex flex-row justify-end items-center rounded-md bg-transparent text-primary border border-primary ring-offset-border text-sm font-medium pb-1 pt-0.5 px-2">
+          <div className="flex flex-row justify-end items-center rounded-md bg-transparent text-hl-cls border border-hl-cls text-sm font-medium pb-1 pt-0.5 px-1.5">
           <ReadingTimeIcon className="size-3" />&nbsp;
           <time dateTime={publishedAt}>
               <span className="text-xs font-medium pb-2">
