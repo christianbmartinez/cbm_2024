@@ -6,10 +6,10 @@ export default function manifest(): MetadataRoute.Manifest {
     short_name: "CBM",
     description: "Christian B. Martinez's personal website",
     lang: "en",
-    start_url: "/",
-    display: "standalone",
-    background_color: "#030712",
-    theme_color: "#030712",
+    start_url: ".",
+    display: "browser",
+    background_color: "#f8fafc",
+    theme_color: "#020817",
     icons: [
       {
         src: "/favicon.ico",
