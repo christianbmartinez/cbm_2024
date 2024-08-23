@@ -1,4 +1,3 @@
-'use client'
 import { Image } from "@/components"
 
 export default function TestPage() {

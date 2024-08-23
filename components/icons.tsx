@@ -1,45 +1,26 @@
 import type { IconProps } from "@/types"
 
-export function CbmLogoMockLong(props: IconProps) {
-  return (
+export function CBMLogo(props: IconProps) {
+  return(
     <svg
-      width="226"
-      height="71"
-      viewBox="0 0 250 250"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
-      <path
-        d="M 258.871 218.557 L 250.903 240.833 L 213.596 240.833 L 222.661 218.557 Z M 215.082 239.833 L 250.199 239.833 L 257.451 219.557 L 223.333 219.557 Z M 99.278 300.5 L 137.131 199.855 L 400.691 199.852 L 367.496 300.496 L 342.236 300.496 L 369.53 220.871 L 338.077 220.871 L 310.311 300.5 L 285.356 300.498 L 285.356 300.5 Z M 313.183 220.825 L 284.705 220.825 L 255.617 299.496 L 284.655 299.498 Z M 254.306 299.496 L 254.551 299.496 L 284.009 219.825 L 314.609 219.825 L 285.719 299.498 L 309.601 299.5 L 337.367 219.871 L 370.93 219.871 L 343.636 299.496 L 366.772 299.496 L 399.309 200.852 L 137.823 200.855 L 100.722 299.5 L 254.306 299.5 Z M 194.943 218.557 L 171.36 280.479 L 133.2 280.479 L 158.802 218.557 Z M 134.696 279.479 L 170.67 279.479 L 193.493 219.557 L 159.47 219.557 Z M 244.213 258.549 L 235.925 280.525 L 197.441 280.525 L 206.386 258.549 Z M 198.927 279.525 L 235.233 279.525 L 242.767 259.549 L 207.058 259.549 Z">        
-      </path>
-    </svg>
+    width="32"
+    height="32"
+    viewBox="0 0 15 15"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+      {...props}>
+<path d="M -60 110 L -105.103 110 L -94.843 90 L -70 90 L -60 70 L -90 80 L -100 70 L -120 110 L -220 109.91 L -190 50 L -150 50 L -140 30 L -117.12 30 L -126.814 50 L -90 50 L -80 60 L -60 50 L -30 50 L -60 110 Z M -136.952 70 L -146.961 90 L -130 90 L -120 70 L -136.952 70 Z M -180 70 L -190 90 L -170 90 L -160 70 L -180 70 Z"></path>
+</svg>
   )
 }
-  export function CbmLogoMockShort(props: IconProps) {
-    return (
-      <svg
-      width="118"
-      height="71"
-      viewBox="0 0 120 120"
-      xmlns="http://www.w3.org/2000/svg"
-      strokeDashoffset="-265.11"
-      stroke="rgb(75, 228, 208)"
-      fill="rgba(58, 43, 108, 0.608)"
-      strokeWidth="4"
-      {...props}
-    >
-<path d="M 237.063 108.436 L 273.275 108.436 L 280.885 87.16 L 245.721 87.16 L 237.063 108.436 Z M 340.36 168.955 L 313.435 168.955 L 343.373 87.367 L 307.547 87.473 L 278.146 168.955 L 122.724 168.103 L 160.201 68.458 L 377.276 68.455 L 340.36 168.955 Z M 156.672 148.082 L 193.739 148.082 L 216.942 87.16 L 181.86 87.16 L 156.672 148.082 Z M 220.908 148.128 L 258.303 148.128 L 266.214 127.152 L 229.446 127.152 L 220.908 148.128 Z"></path>
-    </svg>
-    )
-  }
 export function GitHubLogoIcon(props: IconProps) {
   return (
     <svg
-      width="15"
-      height="15"
-      viewBox="0 0 15 15"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+    width="15"
+    height="15"
+    viewBox="0 0 15 15"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <path
@@ -66,7 +47,7 @@ export function LinkedInLogoIcon(props: IconProps) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-      ></path>
+      />
     </svg>
   )
 }
@@ -85,7 +66,7 @@ export function SunIcon(props: IconProps) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-      ></path>
+      />
     </svg>
   )
 }
@@ -104,7 +85,7 @@ export function MoonIcon(props: IconProps) {
         fill="currentColor"
         fillRule="evenodd"
         clipRule="evenodd"
-      ></path>
+      />
     </svg>
   )
 }

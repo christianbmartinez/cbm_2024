@@ -16,7 +16,7 @@
     "develop": "concurrently --names \"CSS,DEV\" -c \"bgBlue.bold,bgMagenta.bold\" -k \"pnpm tw:watch\" \"pnpm dev\""
   },
   "dependencies": {
-    "next": "^14.2.5",
+    "next": "^14.2.6",
     "next-mdx-remote": "^5.0.0",
     "next-themes": "^0.3.0",
     "react": "^18.3.1",
@@ -24,15 +24,14 @@
   },
   "devDependencies": {
     "@tailwindcss/cli": "4.0.0-alpha.19",
-    "@types/eslint": "^9.6.0",
-    "@types/node": "^22.4.0",
-    "@types/react": "^18.3.3",
+    "@types/node": "^22.5.0",
+    "@types/react": "^18.3.4",
     "@types/react-dom": "^18.3.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
-    "eslint-config-next": "^14.2.5",
+    "eslint-config-next": "^14.2.6",
     "sharp": "^0.33.5",
     "tailwind-merge": "^2.5.2",
     "tailwindcss": "4.0.0-alpha.19",

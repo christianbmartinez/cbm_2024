@@ -3,10 +3,10 @@ hl-ln:before {
   content: counter(hl-ln-num);
   text-align: left;
   color: var(--color-hl-cmt);
-  width: 20px;
+  width: 1.25rem;
   margin: 0;
   padding: 0;
-  margin-right: 20px;
+  margin-right: 1.25rem;
   display: inline-block;
 }
 
@@ -14,7 +14,7 @@ hl-ln-num {
   color: var(--color-hl-cmt);
 }
 
-code:where([data-lang]) {
+code:where(:not([class*="inline-code"])) {
   counter-reset: hl-ln-num;
 }
 

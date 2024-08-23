@@ -1,5 +1,4 @@
-import { getPosts } from "@/lib"
-import { baseUrl } from "@/lib/config"
+import { baseUrl, getPosts } from "@/lib"
 
 export default function sitemap() {
   const posts = getPosts().map(({ metadata: { publishedAt }, slug }) => ({
