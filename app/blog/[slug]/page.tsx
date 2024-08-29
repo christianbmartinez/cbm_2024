@@ -1,7 +1,13 @@
 import { Mdx, ReadingTimeIcon } from "@/components"
 import { baseUrl, d, getPosts } from "@/lib"
-import type { BlogRouterParams } from "@/types"
 import { notFound } from "next/navigation"
+import type { NextApiRequest } from "next/types"
+
+type BlogRouterParams =
+  | NextApiRequest["query"]
+  | {
+      slug: string
+    }
 
 export function generateStaticParams() {
   const posts = getPosts()
@@ -60,7 +66,7 @@ export default function Page({ params }: { params: BlogRouterParams }) {
   const { content, slug } = post
 
   return (
-    <article className="my-28 w-full">
+    <article className="w-full max-w-mdx my-28">
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -73,7 +79,7 @@ export default function Page({ params }: { params: BlogRouterParams }) {
             dateModified: publishedAt,
             description: summary,
             image: image
-              ? `${baseUrl}${image}`
+              ? `${baseUrl}/${image}`
               : `/og?title=${encodeURIComponent(title)}`,
             url: `${baseUrl}/blog/${slug}`,
             author: {
@@ -88,7 +94,7 @@ export default function Page({ params }: { params: BlogRouterParams }) {
           <div className="flex flex-row justify-start items-center">
             <span className="text-sm font-medium text-muted-foreground">Christian B. Martinez</span>
           </div>
-          <div className="flex flex-row justify-end items-center rounded-md bg-transparent text-hl-cls border border-hl-cls text-sm font-medium pb-1 pt-0.5 px-1.5">
+          <div className="flex flex-row justify-end items-center rounded bg-transparent text-accent-foreground border border-accent-foreground text-xs py-1 px-1.5">
           <ReadingTimeIcon className="size-3" />&nbsp;
           <time dateTime={publishedAt}>
               <span className="text-xs font-medium pb-2">

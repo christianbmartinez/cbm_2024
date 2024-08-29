@@ -1,8 +1,14 @@
-import type { MdxMetadata } from '@/types';
 import { type ClassValue, clsx } from 'clsx';
 import fs from 'fs';
 import path from 'path';
 import { twMerge } from 'tailwind-merge';
+
+type MdxProps = {
+  title: string
+  publishedAt: string
+  summary: string
+  image?: string
+}
 
 // A function to parse frontmatter from .mdx files.
 function fm(y: string) {
@@ -11,16 +17,16 @@ function fm(y: string) {
     const m = x![1]
     const c = y.replace(p, '').trim()
     const l = m.trim().split('\n')
-    const md: Partial<MdxMetadata> = {}
+    const md: Partial<MdxProps> = {}
   
     l.forEach((line) => {
       const [x, ...y] = line.split(': ')
       let v = y.join(': ').trim()
       v = v.replace(/^['"](.*)['"]$/, '$1')
-      md[x.trim() as keyof MdxMetadata] = v
+      md[x.trim() as keyof MdxProps] = v
     })
   
-    return { metadata: md as MdxMetadata, content: c as string }
+    return { metadata: md as MdxProps, content: c as string }
   }
   // A function to get all posts from the blog directory.
   export function getPosts() {
@@ -93,7 +99,7 @@ export function rt(x: string) {
   return `${d} min read`
 }
 // A function to generate bytes
-// Param b=bytes(number) is the file character length.
+// Param b=bytes(number) is char length.
 export function gb(b: number) {
   if (b === 0) {
     return '0 Bytes'

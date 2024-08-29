@@ -38,9 +38,13 @@ export function Footer() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Button variant="ghost" size="icon">
+                    <Button
+                      role="link"
+                      type="button"
+                      variant="ghost"
+                      size="icon">
                   <link.icon
-                    className={link.title === "X" ? "size-3" : "size-4"}
+                    className={`${link.title === "X" ? "size-3" : "size-4"} border-none`}
                   />
                 </Button>
               </Link>

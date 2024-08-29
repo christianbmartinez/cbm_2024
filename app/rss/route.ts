@@ -14,7 +14,7 @@ export function GET() {
       return `<item>
             <title>${title}</title>
             <link>${baseUrl}/blog/${slug}</link>
-            <description>${summary || ""}</description>
+            <description>${summary ?? "Technical blog article written by Christian B. Martinez"}</description>
             <pubDate>${new Date(publishedAt).toUTCString()}</pubDate>
           </item>
         `
@@ -24,9 +24,9 @@ export function GET() {
   const rssFeed = `<?xml version="1.0" encoding="UTF-8" ?>
   <rss version="2.0">
     <channel>
-        <title>My Portfolio</title>
+        <title>RSS Feed</title>
         <link>${baseUrl}</link>
-        <description>This is my portfolio RSS feed</description>
+        <description>Welcome to CBM RSS feed. Lets cross the bridge into the vast world of web development together. Please enjoy your stay, and thanks for stopping by!</description>
         ${itemsXml}
     </channel>
   </rss>`

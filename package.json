@@ -6,16 +6,17 @@
   "private": true,
   "packageManager": "pnpm@9.6.0+sha512.38dc6fba8dba35b39340b9700112c2fe1e12f10b17134715a4aa98ccf7bb035e76fd981cf0bb384dfa98f8d6af5481c2bef2f4266a24bfa20c34eb7147ce0b5e",
   "scripts": {
-    "build": "next build",
-    "dev": "next dev",
-    "lint": "next lint",
-    "start": "next start",
-    "tw:build": "NODE_ENV=production && tailwindcss -i ./styles/index.css -o app/globals.css --optimize -m",
-    "tw:watch": "NODE_ENV=production && tailwindcss -i ./styles/index.css -o app/globals.css --optimize -m -w",
-    "deploy": "pnpm install && pnpm tw:build && pnpm build && pnpm start",
-    "develop": "concurrently --names \"CSS,DEV\" -c \"bgBlue.bold,bgMagenta.bold\" -k \"pnpm tw:watch\" \"pnpm dev\""
+    "b": "next build",
+    "d": "next dev",
+    "l": "next lint",
+    "s": "next start",
+    "tw": "NODE_ENV=production && tailwindcss -i ./app/styles/index.css -o ./app/globals.css --optimize -m",
+    "w": "NODE_ENV=production && tailwindcss -i ./app/styles/index.css -o ./app/globals.css --optimize -m -w",
+    "start": "pnpm i && pnpm tw && pnpm b && pnpm s",
+    "dev": "concurrently --names \"CSS,DEV\" -c \"bgBlue.bold,bgMagenta.bold\" -k \"pnpm w\" \"pnpm d\""
   },
   "dependencies": {
+    "framer-motion": "^11.3.30",
     "next": "^14.2.6",
     "next-mdx-remote": "^5.0.0",
     "next-themes": "^0.3.0",
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "@tailwindcss/cli": "4.0.0-alpha.19",
+    "@tailwindcss/postcss": "4.0.0-alpha.20",
     "@types/node": "^22.5.0",
     "@types/react": "^18.3.4",
     "@types/react-dom": "^18.3.0",
@@ -32,6 +34,7 @@
     "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.6",
+    "postcss": "^8.4.41",
     "sharp": "^0.33.5",
     "tailwind-merge": "^2.5.2",
     "tailwindcss": "4.0.0-alpha.19",

@@ -63,9 +63,9 @@ blockquote {
 }
 
 ol {
-  @apply list-none;
+  @apply list-decimal;
 }
 
 ul {
-  @apply list-none;
+  @apply list-disc;
 }

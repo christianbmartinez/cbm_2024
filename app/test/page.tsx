@@ -1,8 +1,11 @@
-import { Image } from "@/components"
+import { CBMLogo, Image } from "@/components"
 
 export default function TestPage() {
   return (
-    <div tw="relative top-0 left-0 w-full h-full flex flex-row justify-center items-center">
+    <div tw="relative size-screen flex flex-row justify-center items-center">
+      <div className="size-32 bg-background">
+      <CBMLogo fill="text-foreground" />
+      </div>
         <Image 
           priority
           loading={"eager"}
@@ -10,10 +13,11 @@ export default function TestPage() {
           src={`/assets/img/gradient-banner.jpg`}
           width={1280} 
           height={720} 
-          className="w-full h-auto" />
-        <h2 tw="absolute top-0 left-0 flex flex-row items-center w-full h-full justify-center text-4xl font-bold tracking-tight z-50">
+          className="w-full h-auto rounded-xl" />
+        <h2 tw="text-4xl font-bold tracking-normal">
           Testing Post Title In Route Preview
         </h2>
+        <p className="-mt-1">This is another test.</p>
     </div>
   )
 }

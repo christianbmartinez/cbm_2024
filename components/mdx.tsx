@@ -70,24 +70,24 @@ function Pre({
   }
 }) {
   const lang = className.replace(/language-/, "")
-  let icon
+  let icon: JSX.Element;
 
   switch (lang) {
     case "ts":
-      icon = <TSLogoIcon fill="var(--color-h1-cmt)" />
+      icon = <TSLogoIcon fill="text-foreground" />
       break
     case "tsx" || "jsx":
-      icon = <ReactLogoIcon fill="var(--color-hl-cls)" />
+      icon = <ReactLogoIcon />
       break
     case "js":
-      icon = <JSLogoIcon fill="var(--color-hl-cmt)"/>
+      icon = <JSLogoIcon fill="text-foreground"/>
       break
     default:
-      icon = <ReactLogoIcon fill="var(--color-hl-cls)"/>
+      icon = <ReactLogoIcon />
   }
   return (
     <pre className="w-full border border-solid border-border my-6 flex flex-col whitespace-pre">
-      <div className="flex flex-row h-12 px-4 justify-between items-center bg-background border-b border-border border-solid">
+      <div className="flex flex-row h-12 px-4 justify-between items-center bg-muted border-b border-border border-solid">
         <div className="flex flex-col w-1/4 justify-start items-start">
           {icon}
         </div>

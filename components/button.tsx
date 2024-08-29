@@ -7,26 +7,21 @@ import { useState } from "react"
 import { CheckIcon, CopyClipboardIcon } from "./icons"
 
 export const buttonVariants = cva(
-  "inline-flex items-center justify-center text-sm font-medium transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background",
+  "inline-flex items-center justify-center text-sm font-medium transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-transparent",
   {
     variants: {
       variant: {
-        default:
-          "bg-background text-foreground hover:text-accent-foreground hover:bg-primary/80",
-        destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline:
-          "border border-input hover:bg-accent hover:text-accent-foreground",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost:
-          "bg-transparent hover:bg-accent rounded hover:text-accent-foreground",
-        link: "no-underline hover:underline text-foreground",
+        default: "bg-transparent text-foreground hover:text-accent-foreground hover:bg-primary/80",
+        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        outline: "border border-input hover:bg-accent hover:text-accent-foreground",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        ghost: "bg-transparent text-foreground hover:bg-muted hover:text-accent-foreground",
+        link: "no-underline hover:underline text-foreground bg-transparent border-none",
       },
       size: {
         default: "h-10 py-2 px-4 rounded",
-        sm: "h-9 px-3 rounded-sm",
-        lg: "h-11 px-8 rounded-md",
+        sm: "h-9 px-3 rounded",
+        lg: "h-11 px-8 rounded",
         icon: "size-10 rounded",
       },
     },
@@ -64,38 +59,43 @@ export function CopyCodeButton({ code }: { code: string }) {
 
     setTimeout(() => {
       setCopied(false)
-    }, 2000)
+    }, 1000)
   }
 
   return (
       <Button
         role="button"
-        arial-label="Copy Code Button"
-        className="relative size-4 appearance-none cursor-pointer"
+        type="button"
         variant="ghost"
-        onMouseDown={handleMouseDown}
         size="icon"
+        arial-label="Copy Code Button"
+        className="relative flex size-4 p-4"
+        onMouseDown={handleMouseDown}
       >
         <CopyClipboardIcon
           style={{
             position: "absolute",
-            top: 0,
-            right: 0,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
             strokeDasharray: 50,
             strokeDashoffset: copied ? -50 : 0,
-            transition: "all .25s ease-in-out",
+            transition: "all .5s ease-in-out",
           }}
         />
         <CheckIcon
           style={{
             position: "absolute",
-            color: "#22c55e",
-            top: 0,
-            right: 0,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            color: "var(--color-hl-str)",
             visibility: `${copied ? "visible" : "hidden"}`,
             strokeDasharray: 50,
             strokeDashoffset: copied ? 0 : -50,
-            transition: "all .25s ease-in-out",
+            transition: "all .5s ease-in-out",
           }}
         />
       </Button>

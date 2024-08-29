@@ -1,4 +1,4 @@
-import { CBMLogo } from "@/components"
+// import { CBMLogo } from "@/components"
 import { ImageResponse } from "next/og"
 
 export const size = {
@@ -24,7 +24,7 @@ export default function Icon() {
           padding: "1px",
         }}
       >
-       <CBMLogo />
+       CM
       </div>
     ),
     {
