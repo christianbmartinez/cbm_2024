@@ -94,7 +94,7 @@ export default function Page({ params }: { params: BlogRouterParams }) {
           <div className="flex flex-row justify-start items-center">
             <span className="text-sm font-medium text-muted-foreground">Christian B. Martinez</span>
           </div>
-          <div className="flex flex-row justify-end items-center rounded bg-transparent text-accent-foreground border border-accent-foreground text-xs py-1 px-1.5">
+          <div className="flex flex-row justify-end items-center bg-transparent text-accent-foreground border border-accent-foreground text-xs py-1 px-1.5">
           <ReadingTimeIcon className="size-3" />&nbsp;
           <time dateTime={publishedAt}>
               <span className="text-xs font-medium pb-2">

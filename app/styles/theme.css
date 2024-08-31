@@ -24,8 +24,9 @@
 
   --color-accent-pink: #ec4899;
   --color-accent-blue: #1712c8;
+  --color-accent-sky: #22d3ee;
 
-  --color-blue-50: #d5d4ff;
+  --color-blue-50: #e8e7ff;
   --color-blue-100: #a6a4ed;
   --color-blue-200: #8581ff;
   --color-blue-300: #736eff;
@@ -279,12 +280,12 @@
   --color-input: #1e293b;
   --color-ring: var(--color-slate-300);
   /* Highlighter Dark Theme */
-  --color-hl-idt: #22d3ee;
+  --color-hl-idt: var(--color-accent-sky);
   --color-hl-key: var(--color-accent-pink);
   --color-hl-str: var(--color-blue-50);
-  --color-hl-cls: #22d3ee;
+  --color-hl-cls: var(--color-accent-sky);
   --color-hl-pty: var(--color-accent-pink);
-  --color-hl-ent: #22d3ee;
+  --color-hl-ent: var(--color-accent-sky);
   --color-hl-jsx: var(--color-blue-50);
   --color-hl-sgn: var(--color-slate-400);
   --color-hl-cmt: var(--color-slate-600);

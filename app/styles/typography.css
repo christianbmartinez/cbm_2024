@@ -59,7 +59,7 @@ th {
 }
 
 blockquote {
-  @apply my-6 border-l-6 pl-6 italic py-2 rounded bg-transparent text-accent-foreground border border-accent-foreground;
+  @apply my-6 border-l-6 pl-6 italic py-4 bg-transparent text-accent-foreground border border-accent-foreground;
 }
 
 ol {
