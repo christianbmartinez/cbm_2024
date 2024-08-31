@@ -1,4 +1,5 @@
-import { CBMLogo, Image } from "@/components"
+import { CBMLogo } from "@/components"
+import Image from "next/image"
 
 export default function TestPage() {
   return (

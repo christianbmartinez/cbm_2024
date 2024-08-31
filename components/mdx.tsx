@@ -1,9 +1,33 @@
-import { hl } from "@/lib"
+import { cn, hl } from "@/lib"
 import { MDXRemote, type MDXRemoteProps } from "next-mdx-remote/rsc"
 import Link from "next/link"
 import { createElement, type ReactNode } from "react"
-import { CopyCodeButton, Image, JSLogoIcon, ReactLogoIcon, TSLogoIcon } from "."
+import { CopyCodeButton, JSLogoIcon, ReactLogoIcon, TSLogoIcon } from "."
+import NextImage, { type ImageProps } from "next/image"
 
+export function Img({
+  src,
+  alt,
+  className,
+  ...props
+}: Partial<ImageProps> & {
+  src: string
+  alt: string
+  className?: string
+}) {
+  return (
+    <NextImage
+      priority
+      loading="eager"
+      src={src}
+      alt={alt}
+      width={1280}
+      height={720}
+      className={cn(className, "w-full max-w-mdx h-auto max-h-64 my-6")}
+      {...props}
+    />
+  )
+}
 function H(n: number) {
   const Heading = ({ children }: { children: string }) => {
     const slug = children
@@ -124,7 +148,7 @@ const MdxComponents = {
   h2: H(2),
   h3: H(3),
   h4: H(4),
-  img: Image,
+  Image: Img,
   pre: Pre,
   code: InlineCode,
   blockquote: Blockquote,

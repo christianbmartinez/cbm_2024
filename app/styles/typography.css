@@ -59,13 +59,13 @@ th {
 }
 
 blockquote {
-  @apply mt-6 border-l-2 pl-6 italic;
+  @apply my-6 border-l-6 pl-6 italic py-2 rounded bg-transparent text-accent-foreground border border-accent-foreground;
 }
 
 ol {
-  @apply list-decimal;
+  @apply list-none;
 }
 
 ul {
-  @apply list-disc;
+  @apply list-none;
 }

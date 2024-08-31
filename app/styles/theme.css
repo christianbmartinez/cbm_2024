@@ -22,6 +22,9 @@
   --fg: #f5f4ff;
   --bg: #00001e;
 
+  --color-accent-pink: #ec4899;
+  --color-accent-blue: #1712c8;
+
   --color-blue-50: #d5d4ff;
   --color-blue-100: #a6a4ed;
   --color-blue-200: #8581ff;
@@ -58,12 +61,12 @@
   --color-secondary-foreground: var(--color-blue-600);
   --color-muted: var(--color-slate-200);
   --color-muted-foreground: #64748b;
-  --color-accent: var(--color-slate-100);
-  --color-accent-foreground: var(--color-blue-600);
+  --color-accent: var(--bg);
+  --color-accent-foreground: var(--color-accent-blue);
   --color-destructive: #ef4444;
   --color-destructive-foreground: var(--fg);
-  --color-border: #cbd5e1;
-  --color-input: #cbd5e1;
+  --color-border: var(--color-slate-300);
+  --color-input: var(--color-slate-300);
   --color-ring: var(--bg);
 
   /* Highlighter */
@@ -269,20 +272,20 @@
   --color-muted: #1a1a38;
   --color-muted-foreground: #94a3b8;
   --color-accent: var(--fg);
-  --color-accent-foreground: var(--color-blue-300);
+  --color-accent-foreground: var(--color-accent-pink);
   --color-destructive: #7f1d1d;
   --color-destructive-foreground: var(--fg);
   --color-border: #1e293b;
   --color-input: #1e293b;
-  --color-ring: #cbd5e1;
+  --color-ring: var(--color-slate-300);
   /* Highlighter Dark Theme */
-  --color-hl-idt: #8263df;
-  --color-hl-key: #de508b;
-  --color-hl-str: var(--fg);
-  --color-hl-cls: #48c8d2;
-  --color-hl-pty: #de508b;
-  --color-hl-ent: var(--fg);
-  --color-hl-jsx: var(--fg);
-  --color-hl-sgn: #48c8d2;
-  --color-hl-cmt: #334155;
+  --color-hl-idt: #22d3ee;
+  --color-hl-key: var(--color-accent-pink);
+  --color-hl-str: var(--color-blue-50);
+  --color-hl-cls: #22d3ee;
+  --color-hl-pty: var(--color-accent-pink);
+  --color-hl-ent: #22d3ee;
+  --color-hl-jsx: var(--color-blue-50);
+  --color-hl-sgn: var(--color-slate-400);
+  --color-hl-cmt: var(--color-slate-600);
 }

@@ -1,6 +1,5 @@
 export * from "./footer"
 export * from "./header"
-export * from "./image"
 export * from "./mdx"
 export * from "./posts"
 export * from "./theme-provider"

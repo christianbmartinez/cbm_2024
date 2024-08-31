@@ -15,7 +15,7 @@ export const buttonVariants = cva(
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline: "border border-input hover:bg-accent hover:text-accent-foreground",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "bg-transparent text-foreground hover:bg-muted hover:text-accent-foreground",
+        ghost: "bg-transparent text-foreground hover:bg-muted",
         link: "no-underline hover:underline text-foreground bg-transparent border-none",
       },
       size: {
@@ -91,7 +91,7 @@ export function CopyCodeButton({ code }: { code: string }) {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            color: "var(--color-hl-str)",
+            color: "var(--color-hl-idt)",
             visibility: `${copied ? "visible" : "hidden"}`,
             strokeDasharray: 50,
             strokeDashoffset: copied ? 0 : -50,
