@@ -127,20 +127,8 @@ function Pre({
   )
 }
 
-function Blockquote({ children }: { children: React.ReactElement }) {
-  return (
-    <blockquote>{`"${children}"`}</blockquote>
-  )
-}
-
-function List({ children, listStyle = "list-disc" }: { children: ReactNode; listStyle?: string }) {
-  return (
-    <ul className={`${listStyle}`}>{children}</ul>
-  )
-}
-
 function InlineCode({ text }: { text: string }) {
-  return <code className="relative rounded-md bg-muted py-2 px-3 text-sm font-normal inline-code">{text}</code>
+  return <code className="inline-code">{text}</code>
 }
 
 const MdxComponents = {
@@ -151,8 +139,6 @@ const MdxComponents = {
   Image: Img,
   pre: Pre,
   code: InlineCode,
-  blockquote: Blockquote,
-  ul: List,
   a: A,
 }
 

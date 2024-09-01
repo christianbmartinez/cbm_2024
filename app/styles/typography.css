@@ -22,16 +22,16 @@ p {
   @apply text-base text-muted-foreground leading-7 mt-6;
 }
 
-p:where([class="lead"]) {
+p:where([class*="lead"]) {
   @apply text-xl;
 }
 
-p:where([class="muted"]) {
+p:where([class*="muted"]) {
   @apply text-sm text-muted;
 }
 
-code:where([class="inline-code"]) {
-  @apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
+code:where([class*="inline-code"]) {
+  @apply my-6 flex flex-row justify-start items-center overflow-x-scroll rounded bg-muted px-2 py-1.5 max-w-mdx font-mono text-sm font-medium text-foreground border border-border border-solid;
 }
 
 small {
@@ -59,7 +59,7 @@ th {
 }
 
 blockquote {
-  @apply my-6 border-l-6 pl-6 italic py-4 bg-transparent text-accent-foreground border border-accent-foreground;
+  @apply my-6 border-l-6 pl-6 rounded italic py-3 bg-muted text-accent-foreground border border-l-accent-foreground;
 }
 
 ol {

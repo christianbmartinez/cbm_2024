@@ -96,11 +96,11 @@
 
   /* Radii */
   --radius-*: initial;
-  --radius: 0.40rem;
-  --radius-sm: 0.45rem;
-  --radius-md: 0.50rem;
-  --radius-lg: 0.65rem;
-  --radius-xl: 0.70rem;
+  --radius: 0.25rem;
+  --radius-sm: 0.35rem;
+  --radius-md: 0.40rem;
+  --radius-lg: 0.55rem;
+  --radius-xl: 0.60rem;
   --radius-full: 50%;
   --radius-none: 0;
 
@@ -270,10 +270,10 @@
   --color-primary-foreground: var(--color-blue-600);
   --color-secondary: #1e293b;
   --color-secondary-foreground: var(--fg);
-  --color-muted: #1a1a38;
+  --color-muted: #15152e;
   --color-muted-foreground: #94a3b8;
   --color-accent: var(--fg);
-  --color-accent-foreground: var(--color-accent-pink);
+  --color-accent-foreground: var(--color-accent-sky);
   --color-destructive: #7f1d1d;
   --color-destructive-foreground: var(--fg);
   --color-border: #1e293b;
