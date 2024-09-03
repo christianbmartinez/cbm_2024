@@ -1,14 +1,14 @@
 import { Footer, Header, ThemeProvider } from "@/components"
-import localFont from "next/font/local"
+import { Inter } from "next/font/google"
 
-import "./globals.css"
+import "../styles/index.css"
 
-const fontSans = localFont({
-  src: "../lib/fonts/GeistVF.woff",
+const fontSans = Inter({
   preload: true,
   display: "swap",
+  subsets: ["latin"],
   variable: "--font-sans",
-  weight: "300 800",
+  weight: "variable",
 })
 
 export default function RootLayout({
@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head />
       <body
-        className={`flex flex-col ${fontSans.variable} font-sans w-full sm:max-w-mdx px-4 sm:px-0 mx-auto bg-background text-foreground`}
+        className={`flex flex-col ${fontSans.variable} font-sans w-full max-w-mdx px-4 sm:px-0 mx-auto bg-background text-foreground`}
       >
         <ThemeProvider
           attribute="class"

@@ -8,16 +8,19 @@ node_modules
 .DS_Store
 */**/.DS_Store 
 
-# local env files
-.env.local
-
 # lock files
 pnpm-lock.yaml
 
+# in progress? 
+lib/config/variants.ts
+
 # large files
+lib/config/variants.ts",
 lib/fonts
 lib/plugins
 app/globals.css
+app/styles
+app/test
 
 # notes 
 notes.mdx

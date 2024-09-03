@@ -1,11 +1,11 @@
 import { cn, hl } from "@/lib"
-import { MDXRemote, type MDXRemoteProps } from "next-mdx-remote/rsc"
-import Link from "next/link"
-import { createElement, type ReactNode } from "react"
-import { CopyCodeButton, JSLogoIcon, ReactLogoIcon, TSLogoIcon } from "."
+import { type MDXRemoteProps, MDXRemote } from "next-mdx-remote"
 import NextImage, { type ImageProps } from "next/image"
+import NextLink, { type LinkProps } from "next/link"
+import { createElement } from "react"
+import { CopyCodeButton, JSLogoIcon, LangIcon, ReactLogoIcon, TSLogoIcon } from "."
 
-export function Img({
+export function Image({
   src,
   alt,
   className,
@@ -23,12 +23,13 @@ export function Img({
       alt={alt}
       width={1280}
       height={720}
-      className={cn(className, "w-full max-w-mdx h-auto max-h-64 my-6")}
+      className={cn(className,"w-full rounded-md max-w-mdx h-auto max-h-64 my-6")}
       {...props}
     />
   )
 }
-function H(n: number) {
+
+export function H(n: number) {
   const Heading = ({ children }: { children: string }) => {
     const slug = children
       .toLowerCase()
@@ -56,32 +57,32 @@ function H(n: number) {
   return Heading
 }
 
-function A(
-  props: Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "a"> & {
-    alt?: string
-    href?: URL
-    children: ReactNode
-  }
-) {
-  if (props.href?.startsWith("/")) {
-    return (
-      <Link
-        alt={props.alt ?? "Visit this page"}
-        href={props.href}
+export function Link(props: Partial<LinkProps> & { 
+  href: string 
+  alt: string
+  children?: React.ReactNode 
+}) {
+  const anchor = /#/g;
+
+  return anchor.test(props.href) ? (
+    <NextLink
+    className="cursor-pointer decoration-0 text-foreground hover:text-accent-foreground data-[anchor=true]:after[content:'#'] transition-all" 
+    data-anchor 
+    {...props} />
+  ) : (
+
+      <NextLink
         className="underline transition-all decoration-accent-foreground underline-offset-2 decoration-[0.1em]"
         target="_blank" 
         rel="noopener noreferrer"
-        data-anchor={false}
         {...props}
       >
         {props.children}
-      </Link>
+      </NextLink>
     )
   }
-    return <a className="cursor-pointer decoration-0 text-foreground hover:text-muted-foreground" alt={props.alt ?? "Page Section"} href={props.href} data-anchor {...props} />
-}
 
-function Pre({
+export function Code({
   children: {
     props: { className, children },
   },
@@ -94,29 +95,26 @@ function Pre({
   }
 }) {
   const lang = className.replace(/language-/, "")
-  let icon: JSX.Element;
+  let icon: JSX.Element | string;
 
-  switch (lang) {
-    case "ts":
-      icon = <TSLogoIcon fill="text-foreground" />
-      break
-    case "tsx" || "jsx":
-      icon = <ReactLogoIcon />
-      break
-    case "js":
-      icon = <JSLogoIcon fill="text-foreground"/>
-      break
-    default:
-      icon = <ReactLogoIcon />
+  if (lang === "tsx" || lang === "jsx") {
+    icon = <ReactLogoIcon />;
+  } else if (lang === "ts") {
+    icon = <TSLogoIcon />;
+  }  else if (lang === "js") {
+    icon = <JSLogoIcon />;
+  } else {
+    icon = <LangIcon aria-label={`${lang.toUpperCase} Language Icon`} className="relative flex size-4 p-2 hover:bg-background" data-lang={lang}/>      
   }
+
   return (
-    <pre className="w-full border border-solid border-border my-6 flex flex-col whitespace-pre">
+    <pre className="w-full border border-solid border-border my-6 flex flex-col whitespace-normal">
       <div className="flex flex-row h-12 px-4 justify-between items-center bg-muted border-b border-border border-solid">
         <div className="flex flex-col w-1/4 justify-start items-start">
           {icon}
         </div>
         <div className="flex flex-col w-2/4 justify-center items-center">
-          <p className="text-foreground m-0 p-0 text-sm font-sans">{`${lang.endsWith("x") ? "Component" : "example"}.${lang}`}</p>
+          <span className="text-foreground m-0 p-0 text-sm font-sans">{`${lang.endsWith("x") ? "Component" : "example"}.${lang}`}</span>
         </div>
         <div className="flex flex-col w-1/4 justify-end items-end">
           <CopyCodeButton code={children}/>
@@ -127,19 +125,16 @@ function Pre({
   )
 }
 
-function InlineCode({ text }: { text: string }) {
-  return <code className="inline-code">{text}</code>
-}
-
-const MdxComponents = {
+export const MdxComponents = {
   h1: H(1),
   h2: H(2),
   h3: H(3),
   h4: H(4),
-  Image: Img,
-  pre: Pre,
-  code: InlineCode,
-  a: A,
+  h5: H(5),
+  h6: H(6),
+  img: Image,
+  code: Code, // Handle inline as well
+  a: Link,
 }
 
 export function Mdx(
@@ -149,8 +144,11 @@ export function Mdx(
 ): JSX.Element {
   return (
     <MDXRemote
+    components={{ ...MdxComponents, ...(props.components || {}) }}
       {...props}
-      components={{ ...MdxComponents, ...(props.components || {}) }}
     />
   )
 }
+
+
+

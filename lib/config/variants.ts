@@ -1,4 +1,4 @@
-    export const openVariant = {
+  export const openVariant = {
     open: { d: 'M3.06061 2.99999L21.0606 21' },
     closed: { d: 'M0 8.5L24 8.5' },
   }

@@ -1,8 +1,12 @@
 {
   "compilerOptions": {
-    "lib": ["DOM","DOM.Iterable","ESNext"],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
     "allowJs": true,
-    "checkJs":false,
+    "checkJs": false,
     "skipLibCheck": true,
     "strict": false,
     "noEmit": true,
@@ -15,17 +19,33 @@
     "jsx": "preserve",
     "incremental": true,
     "forceConsistentCasingInFileNames": true,
+    "target": "ESNext",
     "verbatimModuleSyntax": true,
-    "paths": {"@/*": ["./*"]},
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    },
     "strictNullChecks": true,
-    "plugins": [{"name": "next"}]
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
-    "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"],
+    ".next/types/**/*{.ts,.d.ts}",
+    "next-env.d.ts",
+    ".next/types/**/*.ts"
+  ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "**/test*/**/*{.test,.testing,.tsx,.d,.ts}",
+    "**/**/*{.test,.testing,.tsx,.d,.ts}",
+    "lib/config/variants.ts",
+    "lib/fonts",
+    "lib/plugins/index.ts"
   ]
 }

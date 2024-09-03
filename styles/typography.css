@@ -31,7 +31,7 @@ p:where([class*="muted"]) {
 }
 
 code:where([class*="inline-code"]) {
-  @apply my-6 flex flex-row justify-start items-center overflow-x-scroll rounded bg-muted px-2 py-1.5 max-w-mdx font-mono text-sm font-medium text-foreground border border-border border-solid;
+  @apply my-6 flex flex-row justify-start items-center rounded bg-muted px-2 py-1.5 max-w-mdx font-mono text-sm font-medium text-foreground border border-border border-solid whitespace-nowrap overflow-x-scroll;
 }
 
 small {

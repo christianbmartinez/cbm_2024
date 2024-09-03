@@ -1,17 +1,17 @@
 'use client' 
 
-import { useState, useEffect } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useTheme } from 'next-themes'
-import { SunIcon, MoonIcon } from './icons'
 import Link from 'next/link'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { MoonIcon, SunIcon } from './icons'
 
 import {
-  openVariant,
   closedVariant,
-  ulVariant,
   liVariant,
   navLinks,
+  openVariant,
+  ulVariant,
 } from '@/lib/config'
 
 const useLoaded = () => {

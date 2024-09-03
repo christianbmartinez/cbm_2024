@@ -1,11 +1,29 @@
 type IconProps = React.SVGProps<SVGSVGElement>
 
+export function LangIcon ( props: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="32"
+      height="16"
+      viewBox="0 0 32 16"
+      { ...props }
+    >
+    <text>
+      <textPath>{props["data-lang"]}</textPath>
+    </text>
+  </svg>
+  )
+}
+
 export function CBMLogo ( props: IconProps ) {
   return (
     <svg
-      width="60"
-      height="30"
+      width="64"
+      height="32"
       viewBox="0 0 100 50"
+      stroke="none"
+      fill="none"
       { ...props }
     >
       <path d="M 46.667 30 L 43.333 40 L 53.333 40 L 56.668 30 L 46.667 30 Z M 32.663 30 L 16.674 30 L 13.337 40 L 33.334 40 L 44.994 5 L 56 0 C 54.57 4.286 49.934 20.207 50.008 20 L 70.004 20 L 78.332 25 L 90.001 20 L 100 20 L 90 50 L 63.828 50 L 67.222 40 L 83.326 40 L 86.664 30 L 74.999 35.001 L 66.672 30 L 59.829 50 L 0 50 L 10.014 20 C 10.014 20 27.4 20 36 20 L 32.663 30 Z"
@@ -211,6 +229,7 @@ export function CheckIcon ( props: IconProps ) {
       { ...props }
     >
       <path d="M13.25 4.75 6 12 2.75 8.75" />
+      <text>Copied!</text>
     </svg>
   )
 }

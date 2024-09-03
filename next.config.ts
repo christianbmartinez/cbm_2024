@@ -1,6 +1,6 @@
-/** @type {import('next').NextConfig} */
-module.exports = {
-  // compress: false, // come back to this later. Use brotli/gzip middleware to compress
+import type { NextConfig } from 'next'
+
+export default {
   images: {
     remotePatterns: [
       {
@@ -13,15 +13,14 @@ module.exports = {
   },
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
   experimental: {
+    ppr: "incremental",
     optimizePackageImports: [
-      "react",
-      "next-mdx-remote",
+      "next-mdx-remote/rsc",
+      "framer-motion",
     ],
-    optimizeServerReact: true,
     webpackBuildWorker: true,
-    useLightningcss: true,
   },
-  transpilePackages: ["next-mdx-remote"],
+  transpilePackages: ["next-mdx-remote/rsc"],
   webpack(config, { isServer, dev }) {
     if (!isServer || dev) {
       config.resolve.alias.fs = false
@@ -29,4 +28,4 @@ module.exports = {
     }
     return config
   },
-}
+} satisfies NextConfig

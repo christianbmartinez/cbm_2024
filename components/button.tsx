@@ -91,7 +91,7 @@ export function CopyCodeButton({ code }: { code: string }) {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            color: "var(--color-accent-foreground)",
+            color: "var(--color-accent-sky)",
             visibility: `${copied ? "visible" : "hidden"}`,
             strokeDasharray: 50,
             strokeDashoffset: copied ? 0 : -50,

@@ -66,7 +66,7 @@ export default function Page({ params }: { params: BlogRouterParams }) {
   const { content, slug } = post
 
   return (
-    <article className="w-full max-w-mdx my-28">
+    <article className="w-full max-w-mdx h-auto my-28 whitespace-normal">
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -95,7 +95,7 @@ export default function Page({ params }: { params: BlogRouterParams }) {
             <span className="text-sm font-medium text-muted-foreground">Christian B. Martinez</span>
           </div>
           <div className="flex flex-row justify-end items-center bg-transparent text-accent-foreground border border-accent-foreground rounded text-xs py-1 px-1.5">
-          <ReadingTimeIcon className="size-3" />&nbsp;
+          <ReadingTimeIcon />&nbsp;
           <time dateTime={publishedAt}>
               <span className="text-xs font-medium pb-2">
                 {d(publishedAt)}
@@ -105,7 +105,7 @@ export default function Page({ params }: { params: BlogRouterParams }) {
         </div>
         <h1 className="text-foreground">{title}</h1>
       </header>
-      <Mdx source={content} />
+      { <Mdx source={content} /> /* Fix this shape stat */}
     </article>
   )
 }
