@@ -1,10 +1,10 @@
-import { GitHubLogoIcon, LinkedInLogoIcon, XLogoIcon } from "@/components/icons"
+import { GitHubLogoIcon, LinkedInLogoIcon, XLogoIcon } from "@/components/ui/icons"
 
 export const baseUrl =
   process.env.NODE_ENV !== "development"
-    ? process.env.BASE_URL
-    : "http://localhost:3000"
-
+    ? 'http://localhost:3000' // Change when deploying
+    : "http://localhost:3001"
+    
 export const navLinks = [
   {
     title: "Home",

@@ -1,4 +1,5 @@
-import { cn, hl } from "@/lib"
+import { hl } from "@/lib/plugins/hl"
+import { cn } from "@/lib/utils"
 import { type MDXRemoteProps, MDXRemote } from "next-mdx-remote"
 import NextImage, { type ImageProps } from "next/image"
 import NextLink, { type LinkProps } from "next/link"
@@ -60,7 +61,7 @@ export function H(n: number) {
 export function Link(props: Partial<LinkProps> & { 
   href: string 
   alt: string
-  children?: React.ReactNode 
+  children?: string
 }) {
   const anchor = /#/g;
 
@@ -83,6 +84,7 @@ export function Link(props: Partial<LinkProps> & {
   }
 
 export function Code({
+  
   children: {
     props: { className, children },
   },

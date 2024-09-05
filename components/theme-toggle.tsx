@@ -1,6 +1,7 @@
 "use client"
 
-import { Button, MoonIcon, SunIcon } from "@/components"
+import { Button } from "@/components/ui/button"
+import { MoonIcon, SunIcon } from "@/components/ui/icons"
 import { useTheme } from "next-themes"
 
 export function ThemeToggle() {

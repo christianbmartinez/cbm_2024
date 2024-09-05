@@ -13,14 +13,18 @@ export default {
   },
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
   experimental: {
-    ppr: "incremental",
+    ppr: true,
     optimizePackageImports: [
-      "next-mdx-remote/rsc",
-      "framer-motion",
+      "next-mdx-remote",
     ],
     webpackBuildWorker: true,
+    webpackMemoryOptimizations: true,
+    optimizeServerReact: true,
+    serverMinification: true,
+    useLightningcss: true,
+    cssChunking: 'loose', 
   },
-  transpilePackages: ["next-mdx-remote/rsc"],
+  transpilePackages: ["next-mdx-remote"],
   webpack(config, { isServer, dev }) {
     if (!isServer || dev) {
       config.resolve.alias.fs = false

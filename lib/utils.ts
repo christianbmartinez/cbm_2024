@@ -12,42 +12,42 @@ type MdxProps = {
 
 // A function to parse frontmatter from .mdx files.
 function fm(y: string) {
-    const p = /---\s*([\s\S]*?)\s*---/
-    const x = p.exec(y)
-    const m = x![1]
-    const c = y.replace(p, '').trim()
-    const l = m.trim().split('\n')
-    const md: Partial<MdxProps> = {}
-  
-    l.forEach((line) => {
-      const [x, ...y] = line.split(': ')
-      let v = y.join(': ').trim()
-      v = v.replace(/^['"](.*)['"]$/, '$1')
-      md[x.trim() as keyof MdxProps] = v
-    })
-  
-    return { metadata: md as MdxProps, content: c as string }
-  }
-  // A function to get all posts from the blog directory.
-  export function getPosts() {
-    const d = path.join(process.cwd(), 'app', 'blog', 'posts')
-    const x = fs
-      .readdirSync(d)
-      .filter((y) => path.extname(y) === '.mdx')
-      .map((y) => {
-        const { metadata, content } = fm(
-          fs.readFileSync(path.join(d, y), 'utf-8')
-        )
-        const slug = path.basename(y, path.extname(y))
-  
-        return {
-            metadata,
-            slug,
-            content,
-          }
-        })
-    return x
-  }
+  const p = /---\s*([\s\S]*?)\s*---/
+  const x = p.exec(y)
+  const m = x![1]
+  const c = y.replace(p, '').trim()
+  const l = m.trim().split('\n')
+  const md: Partial<MdxProps> = {}
+
+  l.forEach((line) => {
+    const [x, ...y] = line.split(': ')
+    let v = y.join(': ').trim()
+    v = v.replace(/^['"](.*)['"]$/, '$1')
+    md[x.trim() as keyof MdxProps] = v
+  })
+
+  return { metadata: md as MdxProps, content: c as string }
+}
+// A function to get all posts from the blog directory.
+export function getPosts() {
+  const d = path.join(process.cwd(), 'app', 'blog', 'posts')
+  const x = fs
+    .readdirSync(d)
+    .filter((y) => path.extname(y) === '.mdx')
+    .map((y) => {
+      const { metadata, content } = fm(
+        fs.readFileSync(path.join(d, y), 'utf-8')
+      )
+      const slug = path.basename(y, path.extname(y))
+
+      return {
+          metadata,
+          slug,
+          content,
+        }
+      })
+  return x
+}
 
 // A function to evaluate and merge tw classnames.
 export function cn(...inputs: ClassValue[]) {
@@ -55,8 +55,8 @@ export function cn(...inputs: ClassValue[]) {
 }
 // A function to format a date with options. 
 // Param d=date(string) is the date to be formatted.
-// Param e=relative(boolean) outputs a relative date.
-export function d(d: string, e=false) {
+// Param r=relative(boolean) outputs a relative date.
+export function d(d: string, r=false) {
   const t = new Date(d)
 
   const f = t.toLocaleString("en-us", {
@@ -64,9 +64,8 @@ export function d(d: string, e=false) {
     day: "numeric",
     year: "numeric",
   })
-  // If not relative (most common use case), 
-  // return date here and save processing time.
-  if (!e) {
+  // If not relative, return formatted date.
+  if (!r) {
     return f
   }
 
@@ -98,15 +97,13 @@ export function rt(x: string) {
   const d = Math.ceil(m)
   return `${d} min read`
 }
-// A function to generate bytes
-// Param b=bytes(number) is char length.
+// A function to display a file size - Bytes, KB, MB, or GB.
+// Param b=bytes(number) is the character length.
 export function gb(b: number) {
-  if (b === 0) {
-    return '0 Bytes'
-  }
-  const k = 1024
+  b === 0 ? '0 Bytes' : b === 1 ? '1 Byte' : b
+  const k = 1000 // KB(1000 or 10³) is more widely adopted than KiB(1024 or 2¹⁰).
   const i = Math.floor(Math.log(b) / Math.log(k))
-  const s = [' Bytes', ' KB', ' MB' , ' GB'] 
+  const s = [' B', ' KB', ' MB' , ' GB'] 
 
   return `${parseFloat((b / Math.pow(k, i)).toFixed(2)) + s[i]}`
 }

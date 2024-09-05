@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "My 2024 portfolio build.",
   "author": "Christian B. Martinez (https://www.christianbmartinez.com/)",
-  "private": true,
   "packageManager": "pnpm@9.9.0+sha512.60c18acd138bff695d339be6ad13f7e936eea6745660d4cc4a776d5247c540d0edee1a563695c183a66eb917ef88f2b4feb1fc25f32a7adcadc7aaf3438e99c1",
   "scripts": {
     "build": "next build",
@@ -17,29 +16,31 @@
   },
   "dependencies": {
     "framer-motion": "canary",
-    "next": "canary",
-    "next-mdx-remote": "latest",
-    "next-themes": "latest",
-    "react": "rc",
-    "react-dom": "rc"
+    "next": "15.0.0-canary.141",
+    "next-mdx-remote": "^5.0.0",
+    "next-themes": "^0.3.0",
+    "react": "19.0.0-rc-d1afcb43-20240903",
+    "react-dom": "19.0.0-rc-d1afcb43-20240903"
   },
   "devDependencies": {
     "@tailwindcss/cli": "next",
     "@tailwindcss/postcss": "next",
-    "@types/node": "latest",
+    "@types/node": "^22.5.4",
     "@types/react": "npm:types-react@rc",
     "@types/react-dom": "npm:types-react-dom@rc",
+    "babel-plugin-react-compiler": "0.0.0-experimental-4e0eccf-20240903",
     "class-variance-authority": "latest",
     "clsx": "latest",
-    "colorize-js": "link:/Users/coderchris/Desktop/libraries/colorize-js",
     "concurrently": "latest",
     "eslint": "8.57.0",
     "eslint-config-next": "canary",
+    "eslint-plugin-react-compiler": "0.0.0-experimental-b8a7b48-20240903",
     "postcss": "latest",
+    "react-compiler-healthcheck": "0.0.0-experimental-78df838-20240903",
     "sharp": "latest",
     "tailwind-merge": "latest",
     "tailwindcss": "next",
-    "typescript": "rc"
+    "typescript": "^5.5.4"
   },
   "overrides": {
     "@types/node": "npm:@types/node@latest",
