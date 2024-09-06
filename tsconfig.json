@@ -15,7 +15,6 @@
     "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "removeComments": true,
     "jsx": "preserve",
     "incremental": true,
     "forceConsistentCasingInFileNames": true,
@@ -36,14 +35,12 @@
   "include": [
     "**/*.ts",
     "**/*.tsx",
+    "lib/plugins/hl.ts",
     ".next/types/**/*",
     "next-env.d.ts",
     "next.config.ts",
 ],
   "exclude": [
     "node_modules", 
-    "app/test",
-    "lib/plugins",
-    "lib/fonts"
   ]
 }

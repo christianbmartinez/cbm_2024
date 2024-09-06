@@ -1,17 +1,14 @@
 # cbm_2024
 
-My annual dev portfolio build 🫡
+My annual dev portfolio build currently in development 🚧
 
-Currently in development 🚧
-
-Using twv4 which is not tested in the way I am using it. Just experimenting with it for now.
+Next.js, TailwindV4, and experiments. Do not use for production in it's current state.
 
 # Current folder structure for Twv4
 
-Here is the current folder structure I use to make things work. This is subject to change as I am actively experimenting with this setup, the cascade layers, configurations, and the design system overall. 
+Here is the current folder structure I use to make things work. (Not every file.) This is subject to change as I am actively experimenting with this setup, the cascade layers, configurations, and the design system overall. 
 
 ```
-root(
 ├── app
 │   └── routes          -- Routes
 │   └── globals.css     -- Dynamically injected and minified css, via build script.
@@ -28,7 +25,8 @@ root(
 │   └── typography.css  -- Custom typography based on traditional prose, as well as shadcn. Still needs work alongside Mdx components.
 │   └── utilities.css   -- Utility classes. One line import rule.
 ├── lib                 -- Custom scripts and utilities   
-│   └── plugins         -- Highlighter re written originally by sugar high.
+│   └── plugins         -- Highlighter re written originally by [sugar-high](https://sugar-high.vercel.app/). Replace with sugar-highs
+                           `highlight` function.
 │   └── fonts           -- Variable fonts.
 │   └── *.[ts|x]        -- Any custom scripts or utilities.    
 └── package.json        -- pnpm package.json. Build scripts, overrides, and dependencies testing react, next, and twv4 combinations.
@@ -39,10 +37,4 @@ root(
 )
 ```
 
-Using a custom highlighter I wrote locally with swc/cli for the highlighter. I omitted that for now. It's a modified version of [sugar-high](https://sugar-high.vercel.app/) that I plan on building upon.
-
-You can use sugar-high highlight function directly as a replacement for the highlighter. Follow the documentation for styling.
-
-Use only as a starting point! Do not use in production.
-
-Fixes, features, and updates to come 🚀
+More features, styles, and components to come 🚀

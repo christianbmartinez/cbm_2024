@@ -1,4 +1,4 @@
-import { CBMLogo } from "@/components"
+import { CBMLogo } from "@/components/ui/icons"
 import { ImageResponse } from "next/og"
 
 export const size = {

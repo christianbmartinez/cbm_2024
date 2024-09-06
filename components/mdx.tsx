@@ -4,7 +4,8 @@ import { type MDXRemoteProps, MDXRemote } from "next-mdx-remote"
 import NextImage, { type ImageProps } from "next/image"
 import NextLink, { type LinkProps } from "next/link"
 import { createElement } from "react"
-import { CopyCodeButton, JSLogoIcon, LangIcon, ReactLogoIcon, TSLogoIcon } from "."
+import { CopyCodeButton } from "./ui/button"
+import { JSLogoIcon, LangIcon, ReactLogoIcon, TSLogoIcon } from "./ui/icons"
 
 export function Image({
   src,

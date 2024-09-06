@@ -1,4 +1,4 @@
-import { d, getPosts } from "@/lib"
+import { d, getPosts } from "@/lib/utils"
 import Link from "next/link"
 
 export function Posts() {

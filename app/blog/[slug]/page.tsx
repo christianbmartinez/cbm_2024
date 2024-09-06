@@ -1,5 +1,5 @@
-// @ts-nocheck
-import { Mdx, ReadingTimeIcon } from "@/components"
+import { Mdx } from "@/components/mdx"
+import { ReadingTimeIcon } from "@/components/ui/icons"
 import { baseUrl } from "@/lib/config"
 import { d, getPosts } from "@/lib/utils"
 import { notFound } from "next/navigation"
@@ -56,7 +56,6 @@ export function generateMetadata({ params }: { params: BlogRouterParams }) {
     },
   }
 }
-
 export default function Page({ params }: { params: BlogRouterParams }) {
   const post = getPosts().find((post) => post.slug === params.slug)
 
@@ -107,6 +106,7 @@ export default function Page({ params }: { params: BlogRouterParams }) {
         </div>
         <h1 className="text-foreground">{title}</h1>
       </header>
+      { /* @ts-expect-error */ }
       <Mdx source={content} /> 
     </article>
   )
