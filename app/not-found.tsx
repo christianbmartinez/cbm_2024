@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { Button } from '@/components'
+import { Button } from '@/components/ui/button'
 
 export default function NotFound() {
   return (
@@ -9,10 +9,10 @@ export default function NotFound() {
         <div className='flex flex-col items-center justify-center'>
           <p className='text-sm sm:text-base font-semibold'>404</p>
           <h1 className='mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl'>
-            Page not found
+            {'Page not found'}
           </h1>
           <p className='mt-4 text-normal'>
-            Sorry, we couldn’t find the page you’re looking for.
+            {'Sorry, we couldn’t find the page you’re looking for.'}
           </p>
           <Link href='/'>
             <Button
@@ -21,6 +21,7 @@ export default function NotFound() {
               className='mt-4'
             >
               &larr; Go home
+             <span className="sr-only">Go back to home</span>
             </Button>
           </Link>
         </div>

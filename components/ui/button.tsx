@@ -17,6 +17,7 @@ export const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "bg-transparent text-foreground hover:bg-muted",
         link: "no-underline hover:underline text-foreground bg-transparent border-none",
+        icon_animated: "bg-transparent text-foreground hover:text-accent-foreground",
       },
       size: {
         default: "h-10 py-2 px-4 rounded",

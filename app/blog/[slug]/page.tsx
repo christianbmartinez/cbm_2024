@@ -67,7 +67,7 @@ export default function Page({ params }: { params: BlogRouterParams }) {
   const { content, slug } = post
 
   return (
-    <article className="w-full max-w-mdx h-auto my-28 whitespace-normal">
+    <article role="article" aria-label={`An article by Christian B. Martinez titled ${title}`} className="w-full max-w-mdx h-auto my-28 whitespace-normal">
       <script
         type="application/ld+json"
         suppressHydrationWarning

@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      framer-motion:
-        specifier: canary
-        version: 12.0.0-alpha.1(react-dom@19.0.0-rc-d1afcb43-20240903(react@19.0.0-rc-d1afcb43-20240903))(react@19.0.0-rc-d1afcb43-20240903)
       next:
         specifier: 15.0.0-canary.141
         version: 15.0.0-canary.141(@babel/core@7.25.2)(babel-plugin-react-compiler@0.0.0-experimental-4e0eccf-20240903)(react-dom@19.0.0-rc-d1afcb43-20240903(react@19.0.0-rc-d1afcb43-20240903))(react@19.0.0-rc-d1afcb43-20240903)
@@ -1276,20 +1273,6 @@ packages:
 
   for-each@0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
-
-  framer-motion@12.0.0-alpha.1:
-    resolution: {integrity: sha512-WpMrDfk6I5Q4T/7+LEjQOVbAD5Yb/cGbbV+LLllFEg+dHi8XZ7QecJ9aYS9bn12cWuF7gGy+uqskyAkGTWHs3w==}
-    peerDependencies:
-      '@emotion/is-prop-valid': '*'
-      react: ^18.0.0
-      react-dom: ^18.0.0
-    peerDependenciesMeta:
-      '@emotion/is-prop-valid':
-        optional: true
-      react:
-        optional: true
-      react-dom:
-        optional: true
 
   fs.realpath@1.0.0:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
@@ -3970,13 +3953,6 @@ snapshots:
   for-each@0.3.3:
     dependencies:
       is-callable: 1.2.7
-
-  framer-motion@12.0.0-alpha.1(react-dom@19.0.0-rc-d1afcb43-20240903(react@19.0.0-rc-d1afcb43-20240903))(react@19.0.0-rc-d1afcb43-20240903):
-    dependencies:
-      tslib: 2.7.0
-    optionalDependencies:
-      react: 19.0.0-rc-d1afcb43-20240903
-      react-dom: 19.0.0-rc-d1afcb43-20240903(react@19.0.0-rc-d1afcb43-20240903)
 
   fs.realpath@1.0.0: {}
 

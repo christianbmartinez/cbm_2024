@@ -10,13 +10,15 @@ export function Header() {
         <ul>
           {navLinks.map((link, i) => (
             <li key={`header-nav-link-${i}`} className="inline-flex">
-              <Link aria-label={`Link to ${link.title} page`} href={link.href}>
+              <Link href={link.href}>
                 <Button
                   className={i === 0 ? "-ml-4" : ""}
                   role="link"
-                  variant="link"
+                  variant="link" 
+                  aria-label={`Link to ${link.title} page`}
                 >
                   {link.title}
+                  <span className="sr-only">Link to {link.title} page</span>
                 </Button>
               </Link>
             </li>

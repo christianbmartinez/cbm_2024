@@ -13,6 +13,9 @@ export default {
   },
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
   experimental: {
+    reactCompiler: {
+      compilationMode: 'annotation',
+    },    
     ppr: true,
     optimizePackageImports: [
       "next-mdx-remote",
@@ -21,8 +24,6 @@ export default {
     webpackMemoryOptimizations: true,
     optimizeServerReact: true,
     serverMinification: true,
-    useLightningcss: true,
-    cssChunking: 'loose', 
   },
   transpilePackages: ["next-mdx-remote"],
   webpack(config, { isServer, dev }) {

@@ -1,4 +1,4 @@
-import { CBMLogo } from "@/components";
+import { CBMLogo } from "@/components/ui/icons";
 
 export default function Loading() {
   return (

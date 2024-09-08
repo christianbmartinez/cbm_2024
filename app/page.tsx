@@ -1,4 +1,4 @@
-import { Posts } from "@/components"
+import { Posts } from "@/components/posts"
 import Link from "next/link"
 import type { Metadata } from "next/types"
 

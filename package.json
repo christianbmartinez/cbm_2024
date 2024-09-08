@@ -15,7 +15,6 @@
     "develop": "concurrently --names \"CSS,DEV\" -c \"bgBlue.bold,bgMagenta.bold\" -k \"pnpm tw:watch\" \"pnpm dev\""
   },
   "dependencies": {
-    "framer-motion": "canary",
     "next": "15.0.0-canary.141",
     "next-mdx-remote": "^5.0.0",
     "next-themes": "^0.3.0",
@@ -47,7 +46,6 @@
     "@types/react": "npm:types-react@rc",
     "@types/react-dom": "npm:types-react-dom@rc",
     "eslint-config-next": "npm:eslint-config-next@canary",
-    "framer-motion": "npm:framer-motion@canary",
     "tailwindcss": "npm:tailwindcss@next",
     "typescript": "npm:typescript@rc",
     "@tailwindcss/cli": "npm:@tailwindcss/cli@next",

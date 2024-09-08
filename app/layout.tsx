@@ -1,4 +1,6 @@
-import { Footer, Header, ThemeProvider } from "@/components"
+import { Footer } from "@/components/footer"
+import { Header } from "@/components/header"
+import { ThemeProvider } from "@/components/theme-provider"
 import { Inter } from "next/font/google"
 
 import "../styles/index.css"

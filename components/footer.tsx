@@ -1,7 +1,7 @@
 import { footerLinks, socialLinks } from "@/lib/config"
 import Link from "next/link"
 
-import { Button } from "."
+import { Button } from "./ui/button"
 
 export function Footer() {
   return (

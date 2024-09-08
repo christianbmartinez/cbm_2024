@@ -16,7 +16,7 @@ export async function GET(request: Request) {
 
   return new ImageResponse(
     (
-      <div tw="flex flex-col w-full h-full items-center justify-center text-primary-fg bg-primary">
+      <div role="img" aria-label={post.title} tw="flex flex-col w-full h-full items-center justify-center text-primary-fg bg-primary">
         <div tw="flex flex-col md:flex-row w-full my-12 px-4 md:items-center justify-between p-8">
           <h2 tw="flex flex-col text-4xl font-bold tracking-tight text-left">
             {post.title}

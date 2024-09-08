@@ -11,20 +11,8 @@ export const contentType = "image/png"
 export default function Icon() {
   return new ImageResponse(
     (
-      <div
-        style={{
-          background: "linear-gradient(to bottom, #534AFF, #090047)",
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          color: "white",
-          borderRadius: "4px",
-          padding: "1px",
-        }}
-      >
-       <CBMLogo width={24} height={12} />
+      <div role="img" aria-label="CBM Logo" tw="bg-background text-foreground size-full flex flex-row justify-center items-center rounded-[4px] padding-[1px]">
+        <CBMLogo width={24} height={12} />
       </div>
     ),
     {
