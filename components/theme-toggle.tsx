@@ -5,18 +5,7 @@ import { MoonIcon, SunIcon } from "@/components/ui/icons"
 import { useTheme } from "next-themes"
 
 export function ThemeToggle() {
-  const { setTheme, theme, systemTheme } = useTheme()
-
-  const themes = {
-    "dark": {
-      inverse: "light",
-      icon: <MoonIcon />,
-    },
-    "light": {
-      inverse: "dark",
-      icon: <SunIcon />,
-    }
-  }
+  const { setTheme, theme } = useTheme()
 
   return (
     <Button
@@ -24,9 +13,9 @@ export function ThemeToggle() {
       type="button"
       variant="ghost"
       size="icon"
-      onClick={() => setTheme(themes[theme!].inverse)}
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     > 
-      {themes[theme || systemTheme!].icon}
+      {theme === "dark" ? <SunIcon /> : <MoonIcon />}
       <span className="sr-only">Toggle theme</span>
     </Button>
   )

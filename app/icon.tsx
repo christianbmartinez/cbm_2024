@@ -12,7 +12,7 @@ export default function Icon() {
   return new ImageResponse(
     (
       <div role="img" aria-label="CBM Logo" tw="bg-background text-foreground size-full flex flex-row justify-center items-center rounded-[4px] padding-[1px]">
-        <CBMLogo width={24} height={12} />
+        <CBMLogo width={100} height={50} />
       </div>
     ),
     {

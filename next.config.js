@@ -1,6 +1,5 @@
-import type { NextConfig } from 'next'
-
-export default {
+/** @type {import('next').NextConfig} */
+module.exports = {
   images: {
     remotePatterns: [
       {
@@ -13,15 +12,10 @@ export default {
   },
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
   experimental: {
-    reactCompiler: {
-      compilationMode: 'annotation',
-    },    
-    ppr: true,
     optimizePackageImports: [
       "next-mdx-remote",
     ],
     webpackBuildWorker: true,
-    webpackMemoryOptimizations: true,
     optimizeServerReact: true,
     serverMinification: true,
   },
@@ -33,4 +27,4 @@ export default {
     }
     return config
   },
-} satisfies NextConfig
+} 

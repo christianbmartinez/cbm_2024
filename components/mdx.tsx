@@ -123,7 +123,7 @@ export function Code({
           <CopyCodeButton code={children}/>
         </div>
       </div>
-      <code data-lang={lang} className="w-full px-4 h-auto max-h-96 border-none bg-transparent text-sm pt-4 pb-1 overflow-scroll" dangerouslySetInnerHTML={{ __html: hl(children) }} />
+      <code data-lang={lang} data-hl-block className="w-full px-4 h-auto max-h-96 border-none bg-transparent text-sm pt-4 pb-1 overflow-scroll" dangerouslySetInnerHTML={{ __html: hl(children) }} />
     </pre>
   )
 }

@@ -15,46 +15,27 @@
     "develop": "concurrently --names \"CSS,DEV\" -c \"bgBlue.bold,bgMagenta.bold\" -k \"pnpm tw:watch\" \"pnpm dev\""
   },
   "dependencies": {
-    "next": "15.0.0-canary.141",
+    "next": "14.2.8",
     "next-mdx-remote": "^5.0.0",
     "next-themes": "^0.3.0",
-    "react": "19.0.0-rc-d1afcb43-20240903",
-    "react-dom": "19.0.0-rc-d1afcb43-20240903"
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
   },
   "devDependencies": {
     "@tailwindcss/cli": "next",
     "@tailwindcss/postcss": "next",
     "@types/node": "^22.5.4",
-    "@types/react": "npm:types-react@rc",
-    "@types/react-dom": "npm:types-react-dom@rc",
-    "babel-plugin-react-compiler": "0.0.0-experimental-4e0eccf-20240903",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
     "class-variance-authority": "latest",
     "clsx": "latest",
     "concurrently": "latest",
     "eslint": "8.57.0",
-    "eslint-config-next": "canary",
-    "eslint-plugin-react-compiler": "0.0.0-experimental-b8a7b48-20240903",
+    "eslint-config-next": "^14.2.8",
     "postcss": "latest",
-    "react-compiler-healthcheck": "0.0.0-experimental-78df838-20240903",
     "sharp": "latest",
     "tailwind-merge": "latest",
     "tailwindcss": "next",
     "typescript": "^5.5.4"
-  },
-  "overrides": {
-    "@types/node": "npm:@types/node@latest",
-    "@types/react": "npm:types-react@rc",
-    "@types/react-dom": "npm:types-react-dom@rc",
-    "eslint-config-next": "npm:eslint-config-next@canary",
-    "tailwindcss": "npm:tailwindcss@next",
-    "typescript": "npm:typescript@rc",
-    "@tailwindcss/cli": "npm:@tailwindcss/cli@next",
-    "@tailwindcss/postcss": "npm:@tailwindcss/postcss@next",
-    "next": "npm:next@canary",
-    "next-mdx-remote": "npm:next-mdx-remote@latest",
-    "next-themes": "npm:next-themes@latest",
-    "postcss": "npm:postcss@latest",
-    "react": "npm:react@rc",
-    "react-dom": "npm:react-dom@rc"
   }
 }

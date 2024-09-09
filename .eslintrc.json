@@ -2,11 +2,5 @@
     "root": true,
     "extends": [
         "next"
-    ],
-    "plugins": [
-        "react-compiler", "eslint-plugin-react-compiler"
-    ],
-  "rules": {
-    "react-compiler/react-compiler": "error",
-  }
+    ]
 }
