@@ -143,6 +143,7 @@ export const MdxComponents = {
 export function Mdx(
   props: MDXRemoteProps & {
     components?: React.ComponentPropsWithRef<React.ElementType>
+    source?: string | string[] | null
   }
 ): JSX.Element {
   return (

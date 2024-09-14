@@ -1,11 +1,27 @@
-"use client"
+'use client'
 
-import { Button } from "@/components/ui/button"
-import { MoonIcon, SunIcon } from "@/components/ui/icons"
-import { useTheme } from "next-themes"
+import { useEffect, useState } from "react";
+import { Button } from "./ui/button";
+import { MoonIcon, SunIcon } from "./ui/icons";
+
 
 export function ThemeToggle() {
-  const { setTheme, theme } = useTheme()
+  const [theme, setTheme] = useState<string | null>(null);
+
+  useEffect(() => {
+    function toggleTheme(): void {
+      const localTheme = localStorage.getItem("theme");
+      const resolvedTheme = localTheme !== null ? localTheme : window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+
+      setTheme(resolvedTheme);
+
+      localStorage.setItem("theme", `${resolvedTheme}`);
+
+      document.documentElement.classList.toggle(theme === "dark" ? "light" : "dark") 
+
+    }
+    toggleTheme();
+  }, [theme]);
 
   return (
     <Button

@@ -1,9 +1,11 @@
+// import { Mdx } from "@/components/mdx"
 import { Mdx } from "@/components/mdx"
 import { ReadingTimeIcon } from "@/components/ui/icons"
 import { baseUrl } from "@/lib/config"
 import { d, getPosts } from "@/lib/utils"
 import { notFound } from "next/navigation"
 import type { NextApiRequest } from "next/types"
+import { title } from "process"
 
 type BlogRouterParams =
   | NextApiRequest["query"]
@@ -63,7 +65,7 @@ export default function Page({ params }: { params: BlogRouterParams }) {
     notFound()
   }
 
-  const { title, publishedAt, summary, image } = post.metadata
+  const { publishedAt, summary, image } = post.metadata
   const { content, slug } = post
 
   return (
@@ -106,8 +108,7 @@ export default function Page({ params }: { params: BlogRouterParams }) {
         </div>
         <h1 className="text-foreground">{title}</h1>
       </header>
-      { /* @ts-expect-error */ }
-      <Mdx source={content} /> 
+      <Mdx source={content}/> 
     </article>
   )
 }

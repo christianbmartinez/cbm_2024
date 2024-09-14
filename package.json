@@ -37,5 +37,12 @@
     "tailwind-merge": "latest",
     "tailwindcss": "next",
     "typescript": "^5.5.4"
-  }
+  },
+  "browserslist": [
+    "last 2 major versions", 
+    "> 1%",
+    "not dead",
+    "unreleased versions", 
+    "maintained node versions"
+  ]
 }
