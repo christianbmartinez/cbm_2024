@@ -1,19 +1,13 @@
-type IconProps = React.SVGProps<SVGSVGElement>
+type IconProps = React.SVGProps<SVGSVGElement> & {fallback?: boolean; lang?: string }
 
-export function LangIcon ( props: IconProps) {
+export function FallBackIcon({fallback, lang, ...props }: IconProps) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="32"
-      height="16"
-      viewBox="0 0 32 16"
-      { ...props }
-    >
-    <text>
-      <textPath>{props["data-lang"]}</textPath>
-    </text>
-  </svg>
-  )
+    <svg viewBox="0 0 15 15" data-fallback={fallback} width="15px" height="15px" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <text fill="var(--color-foreground)" fontSize="12px" letterSpacing={-0.5} x="0" y="12.867" transform="matrix(0.98673373, 0, 0, 0.98952615, 0.4000223, 0.39890015)">
+        {lang}
+      </text>
+    </svg>
+  );
 }
 
 export function CBMLogo ( props: IconProps ) {
@@ -137,7 +131,7 @@ export function ArrowRightIcon ( props: IconProps ) {
     <svg
       width="16"
       height="16"
-      viewBox="0 0 16 16"
+      viewBox="0 0 15 15"
       fill="none"
       stroke="currentColor"
       strokeLinecap="round"
@@ -155,7 +149,7 @@ export function TSLogoIcon ( props: IconProps ) {
     <svg
       width="16"
       height="16"
-      viewBox="0 0 16 16"
+      viewBox="0 0 15 15"
       fill="currentColor"
       { ...props }
     >
@@ -169,7 +163,7 @@ export function JSLogoIcon ( props: IconProps ) {
     <svg
       width="16"
       height="16"
-      viewBox="0 0 16 16"
+      viewBox="0 0 15 15"
       fill="currentColor"
       { ...props }
     >
@@ -183,7 +177,7 @@ export function ReactLogoIcon ( props: IconProps ) {
     <svg
       width="16"
       height="16"
-      viewBox="0 0 16 16"
+      viewBox="0 0 15 15"
       fill="#61DBFB"
       stroke="currentColor"
       strokeLinecap="round"
@@ -201,7 +195,7 @@ export function CopyClipboardIcon ( props: IconProps ) {
     <svg
       width="16"
       height="16"
-      viewBox="0 0 16 16"
+      viewBox="0 0 15 15"
       fill="none"
       stroke="currentColor"
       strokeLinecap="round"
@@ -220,7 +214,7 @@ export function CheckIcon ( props: IconProps ) {
     <svg
       width="16"
       height="16"
-      viewBox="0 0 16 16"
+      viewBox="0 0 15 15"
       fill="none"
       stroke="currentColor"
       strokeLinecap="round"

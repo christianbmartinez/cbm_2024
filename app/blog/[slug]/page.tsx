@@ -1,14 +1,17 @@
-// import { Mdx } from "@/components/mdx"
 import { Mdx } from "@/components/mdx"
 import { ReadingTimeIcon } from "@/components/ui/icons"
 import { baseUrl } from "@/lib/config"
 import { d, getPosts } from "@/lib/utils"
 import { notFound } from "next/navigation"
-import type { NextApiRequest } from "next/types"
-import { title } from "process"
+import { type NextApiRequest } from "next/types"
 
-type BlogRouterParams =
-  | NextApiRequest["query"]
+const posts = getPosts()
+
+if (!posts) {
+  notFound()
+}
+
+type BlogRouterParams = NextApiRequest["query"]
   | {
       slug: string
     }
@@ -28,7 +31,7 @@ export function generateMetadata({ params }: { params: BlogRouterParams }) {
   }
 
   const {
-    title,
+    title: title,
     publishedAt: publishedTime,
     summary: description,
     image,
@@ -36,10 +39,10 @@ export function generateMetadata({ params }: { params: BlogRouterParams }) {
   const { slug } = post
   const ogImage = image ?? `${baseUrl}/og?title=${encodeURIComponent(title)}`
   return {
-    title,
+    title: title,
     description,
     openGraph: {
-      title,
+      title: title,
       description,
       type: "article",
       publishedTime,
@@ -52,7 +55,7 @@ export function generateMetadata({ params }: { params: BlogRouterParams }) {
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: title,
       description,
       images: [ogImage],
     },
@@ -65,7 +68,7 @@ export default function Page({ params }: { params: BlogRouterParams }) {
     notFound()
   }
 
-  const { publishedAt, summary, image } = post.metadata
+  const { publishedAt, summary, title, image } = post.metadata
   const { content, slug } = post
 
   return (

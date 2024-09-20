@@ -1,9 +1,8 @@
 module.exports = {
     plugins: {
       '@tailwindcss/postcss': {
-        base: `${process.cwd()}/styles/index.css`,
+        base: './app/styles/index.css',
         optimize: { minify: true },
       },
     },
   }
-  

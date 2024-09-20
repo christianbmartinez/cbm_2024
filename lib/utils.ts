@@ -3,31 +3,38 @@ import fs from 'fs';
 import path from 'path';
 import { twMerge } from 'tailwind-merge';
 
-type MdxProps = {
+export type MdxProps = {
   title: string
   publishedAt: string
   summary: string
   image?: string
 }
 
-// A function to parse frontmatter from .mdx files.
-function fm(y: string) {
+export type MdxPropsWithSlug = {
+  metadata: MdxProps 
+  slug?: string
+  content: string
+}
+
+// A function to parse fm from .mdx files.
+function fm(y: string): MdxPropsWithSlug {
   const p = /---\s*([\s\S]*?)\s*---/
   const x = p.exec(y)
   const m = x![1]
-  const c = y.replace(p, '').trim()
+  const content = y.replace(p, '').trim()
   const l = m.trim().split('\n')
-  const md: Partial<MdxProps> = {}
+  const metadata: Partial<MdxProps> = {}
 
   l.forEach((line) => {
     const [x, ...y] = line.split(': ')
     let v = y.join(': ').trim()
     v = v.replace(/^['"](.*)['"]$/, '$1')
-    md[x.trim() as keyof MdxProps] = v
+    metadata[x.trim() as keyof MdxProps] = v
   })
 
-  return { metadata: md as MdxProps, content: c as string }
+  return { metadata: metadata as MdxProps, content: content as string}
 }
+
 // A function to get all posts from the blog directory.
 export function getPosts() {
   const d = path.join(process.cwd(), 'app', 'blog', 'posts')
@@ -44,9 +51,9 @@ export function getPosts() {
           metadata,
           slug,
           content,
-        }
+        } 
       })
-  return x
+  return x as MdxPropsWithSlug[]
 }
 
 // A function to evaluate and merge tw classnames.

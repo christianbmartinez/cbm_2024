@@ -1,26 +1,24 @@
 'use client'
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { MoonIcon, SunIcon } from "./ui/icons";
 
-
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<string | null>(null);
-
+  const [theme, setTheme] = useState("dark");
   useEffect(() => {
-    function toggleTheme(): void {
-      const localTheme = localStorage.getItem("theme");
-      const resolvedTheme = localTheme !== null ? localTheme : window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    const storedTheme = localStorage.getItem("theme") || null;
+    const systemTheme = (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 
-      setTheme(resolvedTheme);
+    setTheme(storedTheme ?? systemTheme);
+    document.querySelector("html")!.setAttribute('data-theme', theme!);
+  }, [theme]);
 
-      localStorage.setItem("theme", `${resolvedTheme}`);
-
-      document.documentElement.classList.toggle(theme === "dark" ? "light" : "dark") 
-
-    }
-    toggleTheme();
+  const toggleTheme = useCallback(() => {
+    const newTheme = theme === "dark" ? "light" : "dark";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+    document.querySelector("html")!.setAttribute('data-theme', newTheme);
   }, [theme]);
 
   return (
@@ -29,10 +27,10 @@ export function ThemeToggle() {
       type="button"
       variant="ghost"
       size="icon"
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-    > 
+      onClick={toggleTheme}
+    >
       {theme === "dark" ? <SunIcon /> : <MoonIcon />}
       <span className="sr-only">Toggle theme</span>
     </Button>
-  )
+  );
 }

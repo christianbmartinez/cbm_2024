@@ -3,7 +3,7 @@ import { Header } from "@/components/header"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Inter } from "next/font/google"
 
-import "../styles/index.css"
+import "./globals.css"
 
 const fontSans = Inter({
   preload: true,

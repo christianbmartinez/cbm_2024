@@ -11,20 +11,28 @@ module.exports = {
     ],
   },
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
-  experimental: {
-    optimizePackageImports: [
-      "next-mdx-remote",
-    ],
-    webpackBuildWorker: true,
-    optimizeServerReact: true,
-    serverMinification: true,
-  },
   transpilePackages: ["next-mdx-remote"],
-  webpack(config, { isServer, dev }) {
-    if (!isServer || dev) {
-      config.resolve.alias.fs = false
-      config.resolve.alias.path = false
+  webpack({config}, {isServer, dev}) {
+    const isProd = process.env.NODE_ENV === 'production'
+    const { fs, path } = config.resolve.alias
+
+    if (!isServer | dev) {
+      return config.resolve.alias = {
+        fs: false,
+        path: false,
+      }
+    } else if (isProd) {
+      return config.resolve.alias = {
+        ...fs,
+        ...path,
+      }
+    } else {
+      return config.resolve.alias = {
+        fs: require.resolve('fs'),
+        path: require.resolve('path')
+      }
     }
-    return config
-  },
-} 
+  }
+}
+
+return config

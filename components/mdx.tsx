@@ -1,11 +1,11 @@
 import { hl } from "@/lib/plugins/hl"
 import { cn } from "@/lib/utils"
-import { type MDXRemoteProps, MDXRemote } from "next-mdx-remote"
+import { MDXRemote, type MDXRemoteProps } from "next-mdx-remote"
 import NextImage, { type ImageProps } from "next/image"
 import NextLink, { type LinkProps } from "next/link"
 import { createElement } from "react"
 import { CopyCodeButton } from "./ui/button"
-import { JSLogoIcon, LangIcon, ReactLogoIcon, TSLogoIcon } from "./ui/icons"
+import { FallBackIcon, JSLogoIcon, ReactLogoIcon, TSLogoIcon } from "./ui/icons"
 
 export function Image({
   src,
@@ -84,20 +84,24 @@ export function Link(props: Partial<LinkProps> & {
     )
   }
 
-export function Code({
-  
-  children: {
-    props: { className, children },
-  },
-}: {
-  children: {
-    props: {
-      className: string
-      children: string
-    }
+  enum Lang {
+    tsx = "tsx",
+    jsx = "jsx",
+    ts = "ts",
+    js = "js",
+    html = "html",
   }
+
+  type LangProps<T = keyof typeof Lang> = T extends Lang ? T : string;
+
+export function CodeBlock({
+  children,
+  className,
+}: {
+  children: string
+  className: string
 }) {
-  const lang = className.replace(/language-/, "")
+  const lang: LangProps = className.replace(/language-/, "")
   let icon: JSX.Element | string;
 
   if (lang === "tsx" || lang === "jsx") {
@@ -107,7 +111,7 @@ export function Code({
   }  else if (lang === "js") {
     icon = <JSLogoIcon />;
   } else {
-    icon = <LangIcon aria-label={`${lang.toUpperCase} Language Icon`} className="relative flex size-4 p-2 hover:bg-background" data-lang={lang}/>      
+    icon = <FallBackIcon fallback={true} lang={lang} aria-label={`${lang.toUpperCase} Language Icon`} className="relative flex size-4 p-2 hover:bg-background"/>      
   }
 
   return (
@@ -123,7 +127,8 @@ export function Code({
           <CopyCodeButton code={children}/>
         </div>
       </div>
-      <code data-lang={lang} data-hl-block className="w-full px-4 h-auto max-h-96 border-none bg-transparent text-sm pt-4 pb-1 overflow-scroll" dangerouslySetInnerHTML={{ __html: hl(children) }} />
+      {icon.props.fallback ? (<code data-lang={lang} data-code-inline className="w-full px-4 h-auto text-foreground max-h-24 border-none bg-background text-sm pt-4 pb-1 overflow-x-scroll" dangerouslySetInnerHTML={{ __html: children }} />) :
+      (<code data-lang={lang} data-code-block className="w-full px-4 h-auto max-h-96 border-none bg-transparent text-sm pt-4 pb-1 overflow-scroll" dangerouslySetInnerHTML={{ __html: hl(children) }} />)}
     </pre>
   )
 }
@@ -136,19 +141,16 @@ export const MdxComponents = {
   h5: H(5),
   h6: H(6),
   img: Image,
-  code: Code, // Handle inline as well
+  code: CodeBlock, 
   a: Link,
 }
 
 export function Mdx(
-  props: MDXRemoteProps & {
-    components?: React.ComponentPropsWithRef<React.ElementType>
-    source?: string | string[] | null
-  }
+  props: MDXRemoteProps<Record<string, unknown>, Record<string, unknown>>
 ): JSX.Element {
   return (
     <MDXRemote
-    components={{ ...MdxComponents, ...(props.components || {}) }}
+    components={{...MdxComponents as any, ...props.components}}
       {...props}
     />
   )
