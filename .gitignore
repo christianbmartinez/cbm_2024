@@ -13,6 +13,8 @@ pnpm-lock.yaml
 
 # large files
 lib/plugins
+lib/fonts
+test/*
 
 # notes
 notes.mdx

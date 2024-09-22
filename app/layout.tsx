@@ -1,12 +1,13 @@
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
 import { ThemeProvider } from '@/components/theme-provider'
-import { Inter } from 'next/font/google'
+import LocalFont from 'next/font/local'
 
-const fontSans = Inter({
+const Geist_Sans = LocalFont({
+  src: '../lib/fonts/GeistVF.woff2',
   display: 'swap',
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800'],
+  weight: '300 800',
+  variable: '--font-family-sans',
 })
 
 import './globals.css'
@@ -20,7 +21,7 @@ export default function RootLayout({
     <html lang="en" className="dark" suppressHydrationWarning>
       <head />
       <body
-        className={`flex flex-col ${fontSans.className} font-sans w-full max-w-mdx px-4 sm:px-0 mx-auto bg-background text-foreground`}>
+        className={`flex flex-col ${Geist_Sans.variable} font-sans w-full max-w-mdx px-4 sm:px-0 mx-auto bg-background text-foreground`}>
         <ThemeProvider
           attribute="class"
           enableSystem={true}

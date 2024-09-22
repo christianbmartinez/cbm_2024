@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-const config = {
+module.exports = {
   images: {
     remotePatterns: [
       {
@@ -13,6 +13,15 @@ const config = {
   },
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   transpilePackages: ['next-mdx-remote'],
-}
+  webpack: (config, { isServer, dev }) => {
+    if (!isServer | dev) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        fs: false,
+        path: false,
+      }
 
-export default config
+      return config
+    }
+  },
+}

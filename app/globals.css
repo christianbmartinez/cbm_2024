@@ -1,98 +1,96 @@
 @layer theme, base, components, utilities;
 
-@import 'tailwindcss/base' layer(theme);
+@import 'tailwindcss/theme' layer(theme);
 @import 'tailwindcss/preflight' layer(base);
-@import 'tailwindcss/components' layer(components);
 @import 'tailwindcss/utilities' layer(utilities);
 
 @theme {
-  :root {
-    /* Colors */
-    --color-*: initial;
+  /* Colors */
+  --color-*: initial;
 
-    --fg: #f5f4ff;
-    --bg: #00001e;
+  --fg: #f5f4ff;
+  --bg: #00001e;
 
-    --color-accent-pink: #ec4899;
-    --color-accent-blue: #1712c8;
-    --color-accent-sky: #22d3ee;
+  --color-accent-pink: #ec4899;
+  --color-accent-blue: #1712c8;
+  --color-accent-sky: #22d3ee;
 
-    --color-blue-50: #e8e7ff;
-    --color-blue-100: #a6a4ed;
-    --color-blue-200: #8581ff;
-    --color-blue-300: #736eff;
-    --color-blue-400: #5854d7;
-    --color-blue-500: #1a14df;
-    --color-blue-600: #1712c8;
-    --color-blue-700: #0f17a0;
-    --color-blue-800: #110a72;
-    --color-blue-900: #0a0053;
-    --color-blue-950: #050030;
+  --color-blue-50: #e8e7ff;
+  --color-blue-100: #a6a4ed;
+  --color-blue-200: #8581ff;
+  --color-blue-300: #736eff;
+  --color-blue-400: #5854d7;
+  --color-blue-500: #1a14df;
+  --color-blue-600: #1712c8;
+  --color-blue-700: #0f17a0;
+  --color-blue-800: #110a72;
+  --color-blue-900: #0a0053;
+  --color-blue-950: #050030;
 
-    --color-slate-50: #f8fafc;
-    --color-slate-100: #f1f5f9;
-    --color-slate-200: #e0e7ff;
-    --color-slate-300: #cbd5e1;
-    --color-slate-400: #94a3b8;
-    --color-slate-500: #64748b;
-    --color-slate-600: #475569;
-    --color-slate-700: #334155;
-    --color-slate-800: #1e293b;
-    --color-slate-900: #0f172a;
-    --color-slate-950: #020617;
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e0e7ff;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+  --color-slate-950: #020617;
 
-    --color-background: var(--fg);
-    --color-foreground: var(--bg);
-    --color-card: var(--fg);
-    --color-card-foreground: var(--bg);
-    --color-popover: var(--fg);
-    --color-popover-foreground: var(--bg);
-    --color-primary: var(--color-blue-600);
-    --color-primary-foreground: var(--fg);
-    --color-secondary: var(--color-slate-100);
-    --color-secondary-foreground: var(--color-blue-600);
-    --color-muted: var(--color-slate-200);
-    --color-muted-foreground: #64748b;
-    --color-accent: var(--bg);
-    --color-accent-foreground: var(--color-accent-blue);
-    --color-destructive: #ef4444;
-    --color-destructive-foreground: var(--fg);
-    --color-border: var(--color-slate-300);
-    --color-input: var(--color-slate-300);
-    --color-ring: var(--bg);
+  --color-background: var(--fg);
+  --color-foreground: var(--bg);
+  --color-card: var(--fg);
+  --color-card-foreground: var(--bg);
+  --color-popover: var(--fg);
+  --color-popover-foreground: var(--bg);
+  --color-primary: var(--color-blue-600);
+  --color-primary-foreground: var(--fg);
+  --color-secondary: var(--color-slate-100);
+  --color-secondary-foreground: var(--color-blue-600);
+  --color-muted: var(--color-slate-200);
+  --color-muted-foreground: #64748b;
+  --color-accent: var(--bg);
+  --color-accent-foreground: var(--color-accent-blue);
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: var(--fg);
+  --color-border: var(--color-slate-300);
+  --color-input: var(--color-slate-300);
+  --color-ring: var(--bg);
 
-    /* Highlighter */
-    --color-hl-idt: #736eff;
-    --color-hl-key: #de508b;
-    --color-hl-str: #07b998;
-    --color-hl-cls: #7170ff;
-    --color-hl-pty: #2cadee;
-    --color-hl-ent: #de508b;
-    --color-hl-jsx: #8c0ec5;
-    --color-hl-sgn: #94a3b8;
-    --color-hl-cmt: #c9c9c9;
+  /* Highlighter */
+  --color-hl-idt: #736eff;
+  --color-hl-key: #de508b;
+  --color-hl-str: #07b998;
+  --color-hl-cls: #7170ff;
+  --color-hl-pty: #2cadee;
+  --color-hl-ent: #de508b;
+  --color-hl-jsx: #8c0ec5;
+  --color-hl-sgn: #94a3b8;
+  --color-hl-cmt: #c9c9c9;
 
-    /* Animations */
-    --animate-*: initial;
-    --animate-rotate: rotate 2.5s linear infinite;
+  /* Animations */
+  --animate-*: initial;
+  --animate-rotate: rotate 2.5s linear infinite;
 
-    /* Widths */
-    --width-mdx: 65ch;
+  /* Widths */
+  --width-mdx: 65ch;
 
-    @keyframes rotate {
-      from {
-        tranform: rotate(0deg);
-      }
+  @keyframes rotate {
+    from {
+      tranform: rotate(0deg);
+    }
 
-      to {
-        transform: rotate(360deg);
-      }
+    to {
+      transform: rotate(360deg);
     }
   }
+}
 
-  /* Dark mode */
-  .dark,
-  @media (prefers-color-scheme: dark) {
+.dark,
+:where([class*='dark']) {
+  @theme {
     --color-background: var(--bg);
     --color-foreground: var(--fg);
     --color-card: var(--bg);

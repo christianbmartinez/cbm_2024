@@ -1,10 +1,18 @@
 import { hl } from '@/lib/plugins/hl'
 import { MDXRemote, type MDXRemoteProps } from 'next-mdx-remote/rsc'
+import LocalFont from 'next/font/local'
 import NextLink, { type LinkProps } from 'next/link'
 import { createElement, useId } from 'react'
 import { Image } from './shared/image'
 import { CopyCodeButton } from './ui/button'
 import { FallBackIcon, JSLogoIcon, ReactLogoIcon, TSLogoIcon } from './ui/icons'
+
+const Geist_Mono = LocalFont({
+  src: '../lib/fonts/GeistMono-Regular.woff2',
+  display: 'swap',
+  weight: '400',
+  variable: '--font-family-mono',
+})
 
 export function H(num: 1 | 2 | 3 | 4 | 5 | 6, children?: string) {
   const id = useId()
@@ -101,7 +109,8 @@ export function Code({
   }
 
   return (
-    <pre className="w-full border border-solid border-border my-6 flex flex-col whitespace-normal">
+    <pre
+      className={`${Geist_Mono.variable} w-full border border-solid border-border my-6 flex flex-col whitespace-normal`}>
       <div className="flex flex-row h-12 px-4 justify-between items-center bg-muted border-b border-border border-solid">
         <div className="flex flex-col w-1/4 justify-start items-start">
           {icon}
