@@ -1,16 +1,15 @@
-import { Footer } from "@/components/footer"
-import { Header } from "@/components/header"
-import { ThemeProvider } from "@/components/theme-provider"
-import { Inter } from "next/font/google"
+import { Footer } from '@/components/footer'
+import { Header } from '@/components/header'
+import { ThemeProvider } from '@/components/theme-provider'
+import { Inter } from 'next/font/google'
 
-import "./globals.css"
+import './globals.css'
 
 const fontSans = Inter({
-  preload: true,
-  display: "swap",
-  subsets: ["latin"],
-  variable: "--font-sans",
-  weight: "variable",
+  display: 'swap',
+  subsets: ['latin'],
+  variable: '--font-sans',
+  weight: 'variable',
 })
 
 export default function RootLayout({
@@ -22,14 +21,12 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head />
       <body
-        className={`flex flex-col ${fontSans.variable} font-sans w-full max-w-mdx px-4 sm:px-0 mx-auto bg-background text-foreground`}
-      >
+        className={`flex flex-col ${fontSans.variable} font-sans w-full max-w-mdx px-4 sm:px-0 mx-auto bg-background text-foreground`}>
         <ThemeProvider
           attribute="class"
           enableSystem={true}
           defaultTheme="dark"
-          disableTransitionOnChange
-        >
+          disableTransitionOnChange>
           <Header />
           <main className="min-h-screen relative flex justify-start items-center">
             {children}

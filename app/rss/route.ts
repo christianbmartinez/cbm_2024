@@ -1,5 +1,5 @@
-import { baseUrl } from "@/lib/config"
-import { getPosts } from "@/lib/utils"
+import { baseUrl } from '@/lib/config'
+import { getPosts } from '@/lib/utils'
 
 export function GET() {
   const itemsXml = getPosts()
@@ -15,12 +15,12 @@ export function GET() {
       return `<item>
             <title>${title}</title>
             <link>${baseUrl}/blog/${slug}</link>
-            <description>${summary ?? "Technical blog article written by Christian B. Martinez"}</description>
+            <description>${summary ?? 'Technical blog article written by Christian B. Martinez'}</description>
             <pubDate>${new Date(publishedAt).toUTCString()}</pubDate>
           </item>
         `
     })
-    .join("\n")
+    .join('\n')
 
   const rssFeed = `<?xml version="1.0" encoding="UTF-8" ?>
   <rss version="2.0">
@@ -34,7 +34,7 @@ export function GET() {
 
   return new Response(rssFeed, {
     headers: {
-      "Content-Type": "text/xml",
+      'Content-Type': 'text/xml',
     },
   })
 }

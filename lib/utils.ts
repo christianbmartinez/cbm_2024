@@ -1,7 +1,7 @@
-import { type ClassValue, clsx } from 'clsx';
-import fs from 'fs';
-import path from 'path';
-import { twMerge } from 'tailwind-merge';
+import { type ClassValue, clsx } from 'clsx'
+import fs from 'fs'
+import path from 'path'
+import { twMerge } from 'tailwind-merge'
 
 export type MdxProps = {
   title: string
@@ -11,13 +11,13 @@ export type MdxProps = {
 }
 
 export type MdxPropsWithSlug = {
-  metadata: MdxProps 
+  metadata: MdxProps
   slug?: string
   content: string
 }
 
-// A function to parse fm from .mdx files.
-function fm(y: string): MdxPropsWithSlug {
+// A function to parse frontmatter from .mdx files.
+export function frontMatter(y: string): MdxPropsWithSlug {
   const p = /---\s*([\s\S]*?)\s*---/
   const x = p.exec(y)
   const m = x![1]
@@ -32,44 +32,44 @@ function fm(y: string): MdxPropsWithSlug {
     metadata[x.trim() as keyof MdxProps] = v
   })
 
-  return { metadata: metadata as MdxProps, content: content as string}
+  return { metadata: metadata as MdxProps, content: content as string }
 }
 
 // A function to get all posts from the blog directory.
-export function getPosts() {
+export function getPosts(): MdxPropsWithSlug[] {
   const d = path.join(process.cwd(), 'app', 'blog', 'posts')
   const x = fs
     .readdirSync(d)
     .filter((y) => path.extname(y) === '.mdx')
     .map((y) => {
-      const { metadata, content } = fm(
+      const { metadata, content } = frontMatter(
         fs.readFileSync(path.join(d, y), 'utf-8')
       )
       const slug = path.basename(y, path.extname(y))
 
       return {
-          metadata,
-          slug,
-          content,
-        } 
-      })
-  return x as MdxPropsWithSlug[]
+        metadata,
+        slug,
+        content,
+      }
+    })
+  return x
 }
 
 // A function to evaluate and merge tw classnames.
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
-// A function to format a date with options. 
+// A function to format a date with options.
 // Param d=date(string) is the date to be formatted.
 // Param r=relative(boolean) outputs a relative date.
-export function d(d: string, r=false) {
+export function formatDate(d: string, r = false) {
   const t = new Date(d)
 
-  const f = t.toLocaleString("en-us", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
+  const f = t.toLocaleString('en-us', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
   })
   // If not relative, return formatted date.
   if (!r) {
@@ -82,16 +82,16 @@ export function d(d: string, r=false) {
   const M = n.getMonth() - t.getMonth()
   const D = n.getDate() - t.getDate()
 
-  let x = ""
+  let x = ''
 
   if (Y > 0) {
-    x = `${Y} ${Y > 1 ? "years" : "year"} ago`
+    x = `${Y} ${Y > 1 ? 'years' : 'year'} ago`
   } else if (M > 0) {
-    x = `${M} ${M > 1 ? "months" : "month"} ago`
+    x = `${M} ${M > 1 ? 'months' : 'month'} ago`
   } else if (D > 0) {
-    x = `${D} ${D > 1 ? "days" : "day"} ago`
+    x = `${D} ${D > 1 ? 'days' : 'day'} ago`
   } else {
-    x = "Today"
+    x = 'Today'
   }
   // Return relative date
   return x
@@ -106,11 +106,16 @@ export function rt(x: string) {
 }
 // A function to display a file size - Bytes, KB, MB, or GB.
 // Param b=bytes(number) is the character length.
-export function gb(b: number) {
-  b === 0 ? '0 Bytes' : b === 1 ? '1 Byte' : b
-  const k = 1000 // KB(1000 or 10³) is more widely adopted than KiB(1024 or 2¹⁰).
-  const i = Math.floor(Math.log(b) / Math.log(k))
-  const s = [' B', ' KB', ' MB' , ' GB'] 
+export function s(b: number) {
+  if (b < 1) {
+    return '0 Bytes'
+  } else if (b === 1) {
+    return '1 Byte'
+  } else {
+    const k = 1000 // KB(1000 or 10³) is more widely adopted than KiB(1024 or 2¹⁰).
+    const i = Math.floor(Math.log(b) / Math.log(k))
+    const s = [' B', ' KB', ' MB', ' GB']
 
-  return `${parseFloat((b / Math.pow(k, i)).toFixed(2)) + s[i]}`
+    return `${parseFloat((b / Math.pow(k, i)).toFixed(2)) + s[i]}`
+  }
 }

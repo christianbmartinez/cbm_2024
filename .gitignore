@@ -6,19 +6,13 @@ node_modules
 
 # misc
 .DS_Store
-*/**/.DS_Store 
+*/**/.DS_Store
 
 # lock files
 pnpm-lock.yaml
 
-# in progress? 
-lib/config/variants.ts
-
 # large files
-lib/config/variants.ts",
-lib/fonts
 lib/plugins
-app/test
 
-# notes 
+# notes
 notes.mdx

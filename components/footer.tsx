@@ -1,7 +1,7 @@
-import { footerLinks, socialLinks } from "@/lib/config"
-import Link from "next/link"
+import { footerLinks, socialLinks } from '@/lib/config'
+import Link from 'next/link'
 
-import { Button } from "./ui/button"
+import { Button } from './ui/button'
 
 export function Footer() {
   return (
@@ -15,13 +15,11 @@ export function Footer() {
                   href={link.href}
                   target="_blank"
                   aria-label={`Link to ${link.title} page`}
-                  rel="noreferrer"
-                >
+                  rel="noreferrer">
                   <Button
-                    className={i === 0 ? "-ml-4" : ""}
+                    className={i === 0 ? '-ml-4' : ''}
                     role="link"
-                    variant="link"
-                  >
+                    variant="link">
                     {link.title}
                   </Button>
                 </Link>
@@ -36,15 +34,10 @@ export function Footer() {
                 key={`footer_social_link-${i}`}
                 href={link.href}
                 target="_blank"
-                rel="noreferrer"
-              >
-                    <Button
-                      role="link"
-                      type="button"
-                      variant="ghost"
-                      size="icon">
+                rel="noreferrer">
+                <Button role="link" type="button" variant="ghost" size="icon">
                   <link.icon
-                    className={`${link.title === "X" ? "size-3" : "size-4"} border-none`}
+                    className={`${link.title === 'X' ? 'size-3' : 'size-4'} border-none`}
                   />
                 </Button>
               </Link>

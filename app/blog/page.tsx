@@ -1,8 +1,8 @@
-import { Posts } from "@/components/posts"
+import { Posts } from '@/components/posts'
 
 export const metadata = {
-  title: "Blog",
-  description: "Tutorials, hot takes, and news on full stack web development.",
+  title: 'Blog',
+  description: 'Tutorials, hot takes, and news on full stack web development.',
 }
 export default function Page() {
   return (

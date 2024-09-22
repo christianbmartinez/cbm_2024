@@ -1,58 +1,62 @@
-import { GitHubLogoIcon, LinkedInLogoIcon, XLogoIcon } from "@/components/ui/icons"
+import {
+  GitHubLogoIcon,
+  LinkedInLogoIcon,
+  XLogoIcon,
+} from '@/components/ui/icons'
 
 export const baseUrl =
-  process.env.NODE_ENV !== "development"
+  process.env.NODE_ENV !== 'development'
     ? 'http://localhost:3000' // Change when deploying
-    : "http://localhost:3001"
-    
+    : 'http://localhost:3001'
+
 export const navLinks = [
   {
-    title: "Home",
-    href: "/",
+    title: 'Home',
+    href: '/',
   },
   {
-    title: "Blog",
-    href: "/blog",
+    title: 'Blog',
+    href: '/blog',
   },
   {
-    title: "Lab",
-    href: "/lab",
+    title: 'Lab',
+    href: '/lab',
   },
   {
-    title: "CV",
-    href: "/cv",
+    title: 'CV',
+    href: '/cv',
   },
 ]
 
 export const socialLinks = [
   {
-    title: "X",
+    title: 'X',
     icon: XLogoIcon,
-    href: "https://twitter.com/_coderchris",
+    href: 'https://twitter.com/_coderchris',
   },
   {
-    title: "GitHub",
+    title: 'GitHub',
     icon: GitHubLogoIcon,
-    href: "https://github.com/christianbmartinez",
+    href: 'https://github.com/christianbmartinez',
   },
   {
-    title: "LinkedIn",
+    title: 'LinkedIn',
     icon: LinkedInLogoIcon,
-    href: "https://www.linkedin.com/in/christianbmartinez",
+    href: 'https://www.linkedin.com/in/christianbmartinez',
   },
 ]
 
 export const footerLinks = [
   {
-    title: "Contact",
-    href: "#",
+    title: 'Contact',
+    href: '#',
   },
   {
-    title: "RSS",
-    href: "/rss.xml",
+    title: 'RSS',
+    href: '/rss.xml',
   },
   {
-    title: "Sitemap",
-    href: "/sitemap.xml",
+    title: 'Sitemap',
+    href: '/sitemap.xml',
   },
 ]

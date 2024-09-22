@@ -1,7 +1,7 @@
-import { navLinks } from "@/lib/config"
-import Link from "next/link"
-import { ThemeToggle } from "./theme-toggle"
-import { Button } from "./ui/button"
+import { navLinks } from '@/lib/config'
+import Link from 'next/link'
+import { ThemeToggle } from './theme-toggle'
+import { Button } from './ui/button'
 
 export function Header() {
   return (
@@ -12,11 +12,10 @@ export function Header() {
             <li key={`header-nav-link-${i}`} className="inline-flex">
               <Link href={link.href}>
                 <Button
-                  className={i === 0 ? "-ml-4" : ""}
+                  className={i === 0 ? '-ml-4' : ''}
                   role="link"
-                  variant="link" 
-                  aria-label={`Link to ${link.title} page`}
-                >
+                  variant="link"
+                  aria-label={`Link to ${link.title} page`}>
                   {link.title}
                   <span className="sr-only">Link to {link.title} page</span>
                 </Button>

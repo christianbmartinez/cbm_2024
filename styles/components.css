@@ -1,4 +1,0 @@
-@layer typography, hl;
-
-@import "./typography.css" layer(typography);
-@import "./hl.css" layer(hl);
