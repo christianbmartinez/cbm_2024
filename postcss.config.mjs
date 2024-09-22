@@ -13,7 +13,7 @@ const config = {
       strategy: 'minimal',
       by: 'whole',
       prefix: 'cbm-',
-      except: [/^hl-[a-z]{3}$/],
+      except: [/^hl-.*$/],
       ids: true,
       outputMapCallback: ({ map }) =>
         JSON.parse(JSON.stringify(map)) && console.log('map: ', map),

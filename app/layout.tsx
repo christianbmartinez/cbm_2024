@@ -3,14 +3,13 @@ import { Header } from '@/components/header'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Inter } from 'next/font/google'
 
-import './globals.css'
-
 const fontSans = Inter({
   display: 'swap',
   subsets: ['latin'],
-  variable: '--font-sans',
-  weight: 'variable',
+  weight: ['300', '400', '500', '600', '700', '800'],
 })
+
+import './globals.css'
 
 export default function RootLayout({
   children,
@@ -18,10 +17,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head />
       <body
-        className={`flex flex-col ${fontSans.variable} font-sans w-full max-w-mdx px-4 sm:px-0 mx-auto bg-background text-foreground`}>
+        className={`flex flex-col ${fontSans.className} font-sans w-full max-w-mdx px-4 sm:px-0 mx-auto bg-background text-foreground`}>
         <ThemeProvider
           attribute="class"
           enableSystem={true}
