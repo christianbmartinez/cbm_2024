@@ -17,12 +17,12 @@ export default function Page() {
         contributor from Utah. Currently building{' '}
         <Link
           className="text-foreground hover:text-accent-foreground transition-colors"
-          href="https://github.com/organizations/AstrocatAgency/settings/profile"
+          href="https://www.astrocatagency.com"
           target="_blank">
           Astrocat
         </Link>{' '}
-        Agency. In my free time, you can find me playing with my kids and
-        stepping on legos.
+        Agency. In my free time, you can find me playing with my kids and more
+        than likely stepping on legos.
       </p>
       <Posts />
     </section>

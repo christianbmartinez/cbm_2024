@@ -1,20 +1,23 @@
-# dependencies
+# deps
 node_modules
 
-# build files
+# build
 .next
 
-# misc
+# env
+.env*
+
+# mac
 .DS_Store
 */**/.DS_Store
 
-# lock files
+# lock
 pnpm-lock.yaml
 
 # large files
 lib/plugins
 lib/fonts
-test/*
+tests/*
 
 # notes
 notes.mdx

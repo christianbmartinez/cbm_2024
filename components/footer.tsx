@@ -1,7 +1,39 @@
-import { footerLinks, socialLinks } from '@/lib/config'
 import Link from 'next/link'
-
 import { Button } from './ui/button'
+import { GitHubLogoIcon, LinkedInLogoIcon, XLogoIcon } from './ui/icons'
+
+const socialLinks = [
+  {
+    title: 'X',
+    icon: XLogoIcon,
+    href: `https://twitter.com/${process.env.X_USERNAME}`,
+  },
+  {
+    title: 'GitHub',
+    icon: GitHubLogoIcon,
+    href: `https://github.com/${process.env.GITHUB_USERNAME}`,
+  },
+  {
+    title: 'LinkedIn',
+    icon: LinkedInLogoIcon,
+    href: `https://www.linkedin.com/in/${process.env.LINKEDIN_USERNAME}`,
+  },
+]
+
+const footerLinks = [
+  {
+    title: 'Contact',
+    href: '/contact',
+  },
+  {
+    title: 'RSS',
+    href: '/rss.xml',
+  },
+  {
+    title: 'Sitemap',
+    href: '/sitemap.xml',
+  },
+]
 
 export function Footer() {
   return (

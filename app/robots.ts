@@ -1,4 +1,3 @@
-import { baseUrl } from '@/lib/config'
 import type { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
@@ -17,6 +16,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: ['/'],
       },
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
+    sitemap: `${process.env.NEXT_PUBLIC_BASE_URL}/sitemap.xml`,
   }
 }

@@ -1,21 +1,16 @@
 import { hl } from '@/lib/plugins/hl'
 import { MDXRemote, type MDXRemoteProps } from 'next-mdx-remote/rsc'
-import LocalFont from 'next/font/local'
 import NextLink, { type LinkProps } from 'next/link'
-import { createElement, useId } from 'react'
-import { Image } from './shared/image'
+import {
+  createElement,
+  type ComponentPropsWithoutRef,
+  type ElementType,
+} from 'react'
+import { Img } from './shared/img'
 import { CopyCodeButton } from './ui/button'
 import { FallBackIcon, JSLogoIcon, ReactLogoIcon, TSLogoIcon } from './ui/icons'
 
-const Geist_Mono = LocalFont({
-  src: '../lib/fonts/GeistMono-Regular.woff2',
-  display: 'swap',
-  weight: '400',
-  variable: '--font-family-mono',
-})
-
-export function H(num: 1 | 2 | 3 | 4 | 5 | 6, children?: string) {
-  const id = useId()
+export function H(num: number, children?: string) {
   const slug = children
     ?.toLowerCase()
     .trim()
@@ -28,14 +23,12 @@ export function H(num: 1 | 2 | 3 | 4 | 5 | 6, children?: string) {
       `h${num}`,
       {
         id: slug,
-        type: HTMLHeadingElement,
         className: 'text-foreground font-sans text-2xl font-bold my-6',
       },
       [
         createElement('a', {
-          key: `h${num}-slug-link-${id}`,
-          href: `#${slug}`,
-          type: 'anchor',
+          key: `anchor${num}-slug-link-${Math.floor(Math.random() * (1000 / 1000))}`,
+          href: `${process.env.NEXT_PUBLIC_BASE_URL}/#${slug}`,
           ['data-anchor']: true,
         }),
         children,
@@ -45,7 +38,7 @@ export function H(num: 1 | 2 | 3 | 4 | 5 | 6, children?: string) {
   return Heading
 }
 
-export function Link({
+export function A({
   href,
   children,
 }: Partial<LinkProps> & {
@@ -71,16 +64,6 @@ export function Link({
   )
 }
 
-enum Lang {
-  tsx = 'tsx',
-  jsx = 'jsx',
-  ts = 'ts',
-  js = 'js',
-  html = 'html',
-}
-
-type LangProps<T = keyof typeof Lang> = T extends Lang ? T : string
-
 export function Code({
   children,
   className,
@@ -88,7 +71,7 @@ export function Code({
   children: string
   className: string
 }) {
-  const lang: LangProps = className.replace(/language-/, '')
+  const lang = className.replace(/language-/, '')
   let icon: JSX.Element | string
 
   if (lang === 'tsx' || lang === 'jsx') {
@@ -109,9 +92,8 @@ export function Code({
   }
 
   return (
-    <pre
-      className={`${Geist_Mono.variable} w-full border border-solid border-border my-6 flex flex-col whitespace-normal`}>
-      <div className="flex flex-row h-12 px-4 justify-between items-center bg-muted border-b border-border border-solid">
+    <pre className="w-full border border-solid border-border my-6 flex flex-col whitespace-normal">
+      <div className="flex flex-row h-8 px-4 justify-between items-center bg-muted border-b border-border border-solid">
         <div className="flex flex-col w-1/4 justify-start items-start">
           {icon}
         </div>
@@ -122,17 +104,15 @@ export function Code({
           <CopyCodeButton code={children} />
         </div>
       </div>
-      {icon.props.fallback ? (
+      {icon.props.fallback ? ( // Fallback for unsupported languages
         <code
           data-lang={lang}
-          data-code-inline
-          className="w-full px-4 h-auto text-foreground max-h-24 border-none bg-background text-sm pt-4 pb-1 overflow-x-scroll"
+          className="my-6 flex flex-row justify-start items-center rounded bg-muted px-2 py-1.5 max-w-mdx font-mono text-sm font-medium text-foreground border border-border border-solid whitespace-nowrap overflow-x-scroll"
           dangerouslySetInnerHTML={{ __html: children }}
         />
       ) : (
         <code
           data-lang={lang}
-          data-code-block
           className="w-full px-4 h-auto max-h-96 border-none bg-transparent text-sm pt-4 pb-1 overflow-scroll"
           dangerouslySetInnerHTML={{ __html: hl(children) }}
         />
@@ -141,22 +121,62 @@ export function Code({
   )
 }
 
-export const mdxComponents = {
+type ComponentList = {
+  [key: string]: (props: ComponentPropsWithoutRef<ElementType>) => JSX.Element
+}
+
+export const componentList: ComponentList = {
   h1: H(1),
   h2: H(2),
   h3: H(3),
   h4: H(4),
   h5: H(5),
   h6: H(6),
-  img: Image,
+  p: (props) => <p className="text-gray-800 leading-snug" {...props} />,
+  ol: (props) => (
+    <ol className="text-gray-800 list-decimal pl-5 space-y-2" {...props} />
+  ),
+  ul: (props) => (
+    <ul className="text-gray-800 list-disc pl-5 space-y-1" {...props} />
+  ),
+  li: (props) => <li className="pl-1" {...props} />,
+  em: (props) => <em className="font-medium" {...props} />,
+  strong: (props) => <strong className="font-medium" {...props} />,
+  img: Img,
   code: Code,
-  a: Link,
+  a: A,
+  Table: ({ data }: { data: { headers: string[]; rows: string[][] } }) => (
+    <table>
+      <thead>
+        <tr>
+          {data.headers.map((header, index) => (
+            <th key={index}>{header}</th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {data.rows.map((row, index) => (
+          <tr key={index}>
+            {row.map((cell, cellIndex) => (
+              <td key={cellIndex}>{cell}</td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  ),
+  blockquote: (props) => (
+    <blockquote
+      className="my-6 border-l-6 pl-6 rounded italic py-3 bg-muted text-accent-foreground border border-l-accent-foreground"
+      {...props}
+    />
+  ),
 }
 
 export function MdxComponents(
   props: MDXRemoteProps & {
-    components?: React.ComponentPropsWithRef<React.ElementType>
+    components?: ComponentPropsWithoutRef<ElementType>
   }
 ): JSX.Element {
-  return <MDXRemote {...props} components={{ ...mdxComponents }} />
+  return <MDXRemote {...props} components={{ ...componentList }} />
 }

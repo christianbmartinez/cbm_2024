@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils'
-import Img, { type ImageProps } from 'next/image'
+import NextImage, { type ImageProps } from 'next/image'
 
-export function Image({
+export function Img({
   priority,
   src,
   width = 1280,
@@ -11,7 +11,7 @@ export function Image({
   ...props
 }: Partial<ImageProps> & { src: string; alt: string }) {
   return (
-    <Img
+    <NextImage
       priority={priority}
       src={src}
       width={width}

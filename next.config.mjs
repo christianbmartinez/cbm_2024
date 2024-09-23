@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
-
-module.exports = {
+export default {
   images: {
     remotePatterns: [
       {
@@ -13,15 +12,17 @@ module.exports = {
   },
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   transpilePackages: ['next-mdx-remote'],
-  webpack: (config, { isServer, dev }) => {
-    if (!isServer | dev) {
+  generateBuildId: async () => {
+    return process.env.GIT_HASH
+  },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
       config.resolve.alias = {
         ...config.resolve.alias,
         fs: false,
         path: false,
       }
-
-      return config
     }
+    return config
   },
 }

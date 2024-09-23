@@ -1,4 +1,3 @@
-import { baseUrl } from '@/lib/config'
 import { getPosts } from '@/lib/utils'
 
 export function GET() {
@@ -14,7 +13,7 @@ export function GET() {
     .map(({ metadata: { title, summary, publishedAt }, slug }) => {
       return `<item>
             <title>${title}</title>
-            <link>${baseUrl}/blog/${slug}</link>
+            <link>${process.env.NEXT_PUBLIC_BASE_URL}/blog/${slug}</link>
             <description>${summary ?? 'Technical blog article written by Christian B. Martinez'}</description>
             <pubDate>${new Date(publishedAt).toUTCString()}</pubDate>
           </item>
@@ -26,7 +25,7 @@ export function GET() {
   <rss version="2.0">
     <channel>
         <title>RSS Feed</title>
-        <link>${baseUrl}</link>
+        <link>${process.env.NEXT_PUBLIC_BASE_URL}/rss.xml</link>
         <description>Welcome to CBM RSS feed. Lets cross the bridge into the vast world of web development together. Please enjoy your stay, and thanks for stopping by!</description>
         ${itemsXml}
     </channel>

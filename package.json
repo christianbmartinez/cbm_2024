@@ -3,14 +3,15 @@
   "version": "0.0.1",
   "description": "My 2024 portfolio build.",
   "author": "Christian B. Martinez (https://www.christianbmartinez.com/)",
-  "packageManager": "pnpm@9.10.0+sha512.73a29afa36a0d092ece5271de5177ecbf8318d454ecd701343131b8ebc0c1a91c487da46ab77c8e596d6acf1461e3594ced4becedf8921b074fbd8653ed7051c",
+  "packageManager": "pnpm@9.11.0+sha512.0a203ffaed5a3f63242cd064c8fb5892366c103e328079318f78062f24ea8c9d50bc6a47aa3567cabefd824d170e78fa2745ed1f16b132e16436146b7688f19b",
   "scripts": {
     "build": "next build",
-    "dev": "next dev",
+    "dev": "NODE_ENV=development && next dev",
     "lint": "next lint",
-    "prod": "NODE_ENV=production && next build && next start",
-    "preview": "NODE_ENV=staging && next build && next start",
-    "test:utils": "vitest ./tests/utils.test.ts"
+    "start": "NODE_ENV=production && next build && next start",
+    "stage": "NODE_ENV=staging && next build && next start",
+    "develop": "NODE_ENV=development && concurrently \"pnpm dev\" \"pnpm vitest\"",
+    "vitest": "vitest ./tests/utils.test.ts"
   },
   "dependencies": {
     "@types/node": "^22.5.5",
@@ -18,7 +19,6 @@
     "@types/react-dom": "^18.3.0",
     "next": "14.2.13",
     "next-mdx-remote": "^5.0.0",
-    "next-themes": "^0.3.0",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },

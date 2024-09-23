@@ -1,6 +1,5 @@
 import { MdxComponents } from '@/components/mdx-components'
 import { ReadingTimeIcon } from '@/components/ui/icons'
-import { baseUrl } from '@/lib/config'
 import { formatDate, getPosts } from '@/lib/utils'
 import { notFound } from 'next/navigation'
 import { type NextApiRequest } from 'next/types'
@@ -38,7 +37,9 @@ export function generateMetadata({ params }: { params: BlogRouterParams }) {
     image,
   } = post.metadata
   const { slug } = post
-  const ogImage = image ?? `${baseUrl}/og?title=${encodeURIComponent(title)}`
+  const ogImage =
+    image ??
+    `${process.env.NEXT_PUBLIC_BASE_URL}/og?title=${encodeURIComponent(title)}`
   return {
     title: title,
     description,
@@ -47,7 +48,7 @@ export function generateMetadata({ params }: { params: BlogRouterParams }) {
       description,
       type: 'article',
       publishedTime,
-      url: `${baseUrl}/blog/${slug}`,
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/blog/${slug}`,
       images: [
         {
           url: ogImage,
@@ -89,9 +90,9 @@ export default function Page({ params }: { params: BlogRouterParams }) {
             dateModified: publishedAt,
             description: summary,
             image: image
-              ? `${baseUrl}/${image}`
+              ? `${process.env.NEXT_PUBLIC_BASE_URL}/${image}`
               : `/og?title=${encodeURIComponent(title)}`,
-            url: `${baseUrl}/blog/${slug}`,
+            url: `${process.env.NEXT_PUBLIC_BASE_URL}/blog/${slug}`,
             author: {
               '@type': 'Person',
               name: 'Christian B. Martinez',
