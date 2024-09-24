@@ -1,0 +1,39 @@
+{
+  "name": "tailwind-plugin-postcss",
+  "version": "0.1.0",
+  "description": "A custom postcss plugin for tailwindcss v4.",
+  "author": "Christian B. Martinez (https://www.christianbmartinez.com)",
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "./dist"
+  ],
+  "publishConfig": {
+    "provenance": true,
+    "access": "public"
+  },
+  "scripts": {
+    "build:swc": "pnpm swc ./src/index.ts --config-file .swcrc -o ./dist/index.js",
+    "build:tsc": "pnpm tsc ./src/index.ts  --declaration --emitDeclarationOnly --target esnext --outDir ./dist",
+    "build": "pnpm run build:tsc && pnpm run build:swc",
+    "dev": "pnpm run build tsc --noEmit --watch"
+  },
+  "dependencies": {
+    "@tailwindcss/node": "next",
+    "@tailwindcss/oxide": "next",
+    "lightningcss": "latest",
+    "tailwindcss": "next"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "postcss": "catalog:",
+    "postcss-import": "^16.1.0",
+    "@types/postcss-import": "14.0.3"
+  }
+}
