@@ -1,48 +1,23 @@
 {
   "name": "cbm_2024",
-  "version": "0.0.1",
-  "description": "My 2024 portfolio build.",
-  "author": "Christian B. Martinez (https://www.christianbmartinez.com/)",
-  "packageManager": "pnpm@9.11.0+sha512.0a203ffaed5a3f63242cd064c8fb5892366c103e328079318f78062f24ea8c9d50bc6a47aa3567cabefd824d170e78fa2745ed1f16b132e16436146b7688f19b",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "build": "next build",
-    "dev": "NODE_ENV=development && next dev",
-    "lint": "next lint",
-    "start": "NODE_ENV=production && next build && next start",
-    "stage": "NODE_ENV=staging && next build && next start",
-    "develop": "NODE_ENV=development && concurrently \"pnpm dev\" \"pnpm vitest\"",
-    "vitest": "vitest ./tests/utils.test.ts"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
+  "author": "Christian B. Martinez (https://www.christianbmartinez.com)",
+  "license": "MIT",
+  "packageManager": "pnpm@9.11.0+sha512.0a203ffaed5a3f63242cd064c8fb5892366c103e328079318f78062f24ea8c9d50bc6a47aa3567cabefd824d170e78fa2745ed1f16b132e16436146b7688f19b",
   "dependencies": {
-    "@types/node": "^22.5.5",
-    "@types/react": "^18.3.8",
-    "@types/react-dom": "^18.3.0",
-    "next": "14.2.13",
-    "next-mdx-remote": "^5.0.0",
-    "react": "18.3.1",
-    "react-dom": "18.3.1"
-  },
-  "devDependencies": {
-    "@tailwindcss/postcss": "4.0.0-alpha.24",
-    "class-variance-authority": "latest",
-    "clsx": "latest",
-    "concurrently": "latest",
-    "eslint": "8.57.0",
-    "eslint-config-next": "^14.2.13",
+    "@types/node": "^22.7.3",
+    "concurrently": "^9.0.1",
+    "eslint": "^8.57.0",
     "postcss": "^8.4.47",
-    "postcss-rename": "^0.6.1",
     "prettier": "^3.3.3",
-    "sharp": "latest",
-    "tailwind-merge": "latest",
-    "tailwindcss": "4.0.0-alpha.24",
+    "tailwindcss": "4.0.0-alpha.25",
     "typescript": "^5.6.2",
     "vitest": "^2.1.1"
-  },
-  "browserslist": [
-    "last 2 major versions",
-    "> 1%",
-    "not dead",
-    "unreleased versions",
-    "maintained node versions"
-  ]
+  }
 }

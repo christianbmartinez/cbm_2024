@@ -1,5 +1,4 @@
 {
-  "extends": "..,/tsconfig.base.json",
   "compilerOptions": {
     "noEmit": true,
     "esModuleInterop": true,
@@ -12,21 +11,34 @@
     "forceConsistentCasingInFileNames": true,
     "strictNullChecks": true,
     "target": "ESNext",
+    "sourceMap": false,
     "verbatimModuleSyntax": true,
     "paths": {
-      "@/*": ["./*"]
+      "@/*": [
+        "./*"
+      ]
     },
     "plugins": [
       {
         "name": "next"
       }
-    ]
+    ],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
     "next-env.d.ts",
-    ".cbm/types/**/*.ts",
+    ".cbm/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

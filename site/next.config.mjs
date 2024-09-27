@@ -2,10 +2,6 @@
 export default {
   cleanDistDir: true,
   distDir: '.cbm',
-  devIndicators: {
-    buildActivity: true,
-    buildActivityPosition: 'bottom-right',
-  },
   // basePath: '/app',
   images: {
     remotePatterns: [

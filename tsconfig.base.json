@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "target": "ESNext",
+    "module": "ESNext",
+    "allowJs": true,
+    "checkJs": false,
+    "strict": false,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "isolatedModules": true,
+    "strictNullChecks": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "verbatimModuleSyntax": true,
+    "moduleResolution": "Bundler"
+  },
+  "paths": {
+    "hilite": ["./packages/hilite/dist/index.js"],
+  },
+  "references": [
+    { "path": "./packages/hilite" },
+  ],
+    "include": ["./packages/**/*", "./site/**/*",],
+  "exclude": ["node_modules"]
+}
+

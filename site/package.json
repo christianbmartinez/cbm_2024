@@ -14,6 +14,7 @@
     "vitest": "vitest ./tests/utils.test.ts"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "4.0.0-alpha.25",
     "@types/react": "^18.3.8",
     "@types/react-dom": "^18.3.0",
     "next": "14.2.13",
@@ -34,7 +35,6 @@
     "prettier": "catalog:",
     "sharp": "latest",
     "tailwind-merge": "latest",
-    "tailwind-plugin-postcss": "workspace:^",
     "tailwindcss": "catalog:",
     "typescript": "catalog:",
     "vitest": "catalog:"

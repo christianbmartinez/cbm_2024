@@ -1,23 +1,2 @@
-# deps
+packages
 node_modules
-
-# build
-.next
-
-# env
-.env*
-
-# mac
-.DS_Store
-*/**/.DS_Store
-
-# lock
-pnpm-lock.yaml
-
-# large files
-lib/plugins
-lib/fonts
-tests/*
-
-# notes
-notes.mdx
