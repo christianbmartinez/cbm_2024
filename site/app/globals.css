@@ -1,9 +1,11 @@
-@layer theme, base, components, utilities;
+@layer theme, base, utilities;
 
 @import 'tailwindcss/theme' layer(theme);
 @import 'tailwindcss/preflight' layer(base);
 @import 'tailwindcss/utilities' layer(utilities);
 
+.light,
+:where([data-theme='light']) {
 @theme {
   /* Timing */
   --default-transition-duration: 400ms;
@@ -86,8 +88,7 @@
   --width-mdx: var(--width-prose);
 
   /* Fonts */
-  --font-family-sans: var(--font-sans), 'SF Pro', 'Helvetica', ui-sans-serif,
-    system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+  --font-family-sans: 'SF Pro', "Roboto", 'Helvetica', 'Arial', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
   --font-family-sans--font-feature-settings: 'wght' 300 800;
 
@@ -103,10 +104,10 @@
     }
   }
 }
+}
 
 .dark,
-:where([data-theme='dark']),
-:where([style='color-scheme: dark']) {
+:where([data-theme='dark']) {
   @theme {
     --color-background: var(--bg);
     --color-foreground: var(--fg);

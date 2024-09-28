@@ -16,7 +16,7 @@ export default function Page() {
         Hey, I&apos;m Christian! A full stack engineer and open source
         contributor from Utah. Currently building{' '}
         <Link
-          className="text-foreground hover:text-accent-foreground transition-colors"
+          className="text-foreground underline hover:text-accent-foreground transition-colors"
           href="https://www.astrocatagency.com"
           target="_blank">
           Astrocat

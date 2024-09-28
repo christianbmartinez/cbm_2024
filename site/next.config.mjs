@@ -2,7 +2,6 @@
 export default {
   cleanDistDir: true,
   distDir: '.cbm',
-  // basePath: '/app',
   images: {
     remotePatterns: [
       {
@@ -16,7 +15,7 @@ export default {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   transpilePackages: ['next-mdx-remote'],
   generateBuildId: async () => {
-    return `cbm_build_${Math.floor(Math.random() * 999999999)}` // cbm_build_123456789
+    return `cbm_build_${Math.floor(Math.random() * 999999999)}`
   },
   webpack: (config, { isServer }) => {
     if (!isServer) {

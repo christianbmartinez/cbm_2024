@@ -10,8 +10,7 @@
     "lint": "next lint",
     "start": "NODE_ENV=production && next build && next start",
     "stage": "NODE_ENV=staging && next build && next start",
-    "develop": "NODE_ENV=development && concurrently \"pnpm dev\" \"pnpm vitest\"",
-    "vitest": "vitest ./tests/utils.test.ts"
+    "vitest": "vitest ./test/utils.test.ts"
   },
   "dependencies": {
     "@tailwindcss/postcss": "4.0.0-alpha.25",
@@ -27,7 +26,6 @@
     "@types/postcss-import": "14.0.3",
     "class-variance-authority": "latest",
     "clsx": "latest",
-    "concurrently": "catalog:",
     "eslint": "catalog:",
     "eslint-config-next": "^14.2.13",
     "hilite": "workspace:^",
