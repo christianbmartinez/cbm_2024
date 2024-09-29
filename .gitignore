@@ -1,2 +1,21 @@
-packages
+# deps
 node_modules
+
+# build
+.cbm
+
+# env
+.env*
+
+# mac
+.DS_Store
+*/**/.DS_Store
+
+# lock
+pnpm-lock.yaml
+
+# tests
+test
+
+# contentlayer
+.contentlayer
